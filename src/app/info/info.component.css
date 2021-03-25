@@ -22,9 +22,9 @@
 .blog-card {
   display: block;
   position: relative;
-  top: 7vw;
-  width: 400px;
-  height: 250px;
+  top: 0vw;
+  width: 50%;
+  height: 50%;
   margin: auto;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.85);
   transition: all 450ms ease-out 0s;
