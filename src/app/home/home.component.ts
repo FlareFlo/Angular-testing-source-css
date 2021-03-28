@@ -16,7 +16,9 @@ export class HomeComponent {
   }
 
   getPosts() {
-    this.posts = this.http.get(this.ROOT_URL + "/user/2")
+    this.posts = this.http.get(this.ROOT_URL + "/user/2").toPromise().then(data => {
+      console.log(data);
+    })
   }
 
   ngOnInit(): void {
