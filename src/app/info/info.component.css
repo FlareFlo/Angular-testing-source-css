@@ -4,7 +4,6 @@
   font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
 }
 .bg {
-  background: #3a3a3a;
   width: 100vw;
   height: 100vh;
 }
@@ -85,5 +84,3 @@
   text-overflow: ellipsis;
   overflow: hidden;
 }
-
-

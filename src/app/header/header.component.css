@@ -29,15 +29,5 @@
   transition: 0.2s;
 }
 
-.dropdown-content a:hover {
-  background-color: #ddd;
-  color: white;
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-
 
 
