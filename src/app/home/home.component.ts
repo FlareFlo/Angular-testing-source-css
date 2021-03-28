@@ -15,8 +15,7 @@ export class HomeComponent {
   constructor(private  http: HttpClient) {
   }
 
-  get() {
-    let input: string = "/user/2";
+  getStuff(input: string) {
     this.posts = this.http.get(this.ROOT_URL + input).toPromise().then(data => {
       console.log(data);
     })
