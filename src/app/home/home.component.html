@@ -3,5 +3,9 @@
   <form form="ngForm">
     <input #box type="text" placeholder="Enter GET URL" (keyup.enter)="getStuff(box.value)">
   </form>
-  <h1></h1>
+  <pre>
+  <code>
+     {{ posts | json }}
+  </code>
+</pre>
 </div>
