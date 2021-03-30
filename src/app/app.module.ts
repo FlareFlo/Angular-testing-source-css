@@ -7,8 +7,9 @@ import {HeaderComponent} from './header/header.component';
 import {FooterComponent} from './footer/footer.component';
 import { InfoComponent } from './info/info.component';
 import { HomeComponent } from './home/home.component';
-import { HttpClientModule} from "@angular/common/http";
-import {FormsModule} from "@angular/forms";
+import { HttpClientModule} from '@angular/common/http';
+import {FormsModule} from '@angular/forms';
+import { PosterComponent } from './poster/poster.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import {FormsModule} from "@angular/forms";
     HeaderComponent,
     FooterComponent,
     InfoComponent,
-    HomeComponent
+    HomeComponent,
+    PosterComponent
   ],
   imports: [
     BrowserModule,
