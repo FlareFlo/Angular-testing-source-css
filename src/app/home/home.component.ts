@@ -22,7 +22,7 @@ export class HomeComponent {
       console.log(data);
     });
   }
-
+//test
   // tslint:disable-next-line:use-lifecycle-interface
   ngOnInit(): void {
   }
