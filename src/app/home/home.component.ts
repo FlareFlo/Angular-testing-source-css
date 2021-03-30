@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-home',
@@ -8,7 +8,7 @@ import {HttpClient} from "@angular/common/http";
 })
 export class HomeComponent {
 
-  readonly ROOT_URL = "https://backend.yap.dragoncave.dev"
+  readonly ROOT_URL = 'https://backend.yap.dragoncave.dev';
 
   posts: any;
 
@@ -16,11 +16,14 @@ export class HomeComponent {
   }
 
   getStuff(input: string) {
-    this.posts = this.http.get(this.ROOT_URL + input).toPromise().then(data => {
+    this.posts = this.http.get(this.ROOT_URL + input)
+      .toPromise()
+      .then(data => {this.posts = data;
       console.log(data);
-    })
+    });
   }
 
+  // tslint:disable-next-line:use-lifecycle-interface
   ngOnInit(): void {
   }
 
