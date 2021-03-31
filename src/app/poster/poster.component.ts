@@ -12,9 +12,9 @@ export class PosterComponent implements OnInit {
   }
 
   object = {
-    username: 'foo',
-    email: 'loo@gmail.com',
-    password: 'yes'
+    username: '',
+    email: '',
+    password: ''
   };
 
   doPOST() {
