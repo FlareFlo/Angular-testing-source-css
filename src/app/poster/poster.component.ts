@@ -10,16 +10,15 @@ export class PosterComponent implements OnInit {
 
   constructor(private  http: HttpClient) {
   }
-
-  Object = {
-    username: 'foo',
-    email: 'loo@gmail.com'
+  object = {
+    "username": 'foo',
+    "email": 'loo@gmail.com'
   };
 
   doPOST() {
     console.log('Posting data...');
     const url = 'https://backend.yap.dragoncave.dev/user';
-    this.http.post(url, Object).subscribe();
+    this.http.post(url, this.object).subscribe();
   }
 
   ngOnInit(): void {
