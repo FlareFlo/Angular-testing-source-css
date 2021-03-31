@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-poster',
@@ -7,7 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PosterComponent implements OnInit {
 
-  constructor() { }
+  constructor(private  http: HttpClient) {
+  }
+
+  Object = {
+    username: 'foo',
+    email: 'loo@gmail.com'
+  };
+
+  doPOST() {
+    console.log('Posting data...');
+    const url = 'testsite.dragoncave.dev/user';
+    this.http.post(url, Object).subscribe();
+  }
 
   ngOnInit(): void {
   }
