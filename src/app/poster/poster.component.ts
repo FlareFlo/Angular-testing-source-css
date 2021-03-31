@@ -18,7 +18,7 @@ export class PosterComponent implements OnInit {
 
   doPOST() {
     console.log('Posting data...');
-    const url = 'testsite.dragoncave.dev/user';
+    const url = 'https://backend.yap.dragoncave.dev/user';
     this.http.post(url, Object).subscribe();
   }
 
