@@ -1,15 +1,13 @@
-form {
+* {
   color: white;
 }
 
 input {
   background-color: #21252B;
 }
-input:hover{
+
+input:hover {
   background-color: #282C34;
 }
 
-h1 {
-  color: white;
-}
 
