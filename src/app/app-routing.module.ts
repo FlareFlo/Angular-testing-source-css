@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import {InfoComponent} from './info/info.component';
 import {HomeComponent} from './home/home.component';
 import {PosterComponent} from './poster/poster.component';
+import {RollerComponent} from "./roller/roller.component";
 
 const routes: Routes = [
   {
@@ -16,7 +17,12 @@ const routes: Routes = [
   {
     path: 'poster',
     component: PosterComponent
+  },
+  {
+    path: 'roller',
+    component: RollerComponent
   }
+
 ];
 
 @NgModule({

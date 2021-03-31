@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import { PosterComponent } from './poster/poster.component';
+import { RollerComponent } from './roller/roller.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { PosterComponent } from './poster/poster.component';
     FooterComponent,
     InfoComponent,
     HomeComponent,
-    PosterComponent
+    PosterComponent,
+    RollerComponent
   ],
   imports: [
     BrowserModule,
