@@ -2,19 +2,13 @@
 <form>
   <div class="form-row">
     <div class="col-auto">
-      <label>
-        <input #box type="text" class="form-control" placeholder="Username" (keyup.enter)="doUsername(box.value)">
-      </label>
+        <input #username type="text" class="form-control" placeholder="Username" (keyup.enter)="doUsername(username.value)">
     </div>
-    <div class="col-3">
-      <label>
-        <input #box type="text" class="form-control" placeholder="Email" (keyup.enter)="doEmail(box.value)">
-      </label>
+    <div class="col-auto">
+        <input #email type="text" class="form-control" placeholder="Email" (keyup.enter)="doEmail(email.value)">
     </div>
-    <div class="col-2">
-      <label>
-        <input type="password" class="form-control" placeholder="Password">
-      </label>
+    <div class="col-auto">
+        <input #password type="password" class="form-control" placeholder="Password" (keyup.enter)="doPassword(password.value)">
     </div>
     <button type="button" class="btn btn-primary" (click)="doPOST()">Post!</button>
   </div>

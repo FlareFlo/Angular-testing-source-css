@@ -13,7 +13,8 @@ export class PosterComponent implements OnInit {
 
   object = {
     username: 'foo',
-    email: 'loo@gmail.com'
+    email: 'loo@gmail.com',
+    password: 'yes'
   };
 
   doPOST() {
@@ -31,6 +32,12 @@ export class PosterComponent implements OnInit {
   doEmail(emailinput: string) {
     console.log('Writing: ' + emailinput + ' over ' + this.object.email);
     this.object.email = emailinput;
+    console.log(this.object);
+  }
+
+  doPassword(passwordinput: string) {
+    console.log('Writing: ' + passwordinput + ' over ' + this.object.password);
+    this.object.password = passwordinput;
     console.log(this.object);
   }
 
