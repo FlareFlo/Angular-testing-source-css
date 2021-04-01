@@ -1,7 +1,11 @@
 <div class="container-fluid">
 
   <form form="ngForm">
-    <input #box type="text" placeholder="Enter GET URL" (keyup.enter)="getStuff(box.value)">
+    <div class="form-row">
+      <div class="col-auto">
+        <input #box type="text" class="form-control" placeholder="Enter GET URL" (keyup.enter)="getStuff(box.value)">
+      </div>
+    </div>
   </form>
   <pre>
   <code>
