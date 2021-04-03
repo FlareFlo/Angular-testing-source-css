@@ -30,8 +30,8 @@ export class PosterComponent implements OnInit {
   }
 
   doEmail(emailinput: string) {
-    console.log('Writing: ' + emailinput + ' over ' + this.object.email);
-    this.object.email = emailinput;
+    console.log('Writing: ' + emailinput + ' over ' + this.object.emailAddress);
+    this.object.emailAddress = emailinput;
     console.log(this.object);
   }
 
