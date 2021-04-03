@@ -13,7 +13,7 @@ export class PosterComponent implements OnInit {
 
   object = {
     username: '',
-    email: '',
+    emailAddress: '',
     password: ''
   };
 
