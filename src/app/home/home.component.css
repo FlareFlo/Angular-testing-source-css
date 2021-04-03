@@ -1,5 +1,5 @@
 .button {
-  background-color: #4CAF50 !important;   /* Green */
+  background-color: #4CAF50 !important; /* Green */
   border: none;
   color: white;
   padding: 15px 32px;
@@ -8,17 +8,20 @@
   display: inline-block;
   font-size: 16px;
 }
+
 * {
   color: white;
+  background-color: #1c1c1c;
 }
 
-pre {
-  color: white;
-}
 input {
   background-color: #21252B;
 }
 
 input:hover {
+  background-color: #282C34;
+}
+
+input:focus {
   background-color: #282C34;
 }
