@@ -1,0 +1,17 @@
+* {
+  color: white;
+}
+
+input {
+  background-color: #21252B;
+}
+
+input:hover {
+  background-color: #282C34;
+}
+
+input:focus {
+  background-color: #282C34;
+}
+
+
