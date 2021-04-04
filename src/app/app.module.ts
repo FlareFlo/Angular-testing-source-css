@@ -11,6 +11,7 @@ import { HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import { PosterComponent } from './poster/poster.component';
 import { RollerComponent } from './roller/roller.component';
+import { UsermanagementComponent } from './usermanagement/usermanagement.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { RollerComponent } from './roller/roller.component';
     InfoComponent,
     HomeComponent,
     PosterComponent,
-    RollerComponent
+    RollerComponent,
+    UsermanagementComponent
   ],
   imports: [
     BrowserModule,
