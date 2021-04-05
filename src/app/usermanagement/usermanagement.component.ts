@@ -13,7 +13,7 @@ export class UsermanagementComponent implements OnInit {
 
   readonly ROOT_URL = 'https://backend.yap.dragoncave.dev/user/';
 
-  posts: any;
+  posts = {};
 
   object = {
     userid: 0,

@@ -16,9 +16,28 @@
     <button #UID type="button" class="btn btn-primary" (click)="doPUT(UID.value)">Update!</button>
   </div>
 </form>
-<pre>
-  <code>
-     {{ posts | json }}
-  </code>
-</pre>
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">User ID</th>
+    <th scope="col">Username</th>
+    <th scope="col">Email-Adress</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td><code>{{ this.object.userid}}</code></td>
+    <td><code>{{ this.object.username}}</code></td>
+    <td><code>{{ this.object.emailAddress}}</code></td>
+  </tr>
+  </tbody>
+</table>
+<code>
+  <h1>Posts</h1>
+  <pre>{{posts | json}}</pre>
+</code>
 
+<code>
+  <h1>Object</h1>
+  <pre>{{object | json}}</pre>
+</code>
