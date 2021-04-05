@@ -19,14 +19,10 @@ export class UsermanagementComponent implements OnInit {
     userid: 0,
     username: '',
     emailAddress: '',
+    createDate: 0,
+    lastLogin: 0,
     password: ''
   };
-
-  doPOST() {
-    console.log('Posting data...');
-    const url = 'https://backend.yap.dragoncave.dev/user';
-    this.http.post(url, this.object).subscribe();
-  }
 
   doPUT(idinput: any) {
     idinput = parseInt(idinput, 10);
