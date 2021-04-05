@@ -19,8 +19,6 @@ export class UsermanagementComponent implements OnInit {
     userid: 0,
     username: '',
     emailAddress: '',
-    createDate: 0,
-    lastLogin: 0,
     password: ''
   };
 
