@@ -32,7 +32,7 @@ export class UsermanagementComponent implements OnInit {
     idinput = parseInt(idinput);
     console.log('Putting data...');
     console.log(this.object);
-    this.http.put(this.ROOT_URL + idinput, this.object).subscribe();
+    this.http.put<any>(this.ROOT_URL + idinput, this.object).subscribe();
     this.getStuff(idinput);
   }
 
