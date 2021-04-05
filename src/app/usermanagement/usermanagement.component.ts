@@ -13,7 +13,7 @@ export class UsermanagementComponent implements OnInit {
 
   readonly ROOT_URL = 'https://backend.yap.dragoncave.dev/user/';
 
-  posts = {};
+  getresponse = {};
 
   object = {
     userid: 0,
@@ -32,7 +32,7 @@ export class UsermanagementComponent implements OnInit {
 
   getStuff(idinput: any) {
     idinput = parseInt(idinput, 10);
-    this.posts = this.http.get(this.ROOT_URL + idinput)
+    this.getresponse = this.http.get(this.ROOT_URL + idinput)
       .toPromise()
       .then();
   }
