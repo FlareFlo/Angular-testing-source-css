@@ -19,7 +19,7 @@ export class HomeComponent {
     this.posts = this.http.get(this.ROOT_URL + input)
       .toPromise()
       .then(data => {this.posts = data;
-      console.log(data);
+                     console.log(data);
     });
   }
   // tslint:disable-next-line:use-lifecycle-interface

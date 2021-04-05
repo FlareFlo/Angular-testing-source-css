@@ -2,7 +2,7 @@
 <form>
   <div class="form-row">
     <div class="col-auto">
-      <input #UID type="text" class="form-control" placeholder="UID" (keyup)="doUID(UID.value)">
+      <input #UID type="text" class="form-control" placeholder="UID" (keyup.enter)="doUID(UID.value)">
     </div>
     <div class="col-auto">
       <input #username type="text" class="form-control" placeholder="Username" (keyup)="doUsername(username.value)">
@@ -16,3 +16,6 @@
     <button type="button" class="btn btn-primary" (click)="doPOST()">Update!</button>
   </div>
 </form>
+<code>
+  {{ posts | json }}
+</code>
