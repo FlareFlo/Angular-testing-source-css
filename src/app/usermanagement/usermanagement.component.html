@@ -2,16 +2,25 @@
 <form>
   <div class="form-row">
     <div class="col-auto">
-      <input #UID type="text" class="form-control" placeholder="UID" (keyup.enter)="doUID(UID.value)">
+      <label>
+        <input #UID type="text" class="form-control" placeholder="UID" (keyup.enter)="doUID(UID.value)">
+      </label>
     </div>
     <div class="col-auto">
-      <input #username type="text" class="form-control" placeholder="Username" (keyup)="doUsername(username.value)">
+      <label>
+        <input #username type="text" class="form-control" placeholder="Username" (keyup)="doUsername(username.value)">
+      </label>
     </div>
     <div class="col-auto">
-      <input #email type="email" class="form-control" placeholder="Email" (keyup)="doEmail(email.value)">
+      <label>
+        <input #email type="email" class="form-control" placeholder="Email" (keyup)="doEmail(email.value)">
+      </label>
     </div>
     <div class="col-auto">
-      <input #password type="password" class="form-control" placeholder="Password" (keyup)="doPassword(password.value)">
+      <label>
+        <input #password type="password" class="form-control" placeholder="Password"
+               (keyup)="doPassword(password.value)">
+      </label>
     </div>
     <button #UID type="button" class="btn btn-primary" (click)="doPUT(UID.value)">Update!</button>
   </div>
@@ -32,12 +41,11 @@
   </tr>
   </tbody>
 </table>
-<code>
-  <h1>GET response</h1>
-  <pre>{{getresponse | json}}</pre>
-</code>
-
-<code>
-  <h1>Object</h1>
-  <pre>{{object | json}}</pre>
-</code>
+<h1>GET response</h1>
+<pre>
+  <code>{{getresponse | json}}</code>
+</pre>
+<h1>Object</h1>
+<pre>
+  <code>{{object | json}}</code>
+</pre>
