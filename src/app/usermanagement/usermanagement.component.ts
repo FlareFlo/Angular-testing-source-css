@@ -32,7 +32,7 @@ export class UsermanagementComponent implements OnInit {
     idinput = parseInt(idinput);
     console.log('Putting data...');
     console.log(this.object);
-    this.http.put(this.ROOT_URL + idinput, this.object);
+    this.http.put(this.ROOT_URL + idinput, this.object).subscribe();
     this.getStuff(idinput);
   }
 
@@ -44,9 +44,7 @@ export class UsermanagementComponent implements OnInit {
   }
 
   doUID(idinput: string) {
-    console.log('Writing: ' + idinput + ' over ' + this.object.userid);
     (this.object.userid) = parseInt(idinput);
-    console.log(this.object);
     this.getStuff(idinput);
   }
 
