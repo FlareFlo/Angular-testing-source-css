@@ -29,7 +29,7 @@ export class UsermanagementComponent implements OnInit {
   }
 
   doPUT(idinput: any) {
-    idinput = parseInt(idinput);
+    idinput = parseInt(idinput, 10);
     console.log('Putting data...');
     console.log(this.object);
     this.http.put<any>(this.ROOT_URL + idinput, this.object).subscribe();
@@ -37,14 +37,14 @@ export class UsermanagementComponent implements OnInit {
   }
 
   getStuff(idinput: any) {
-    idinput = parseInt(idinput);
+    idinput = parseInt(idinput, 10);
     this.posts = this.http.get(this.ROOT_URL + idinput)
       .toPromise()
       .then();
   }
 
   doUID(idinput: string) {
-    (this.object.userid) = parseInt(idinput);
+    (this.object.userid) = parseInt(idinput, 10);
     this.getStuff(idinput);
   }
 
