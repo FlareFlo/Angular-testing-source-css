@@ -13,7 +13,7 @@
     <div class="col-auto">
       <input #password type="password" class="form-control" placeholder="Password" (keyup)="doPassword(password.value)">
     </div>
-    <button type="button" class="btn btn-primary" (click)="doPOST()">Update!</button>
+    <button #UID type="button" class="btn btn-primary" (click)="doPUT(UID.value)">Update!</button>
   </div>
 </form>
 <code>

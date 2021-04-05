@@ -28,11 +28,19 @@ export class UsermanagementComponent implements OnInit {
     this.http.post(url, this.object).subscribe();
   }
 
+  doPUT(idinput: any) {
+    idinput = parseInt(idinput);
+    console.log('Putting data...');
+    console.log(this.object);
+    this.http.put(this.ROOT_URL + idinput, this.object);
+    this.getStuff(idinput);
+  }
+
   getStuff(idinput: any) {
     idinput = parseInt(idinput);
     this.posts = this.http.get(this.ROOT_URL + idinput)
-    .toPromise()
-    .then();
+      .toPromise()
+      .then();
   }
 
   doUID(idinput: string) {
@@ -43,21 +51,15 @@ export class UsermanagementComponent implements OnInit {
   }
 
   doUsername(userinput: string) {
-    console.log('Writing: ' + userinput + ' over ' + this.object.username);
     this.object.username = userinput;
-    console.log(this.object);
   }
 
   doEmail(emailinput: string) {
-    console.log('Writing: ' + emailinput + ' over ' + this.object.emailAddress);
     this.object.emailAddress = emailinput;
-    console.log(this.object);
   }
 
   doPassword(passwordinput: string) {
-    console.log('Writing: ' + passwordinput + ' over ' + this.object.password);
     this.object.password = passwordinput;
-    console.log(this.object);
   }
 
   ngOnInit(): void {
