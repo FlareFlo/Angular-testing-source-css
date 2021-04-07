@@ -27,7 +27,6 @@ export class UsermanagementComponent implements OnInit {
     console.log('Putting data...');
     console.log(this.packageobject);
     this.http.put<any>(this.ROOT_URL + idinput, this.packageobject).subscribe();
-    this.getStuff(idinput);
   }
 
   getStuff(idinput: any) {
