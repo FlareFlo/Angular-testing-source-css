@@ -15,7 +15,7 @@ export class UsermanagementComponent implements OnInit {
 
   getresponse = {};
 
-  object = {
+  packageobject = {
     userid: 0,
     username: '',
     emailAddress: '',
@@ -25,8 +25,8 @@ export class UsermanagementComponent implements OnInit {
   doPUT(idinput: any) {
     idinput = parseInt(idinput, 10);
     console.log('Putting data...');
-    console.log(this.object);
-    this.http.put<any>(this.ROOT_URL + idinput, this.object).subscribe();
+    console.log(this.packageobject);
+    this.http.put<any>(this.ROOT_URL + idinput, this.packageobject).subscribe();
     this.getStuff(idinput);
   }
 
@@ -38,20 +38,20 @@ export class UsermanagementComponent implements OnInit {
   }
 
   doUID(idinput: string) {
-    (this.object.userid) = parseInt(idinput, 10);
+    (this.packageobject.userid) = parseInt(idinput, 10);
     this.getStuff(idinput);
   }
 
   doUsername(userinput: string) {
-    this.object.username = userinput;
+    this.packageobject.username = userinput;
   }
 
   doEmail(emailinput: string) {
-    this.object.emailAddress = emailinput;
+    this.packageobject.emailAddress = emailinput;
   }
 
   doPassword(passwordinput: string) {
-    this.object.password = passwordinput;
+    this.packageobject.password = passwordinput;
   }
 
   ngOnInit(): void {
