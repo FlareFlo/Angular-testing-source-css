@@ -12,6 +12,7 @@ import {FormsModule} from '@angular/forms';
 import { PosterComponent } from './poster/poster.component';
 import { RollerComponent } from './roller/roller.component';
 import { UsermanagementComponent } from './usermanagement/usermanagement.component';
+import { TokentesterComponent } from './tokentester/tokentester.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { UsermanagementComponent } from './usermanagement/usermanagement.compone
     HomeComponent,
     PosterComponent,
     RollerComponent,
-    UsermanagementComponent
+    UsermanagementComponent,
+    TokentesterComponent
   ],
   imports: [
     BrowserModule,
