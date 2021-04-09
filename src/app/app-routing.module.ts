@@ -3,8 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 import {InfoComponent} from './info/info.component';
 import {HomeComponent} from './home/home.component';
 import {PosterComponent} from './poster/poster.component';
-import {RollerComponent} from "./roller/roller.component";
-import {UsermanagementComponent} from "./usermanagement/usermanagement.component";
+import {RollerComponent} from './roller/roller.component';
+import {UsermanagementComponent} from './usermanagement/usermanagement.component';
+import {TokentesterComponent} from './tokentester/tokentester.component';
 
 const routes: Routes = [
   {
@@ -22,6 +23,10 @@ const routes: Routes = [
   {
     path: 'roller',
     component: RollerComponent
+  },
+  {
+    path: 'tokentester',
+    component: TokentesterComponent
   },
   {
     path: 'usermanagement',
