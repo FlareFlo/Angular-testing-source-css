@@ -22,9 +22,9 @@ export class TokentesterComponent implements OnInit {
   token!: string;
 
   doPost() {
-    const headers0 = new HttpHeaders().set('Content-Type', 'application/json');
+    const headerS = new HttpHeaders().set('Content-Type', 'application/json');
     console.log(this.packageobject);
-    this.http.post(this.URLgettoken, this.packageobject, {headers: headers0, responseType: 'text'})
+    this.http.post(this.URLgettoken, this.packageobject, {headers: headerS, responseType: 'text'})
       .subscribe(
         res => {
           this.token = res;
@@ -36,10 +36,10 @@ export class TokentesterComponent implements OnInit {
   }
 
   doCheck() {
-    let headers1 = new HttpHeaders();
-    headers1 = headers1.append('Token', this.token);
-    console.log(headers1);
-    this.http.get(this.URLvalidatetoken, {headers: headers1})
+    let headerS = new HttpHeaders();
+    headerS = headerS.append('Token', this.token);
+    console.log(headerS);
+    this.http.get(this.URLvalidatetoken, {headers: headerS})
       .subscribe((data => {
         console.log(data);
       }));
