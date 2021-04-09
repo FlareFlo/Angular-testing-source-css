@@ -2,11 +2,12 @@
 <form>
   <div class="form-row">
     <div class="col-auto">
-      <input #emailadress (click)="doEmail(emailadress.value)" type="email" class="form-control" placeholder="Email">
+      <input #emailaddress (keyup)=doEmail(emailaddress.value) type="email" class="form-control" placeholder="Email">
     </div>
     <div class="col-auto">
-      <input #password (click)="doPassword(password.value)" type="password" class="form-control" placeholder="Password">
+      <input #password (keyup)="doPassword(password.value)" type="password" class="form-control" placeholder="Password">
     </div>
     <button (click)="doPost()" type="button" class="btn btn-primary">Post!</button>
+    <button (click)="doCheck()" type="button" class="btn btn-primary">Validate!</button>
   </div>
 </form>

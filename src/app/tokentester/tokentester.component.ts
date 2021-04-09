@@ -11,11 +11,12 @@ export class TokentesterComponent implements OnInit {
   constructor(private http: HttpClient) {
   }
 
-  readonly ROOT_URL = 'https://backend.yap.dragoncave.dev/security/token';
+  readonly URLgettoken = 'https://backend.yap.dragoncave.dev/security/token';
+  readonly URLvalidatetoken = 'https://backend.yap.dragoncave.dev/security/token/checkValid ';
 
   packageobject = {
-    emailAddress: 'flamion@protonmail.com',
-    password: 'stift'
+    emailAddress: '',
+    password: ''
   };
 
   token!: string;
@@ -23,7 +24,7 @@ export class TokentesterComponent implements OnInit {
   doPost() {
     const headers0 = new HttpHeaders().set('Content-Type', 'application/json');
     console.log(this.packageobject);
-    this.http.post(this.ROOT_URL, this.packageobject, {headers: headers0, responseType: 'text'})
+    this.http.post(this.URLgettoken, this.packageobject, {headers: headers0, responseType: 'text'})
       .subscribe(
         res => {
           this.token = res;
@@ -31,14 +32,17 @@ export class TokentesterComponent implements OnInit {
         }
       );
 
-    /*
-    this.http.get(this.ROOT_URL)
-      .toPromise()
-      .then((data => {
+
+  }
+
+  doCheck() {
+    let headers1 = new HttpHeaders();
+    headers1 = headers1.append('Token', this.token);
+    console.log(headers1);
+    this.http.get(this.URLvalidatetoken, {headers: headers1})
+      .subscribe((data => {
         console.log(data);
       }));
-
-     */
   }
 
   doPassword(passwordinput: string) {
