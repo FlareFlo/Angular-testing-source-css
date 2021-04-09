@@ -11,7 +11,7 @@ export class TokentesterComponent implements OnInit {
   constructor(private http: HttpClient) {
   }
 
-  readonly ROOT_URL = 'https://backend.yap.dragoncave.dev/user/';
+  readonly ROOT_URL = 'https://backend.yap.dragoncave.dev/security/token';
 
   packageobject = {
     emailAddress: '',
@@ -19,11 +19,10 @@ export class TokentesterComponent implements OnInit {
   };
 
 
-  doPUT(idinput: any) {
-    idinput = parseInt(idinput, 10);
+  doPUT() {
     console.log('Putting data...');
     console.log(this.packageobject);
-    this.http.put<any>(this.ROOT_URL + idinput, this.packageobject)
+    this.http.put<any>(this.ROOT_URL, this.packageobject)
       .subscribe();
   }
 
