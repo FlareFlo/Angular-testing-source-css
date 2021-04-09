@@ -26,14 +26,19 @@ export class UsermanagementComponent implements OnInit {
     idinput = parseInt(idinput, 10);
     console.log('Putting data...');
     console.log(this.packageobject);
-    this.http.put<any>(this.ROOT_URL + idinput, this.packageobject).subscribe();
+    this.http.put<any>(this.ROOT_URL + idinput, this.packageobject)
+      .subscribe();
   }
 
   getStuff(idinput: any) {
     idinput = parseInt(idinput, 10);
-    this.getresponse = this.http.get(this.ROOT_URL + idinput)
+    this.getresponse = this.http.get<object>(this.ROOT_URL + idinput)
       .toPromise()
       .then();
+  }
+
+  doTest(){
+    //this.packageobject = this.getresponse;
   }
 
   doUID(idinput: string) {
