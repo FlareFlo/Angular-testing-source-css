@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 
 @Component({
   selector: 'app-tokentester',
@@ -21,13 +21,21 @@ export class TokentesterComponent implements OnInit {
   token!: string;
 
   doPost() {
-    console.log('Posting email: ' + this.packageobject.emailAddress + ' and password: ' + this.packageobject.password);
-    this.http.post<string>(this.ROOT_URL, this.packageobject)
-      .subscribe(data => {
+    const headers0 = new HttpHeaders().set('Content-Type', 'application/json');
+    console.log(this.packageobject);
+    this.http.post(this.ROOT_URL, this.packageobject, {headers: headers0, responseType: 'text'})
+      .subscribe(
+        res => {
+          this.token = res;
+          console.log(this.token);
+        }
+      );
+
+    this.http.get(this.ROOT_URL)
+      .toPromise()
+      .then((data => {
         console.log(data);
-      });
-    // console.log('Printing token:');
-    // console.log(this.token);
+      }));
   }
 
   doPassword(passwordinput: string) {
