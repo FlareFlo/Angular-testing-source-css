@@ -14,16 +14,20 @@ export class TokentesterComponent implements OnInit {
   readonly ROOT_URL = 'https://backend.yap.dragoncave.dev/security/token';
 
   packageobject = {
-    emailAddress: '',
-    password: ''
+    emailAddress: 'flamion@protonmail.com',
+    password: 'stift'
   };
 
+  token!: string;
 
   doPost() {
-    console.log('Putting data...');
-    console.log(this.packageobject);
-    this.http.post<any>(this.ROOT_URL, this.packageobject)
-      .subscribe();
+    console.log('Posting email: ' + this.packageobject.emailAddress + ' and password: ' + this.packageobject.password);
+    this.http.post<string>(this.ROOT_URL, this.packageobject)
+      .subscribe(data => {
+        console.log(data);
+      });
+    // console.log('Printing token:');
+    // console.log(this.token);
   }
 
   doPassword(passwordinput: string) {
