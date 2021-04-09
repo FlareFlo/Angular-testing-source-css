@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 
 @Component({
@@ -8,8 +8,32 @@ import {HttpClient} from '@angular/common/http';
 })
 export class TokentesterComponent implements OnInit {
 
-  constructor(private  http: HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
 
+  readonly ROOT_URL = 'https://backend.yap.dragoncave.dev/user/';
+
+  packageobject = {
+    emailAddress: '',
+    password: ''
+  };
+
+
+  doPUT(idinput: any) {
+    idinput = parseInt(idinput, 10);
+    console.log('Putting data...');
+    console.log(this.packageobject);
+    this.http.put<any>(this.ROOT_URL + idinput, this.packageobject)
+      .subscribe();
+  }
+
+  doPassword(passwordinput: string) {
+    this.packageobject.password = passwordinput;
+  }
+
+  doEmail(emailinput: string) {
+    this.packageobject.emailAddress = emailinput;
+  }
 
   ngOnInit(): void {
   }
