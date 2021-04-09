@@ -19,10 +19,10 @@ export class TokentesterComponent implements OnInit {
   };
 
 
-  doPUT() {
+  doPost() {
     console.log('Putting data...');
     console.log(this.packageobject);
-    this.http.put<any>(this.ROOT_URL, this.packageobject)
+    this.http.post<any>(this.ROOT_URL, this.packageobject)
       .subscribe();
   }
 
