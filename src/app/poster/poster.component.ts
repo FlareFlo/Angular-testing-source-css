@@ -11,7 +11,7 @@ export class PosterComponent implements OnInit {
   constructor(private  http: HttpClient) {
   }
 
-  object = {
+  topostobject = {
     username: '',
     emailAddress: '',
     password: ''
@@ -20,29 +20,29 @@ export class PosterComponent implements OnInit {
   doPOST() {
     console.log('Posting data...');
     const url = 'https://backend.yap.dragoncave.dev/user';
-    this.http.post(url, this.object).subscribe();
+    this.http.post(url, this.topostobject).subscribe();
   }
 
   doUsername(userinput: string) {
-    console.log('Writing: ' + userinput + ' over ' + this.object.username);
-    this.object.username = userinput;
-    console.log(this.object);
+    console.log('Writing: ' + userinput + ' over ' + this.topostobject.username);
+    this.topostobject.username = userinput;
+    console.log(this.topostobject);
   }
 
   doEmail(emailinput: string) {
-    console.log('Writing: ' + emailinput + ' over ' + this.object.emailAddress);
-    this.object.emailAddress = emailinput;
-    console.log(this.object);
+    console.log('Writing: ' + emailinput + ' over ' + this.topostobject.emailAddress);
+    this.topostobject.emailAddress = emailinput;
+    console.log(this.topostobject);
   }
 
   doPassword(passwordinput: string) {
-    console.log('Writing: ' + passwordinput + ' over ' + this.object.password);
-    this.object.password = passwordinput;
-    console.log(this.object);
+    console.log('Writing: ' + passwordinput + ' over ' + this.topostobject.password);
+    this.topostobject.password = passwordinput;
+    console.log(this.topostobject);
   }
 
   ngOnInit(): void {
-    console.log(this.object);
+    console.log(this.topostobject);
   }
 
 }
