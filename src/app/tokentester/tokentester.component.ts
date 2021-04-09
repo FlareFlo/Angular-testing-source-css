@@ -31,11 +31,14 @@ export class TokentesterComponent implements OnInit {
         }
       );
 
+    /*
     this.http.get(this.ROOT_URL)
       .toPromise()
       .then((data => {
         console.log(data);
       }));
+
+     */
   }
 
   doPassword(passwordinput: string) {
