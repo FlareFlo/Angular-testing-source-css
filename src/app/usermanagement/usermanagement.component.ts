@@ -22,8 +22,9 @@ export class UsermanagementComponent implements OnInit {
     password: ''
   };
 
-  doPUT(idinput: any) {
-    idinput = parseInt(idinput, 10);
+  idinput!: string;
+
+  doPUT(idinput: string) {
     console.log('Putting data...');
     console.log(this.packageobject);
     this.http.put<any>(this.ROOT_URL + idinput, this.packageobject)
@@ -37,13 +38,10 @@ export class UsermanagementComponent implements OnInit {
       .then();
   }
 
-  doTest(){
-    //this.packageobject = this.getresponse;
-  }
-
   doUID(idinput: string) {
     (this.packageobject.userid) = parseInt(idinput, 10);
     this.getStuff(idinput);
+    return idinput;
   }
 
   doUsername(userinput: string) {

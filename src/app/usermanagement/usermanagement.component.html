@@ -3,7 +3,7 @@
   <div class="form-row">
     <div class="col-auto">
       <label>
-        <input #UID type="text" class="form-control" placeholder="UID" (keyup.enter)="doUID(UID.value)">
+        <input #UID type="text" class="form-control" placeholder="UID" (keyup.enter)="doUID(UID.value)" (focusout)="doUID(UID.value)">
       </label>
     </div>
     <div class="col-auto">
@@ -22,8 +22,7 @@
                (keyup)="doPassword(password.value)">
       </label>
     </div>
-    <button #UID type="button" class="btn btn-primary" (click)="doPUT(UID.value)">Update!</button>
-    <button type="button" class="btn btn-primary" (click)="doTest()">Test!</button>
+    <button #placeholder type="button" class="btn btn-primary" (click)="doPUT(placeholder.value)">Post!</button>
   </div>
 </form>
 <table class="table">
