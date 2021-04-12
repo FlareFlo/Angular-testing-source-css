@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 
 @Component({
   selector: 'app-usermanagement',
@@ -25,9 +25,10 @@ export class UsermanagementComponent implements OnInit {
   idinput!: string;
 
   doPUT(idinput: string) {
+    const headerS = new HttpHeaders().set('Content-Type', 'application/json');
     console.log('Putting data...');
     console.log(this.packageobject);
-    this.http.put<any>(this.ROOT_URL + idinput, this.packageobject)
+    this.http.put<any>(this.ROOT_URL + idinput, this.packageobject, {headers: headerS})
       .subscribe();
   }
 
