@@ -24,11 +24,11 @@ export class UsermanagementComponent implements OnInit {
 
   idinput!: string;
 
-  doPUT(idinput: string) {
+  doPUT() {
     const headerS = new HttpHeaders().set('Content-Type', 'application/json');
     console.log('Putting data...');
     console.log(this.packageobject);
-    this.http.put<any>(this.ROOT_URL + idinput, this.packageobject, {headers: headerS})
+    this.http.put<any>(this.ROOT_URL + this.idinput, this.packageobject, {headers: headerS})
       .subscribe();
   }
 
@@ -40,9 +40,9 @@ export class UsermanagementComponent implements OnInit {
   }
 
   doUID(idinput: string) {
+    this.idinput = idinput;
     (this.packageobject.userid) = parseInt(idinput, 10);
     this.getStuff(idinput);
-    return idinput;
   }
 
   doUsername(userinput: string) {
