@@ -6,6 +6,7 @@ import {PosterComponent} from './poster/poster.component';
 import {RollerComponent} from './roller/roller.component';
 import {UsermanagementComponent} from './usermanagement/usermanagement.component';
 import {TokentesterComponent} from './tokentester/tokentester.component';
+import {LoginComponent} from './login/login.component';
 
 const routes: Routes = [
   {
@@ -31,6 +32,10 @@ const routes: Routes = [
   {
     path: 'usermanagement',
     component: UsermanagementComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
   }
 
 ];

@@ -13,6 +13,7 @@ import { PosterComponent } from './poster/poster.component';
 import { RollerComponent } from './roller/roller.component';
 import { UsermanagementComponent } from './usermanagement/usermanagement.component';
 import { TokentesterComponent } from './tokentester/tokentester.component';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { TokentesterComponent } from './tokentester/tokentester.component';
     PosterComponent,
     RollerComponent,
     UsermanagementComponent,
-    TokentesterComponent
+    TokentesterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
