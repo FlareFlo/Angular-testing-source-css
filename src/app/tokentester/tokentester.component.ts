@@ -46,6 +46,7 @@ export class TokentesterComponent implements OnInit {
       }));
   }
 
+
   doPassword(passwordinput: string) {
     this.packageobject.password = passwordinput;
   }
