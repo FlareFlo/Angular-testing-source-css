@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {CookieService} from 'ngx-cookie';
 
 @Component({
   selector: 'app-home',
@@ -12,25 +13,24 @@ export class HomeComponent {
 
   posts: any;
 
-  constructor(private  http: HttpClient) {
+  constructor(private http: HttpClient, private cookieService: CookieService) {
   }
 
   token!: string;
 
-setToken(tokeninput: string) {
-this.token = tokeninput;
-console.log(this.token);
-}
 
   getStuff(input: string) {
+    this.token = this.cookieService.get('token');
     let headerS = new HttpHeaders().set('Content-Type', 'application/json');
     headerS = headerS.append('Token', this.token);
     this.posts = this.http.get(this.ROOT_URL + input, {headers: headerS})
       .toPromise()
-      .then(data => {this.posts = data;
-                     console.log(data);
-    });
+      .then(data => {
+        this.posts = data;
+        console.log(data);
+      });
   }
+
   // tslint:disable-next-line:use-lifecycle-interface
   ngOnInit(): void {
   }

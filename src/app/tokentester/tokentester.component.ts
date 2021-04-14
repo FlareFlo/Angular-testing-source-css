@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import { CookieService } from 'ngx-cookie-service';
+import {CookieService} from 'ngx-cookie';
 
 @Component({
   selector: 'app-tokentester',
@@ -9,15 +9,17 @@ import { CookieService } from 'ngx-cookie-service';
 })
 export class TokentesterComponent implements OnInit {
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private cookieService: CookieService) {
+
   }
+
 
   readonly URLgettoken = 'https://backend.yap.dragoncave.dev/security/token';
   readonly URLvalidatetoken = 'https://backend.yap.dragoncave.dev/security/token/checkValid ';
 
   packageobject = {
-    emailAddress: '',
-    password: ''
+    emailAddress: 'test@mail.com',
+    password: 'testpassword'
   };
 
   token!: string;
@@ -33,10 +35,11 @@ export class TokentesterComponent implements OnInit {
           console.log(this.token);
         }
       );
-
-
   }
 
+  doCookiewrite() {
+    this.cookieService.put('token', this.token);
+  }
   doCheck() {
     let headerS = new HttpHeaders();
     headerS = headerS.append('Token', this.token);
