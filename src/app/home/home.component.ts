@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 
 @Component({
   selector: 'app-home',
@@ -15,8 +15,12 @@ export class HomeComponent {
   constructor(private  http: HttpClient) {
   }
 
+  token!: string;
+
   getStuff(input: string) {
-    this.posts = this.http.get(this.ROOT_URL + input)
+    let headerS = new HttpHeaders().set('Content-Type', 'application/json');
+    headerS = headerS.append('Token', this.token);
+    this.posts = this.http.get(this.ROOT_URL + input, {headers: headerS})
       .toPromise()
       .then(data => {this.posts = data;
                      console.log(data);
