@@ -1,51 +1,25 @@
-<h1>User management</h1>
-<form>
-  <div class="form-row">
-    <div class="col-auto">
-      <label>
-        <input #UID type="text" class="form-control" placeholder="UID" (keyup.enter)="doUID(UID.value)" (focusout)="doUID(UID.value)">
-      </label>
-    </div>
-    <div class="col-auto">
-      <label>
+<div class="parent">
+  <div class="div1"></div>
+  <div class="div2">
+    <h1>User management</h1>
+    <form>
+        <input #UID type="text" class="form-control" placeholder="UID" (keyup.enter)="doUID(UID.value)"
+               (focusout)="doUID(UID.value)">
         <input #username type="text" class="form-control" placeholder="Username" (keyup)="doUsername(username.value)">
-      </label>
-    </div>
-    <div class="col-auto">
-      <label>
         <input #email type="email" class="form-control" placeholder="Email" (keyup)="doEmail(email.value)">
-      </label>
-    </div>
-    <div class="col-auto">
-      <label>
         <input #password type="password" class="form-control" placeholder="Password"
                (keyup)="doPassword(password.value)">
-      </label>
-    </div>
-    <button type="button" class="btn btn-primary" (click)="doPUT()">Put!</button>
+        <button type="button" class="btn btn-primary" (click)="doPUT()">Put!</button>
+    </form>
+
+    <h1>GET response</h1>
+    <pre>
+      <code>{{getresponse | json}}</code>
+    </pre>
+    <h1>Local object</h1>
+    <pre>
+      <code>{{packageobject | json}}</code>
+    </pre>
   </div>
-</form>
-<table class="table">
-  <thead>
-  <tr>
-    <th scope="col">User ID</th>
-    <th scope="col">Username</th>
-    <th scope="col">Email-Adress</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td><code>{{ this.packageobject.userid}}</code></td>
-    <td><code>{{ this.packageobject.username}}</code></td>
-    <td><code>{{ this.packageobject.emailAddress}}</code></td>
-  </tr>
-  </tbody>
-</table>
-<h1>GET response</h1>
-<pre>
-  <code>{{getresponse | json}}</code>
-</pre>
-<h1>Local object</h1>
-<pre>
-  <code>{{packageobject | json}}</code>
-</pre>
+  <div class="div3"></div>
+</div>
