@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {CookieService} from 'ngx-cookie';
 
 @Component({
   selector: 'app-poster',
@@ -8,7 +9,7 @@ import {HttpClient} from '@angular/common/http';
 })
 export class PosterComponent implements OnInit {
 
-  constructor(private  http: HttpClient) {
+  constructor(private  http: HttpClient, private cookieService: CookieService) {
   }
 
   topostobject = {
@@ -17,10 +18,15 @@ export class PosterComponent implements OnInit {
     password: ''
   };
 
+  token!: string;
+
   doPOST() {
+    this.token = this.cookieService.get('token');
+    let headerS = new HttpHeaders().set('Content-Type', 'application/json');
+    headerS = headerS.append('Token', this.token);
     console.log('Posting data...');
     const url = 'https://backend.yap.dragoncave.dev/user';
-    this.http.post(url, this.topostobject).subscribe();
+    this.http.post(url, this.topostobject, {headers: headerS}).subscribe();
   }
 
   doUsername(userinput: string) {
