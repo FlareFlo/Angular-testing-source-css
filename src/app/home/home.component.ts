@@ -17,6 +17,11 @@ export class HomeComponent {
 
   token!: string;
 
+setToken(tokeninput: string) {
+this.token = tokeninput;
+console.log(this.token);
+}
+
   getStuff(input: string) {
     let headerS = new HttpHeaders().set('Content-Type', 'application/json');
     headerS = headerS.append('Token', this.token);

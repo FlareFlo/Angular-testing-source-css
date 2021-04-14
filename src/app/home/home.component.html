@@ -1,19 +1,18 @@
-
-
 <div class="parent">
-  <div class="div1"> </div>
+  <div class="div1"></div>
   <div class="div2">
 
 
-      <h1>Get object from database</h1>
-      <form form="ngForm">
-            <input #box type="text" class="form-control" placeholder="Enter GET URL" (keyup.enter)="getStuff(box.value)">
-      </form>
-      <pre>
+    <h1>Get object from database</h1>
+    <form form="ngForm">
+      <input #URL type="text" class="form-control" placeholder="Enter GET URL" (keyup.enter)="getStuff(URL.value)">
+      <input #token type="text" class="form-control" placeholder="Token" (keyup.enter)="setToken(token.value)">
+    </form>
+    <pre>
   <code>
      {{ posts | json }}
   </code>
 </pre>
   </div>
-  <div class="div3"> </div>
+  <div class="div3"></div>
 </div>
