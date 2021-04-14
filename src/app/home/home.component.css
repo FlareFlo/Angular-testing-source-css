@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap');
+
+
 .button {
   background-color: #4CAF50 !important; /* Green */
   border: none;
@@ -7,6 +10,11 @@
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
+
+}
+h1{
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
 }
 
 * {
@@ -16,6 +24,7 @@
 
 input {
   background-color: #21252B;
+
 }
 
 input:hover {
@@ -25,3 +34,16 @@ input:hover {
 input:focus {
   background-color: #282C34;
 }
+
+
+.parent {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+.div1 { grid-area: 1 / 1 / 2 / 2; }
+.div2 { grid-area: 1 / 2 / 2 / 3; }
+.div3 { grid-area: 1 / 3 / 2 / 4; }

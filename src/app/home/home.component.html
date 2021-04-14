@@ -1,15 +1,19 @@
-<div class="container-fluid">
-<h1>Get object from database</h1>
-  <form form="ngForm">
-    <div class="form-row">
-      <div class="col-auto">
-        <input #box type="text" class="form-control" placeholder="Enter GET URL" (keyup.enter)="getStuff(box.value)">
-      </div>
-    </div>
-  </form>
-  <pre>
+
+
+<div class="parent">
+  <div class="div1"> </div>
+  <div class="div2">
+
+
+      <h1>Get object from database</h1>
+      <form form="ngForm">
+            <input #box type="text" class="form-control" placeholder="Enter GET URL" (keyup.enter)="getStuff(box.value)">
+      </form>
+      <pre>
   <code>
      {{ posts | json }}
   </code>
 </pre>
+  </div>
+  <div class="div3"> </div>
 </div>
