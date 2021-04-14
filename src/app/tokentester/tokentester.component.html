@@ -1,13 +1,18 @@
-<h1>Token Testing</h1>
-<form>
-  <div class="form-row">
-    <div class="col-auto">
+
+
+<div class="parent">
+  <div class="div1"> </div>
+  <div class="div2">
+
+    <h1>Token Testing</h1>
+    <form>
       <input #emailaddress (keyup)=doEmail(emailaddress.value) type="email" class="form-control" placeholder="Email">
-    </div>
-    <div class="col-auto">
       <input #password (keyup)="doPassword(password.value)" type="password" class="form-control" placeholder="Password">
-    </div>
-    <button (click)="doPost()" type="button" class="btn btn-primary">Post!</button>
-    <button (click)="doCheck()" type="button" class="btn btn-primary">Validate!</button>
+      <button (click)="doPost()" type="button" class="btn btn-primary">Post!</button>
+      <button (click)="doCheck()" type="button" class="btn btn-primary">Validate!</button>
+    </form>
+
   </div>
-</form>
+  <div class="div3"> </div>
+</div>
+
