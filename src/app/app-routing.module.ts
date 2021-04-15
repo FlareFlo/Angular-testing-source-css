@@ -8,6 +8,7 @@ import {UsermanagementComponent} from './usermanagement/usermanagement.component
 import {TokentesterComponent} from './tokentester/tokentester.component';
 import {LoginComponent} from './login/login.component';
 import {ProfileComponent} from './profile/profile.component';
+import {RegisterComponent} from './register/register.component';
 
 const routes: Routes = [
   {
@@ -41,6 +42,10 @@ const routes: Routes = [
   {
     path: 'profile',
     component: ProfileComponent
+  },
+  {
+    path: 'register',
+    component: RegisterComponent
   }
 
 ];
