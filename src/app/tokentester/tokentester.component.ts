@@ -40,6 +40,7 @@ export class TokentesterComponent implements OnInit {
   doCookiewrite() {
     this.cookieService.put('token', this.token);
   }
+
   doCheck() {
     let headerS = new HttpHeaders();
     headerS = headerS.append('Token', this.token);
