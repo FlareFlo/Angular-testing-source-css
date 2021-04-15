@@ -79,10 +79,6 @@ form input:hover{
 
 }
 
-form input:required{
-  background-color: red;
-}
-
 form input:focus{
   background-color: rgba(47, 47, 47, 0.4);
   width: 260px;
