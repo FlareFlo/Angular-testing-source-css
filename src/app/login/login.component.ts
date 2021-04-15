@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
   token!: string;
 
   doPost() {
-    if (this.packageobject.emailAddress != '' && this.packageobject.password != '') {
+    if (this.packageobject.emailAddress !== '' && this.packageobject.password !== '') {
       const headerS = new HttpHeaders().set('Content-Type', 'application/json');
       console.log(this.packageobject);
       this.http.post(this.URLgettoken, this.packageobject, {headers: headerS, responseType: 'text'})
@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
           }
         );
     } else {
-      console.error("One or more input fields were left empty");
+      console.error('One or more input fields were left empty');
     }
   }
 
