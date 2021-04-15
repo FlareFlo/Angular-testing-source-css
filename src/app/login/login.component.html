@@ -3,8 +3,8 @@
     <h1>Welcome</h1>
 
     <form class="loginform">
-      <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="Email" #email (keyup)="doEmail(email.value)">
-      <input type="password" placeholder="Password" #password (keyup)="doPassword(password.value)">
+      <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="Email" #email (keyup)="doEmail(email.value)" required>
+      <input type="password" placeholder="Password" #password (keyup)="doPassword(password.value)" required>
       <button type="submit" id="login-button" (click)="doPost()">Login</button>
       <a class="register" routerLink="/register">Register</a>
     </form>
