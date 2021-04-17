@@ -11,7 +11,7 @@ export class HomeComponent {
 
   readonly ROOT_URL = 'https://backend.yap.dragoncave.dev';
 
-  posts: any;
+  returnvalue: any;
 
   constructor(private http: HttpClient, private cookieService: CookieService) {
   }
@@ -21,13 +21,14 @@ export class HomeComponent {
 
   getStuff(input: string) {
     this.token = this.cookieService.get('token');
+
     let headerS = new HttpHeaders().set('Content-Type', 'application/json');
     headerS = headerS.append('Token', this.token);
-    this.posts = this.http.get(this.ROOT_URL + input, {headers: headerS})
+
+    this.returnvalue = this.http.get(this.ROOT_URL + input, {headers: headerS})
       .toPromise()
       .then(data => {
-        this.posts = data;
-        console.log(data);
+        this.returnvalue = JSON.parse(JSON.stringify(data));
       });
   }
 
