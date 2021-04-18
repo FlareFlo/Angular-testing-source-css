@@ -16,6 +16,14 @@ export class HomeComponent {
   constructor(private http: HttpClient, private cookieService: CookieService) {
   }
 
+  packageobject = {
+    userid: 0,
+    username: '',
+    createDate: '',
+    lastLogin: '',
+    emailAddress: ''
+  };
+
   token!: string;
 
 
@@ -28,7 +36,8 @@ export class HomeComponent {
     this.returnvalue = this.http.get(this.ROOT_URL + input, {headers: headerS})
       .toPromise()
       .then(data => {
-        this.returnvalue = JSON.parse(JSON.stringify(data));
+        this.returnvalue = data;
+        this.packageobject = this.returnvalue;
       });
   }
 
