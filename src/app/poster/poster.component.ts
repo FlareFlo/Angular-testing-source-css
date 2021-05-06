@@ -11,7 +11,6 @@ export class PosterComponent implements OnInit {
 
   constructor(private  http: HttpClient, private cookieService: CookieService) {
   }
-
   topostobject = {
     username: '',
     emailAddress: '',
@@ -48,7 +47,6 @@ export class PosterComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.topostobject);
   }
 
 }
