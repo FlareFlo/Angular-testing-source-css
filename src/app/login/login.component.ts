@@ -33,6 +33,7 @@ export class LoginComponent implements OnInit {
             this.cookieService.put('token', this.token);
           }
         );
+      this.cookieService.remove('guest');
     } else {
       console.error('One or more input fields were left empty');
     }
