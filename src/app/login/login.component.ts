@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
 
       this.cookieService.remove('guest');
 
-      location.reload();
+      // location.reload();
 
     } else {
       console.error('One or more input fields were left empty');
