@@ -21,8 +21,10 @@ export class LoginComponent implements OnInit {
   };
 
   token!: string;
-
   returnvalue: any;
+  welcomeback: any;
+  message!: string;
+
 
   doPost() {
     if (this.packageobject.emailAddress !== '' && this.packageobject.password !== '') {
@@ -37,14 +39,14 @@ export class LoginComponent implements OnInit {
 
       this.cookieService.remove('guest');
 
-      this.getUID();
+      location.reload();
 
     } else {
       console.error('One or more input fields were left empty');
     }
   }
 
-  getUID()  {
+  getUdata() {
     // tslint:disable-next-line:prefer-const
     let header1 = new HttpHeaders();
     header1 = header1.append('Token', this.cookieService.get('token'));
@@ -53,7 +55,7 @@ export class LoginComponent implements OnInit {
       .subscribe(
         response => {
           this.returnvalue = response;
-          this.cookieService.put('uid', this.returnvalue.userid);
+          this.cookieService.putObject('Udata', this.returnvalue);
         }
       );
   }
@@ -66,7 +68,17 @@ export class LoginComponent implements OnInit {
     this.packageobject.password = input;
   }
 
+  welcomebackmessage() {
+    this.welcomeback = this.cookieService.getObject('Udata');
+
+    this.message = ' back ' + this.welcomeback.username;
+  }
+
   ngOnInit(): void {
+    if (this.cookieService.getObject('Udata') == null) {
+      this.getUdata();
+    }
+    this.welcomebackmessage();
   }
 
 }

@@ -1,6 +1,6 @@
 <div class="wrapper-new">
   <div class="container-new">
-    <h1>Welcome</h1>
+    <h1>Welcome{{message}}</h1>
 
     <form class="loginform">
       <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="Email" #email (keyup)="doEmail(email.value)">
