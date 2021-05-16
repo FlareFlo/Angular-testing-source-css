@@ -3,18 +3,13 @@
   <div class="div2">
     <h1>User management</h1>
     <form>
-        <input #username type="text" class="form-control" placeholder="Username" (keyup)="doUsername(username.value)" (focusout)="getStuff()">
-        <input #email type="email" class="form-control" placeholder="Email" (keyup)="doEmail(email.value)" (focusout)="getStuff()">
+        <input #username type="text" class="form-control" placeholder="Username" (keyup)="doUsername(username.value)">
+        <input #email type="email" class="form-control" placeholder="Email" (keyup)="doEmail(email.value)">
         <input #password type="password" class="form-control" placeholder="Password"
                (keyup)="doPassword(password.value)">
         <button type="button" class="btn btn-primary" (click)="doPUT()">Put!</button>
     </form>
-
-    <h1>GET response</h1>
-    <pre>
-      <code>{{getresponse | json}}</code>
-    </pre>
-    <h1>Local object</h1>
+    <h1>Current data</h1>
     <pre>
       <code>{{packageobject | json}}</code>
     </pre>
