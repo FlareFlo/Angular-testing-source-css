@@ -25,9 +25,10 @@ export class HeaderComponent implements OnInit {
         }
       }
 
-    } /* else if (this.cookieService.get('token') !== null) {
-      console.log('cookie found');
-    } */
+    }
+    if (this.cookieService.get('token') !== null){
+      this.cookieService.remove('guest');
+    }
   }
 }
 
