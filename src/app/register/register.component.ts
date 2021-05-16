@@ -23,25 +23,25 @@ export class RegisterComponent implements OnInit {
 
   token!: string;
 
+
   doPost() {
     if (
       this.packageobject.username !== ''
       && this.packageobject.emailAddress !== ''
       && this.packageobject.password !== ''
     ) {
-      this.token = this.cookieService.get('token');
-      let headerS = new HttpHeaders().set('Content-Type', 'application/json');
-      headerS = headerS.append('Token', this.token);
-      this.http.post<any>(this.ROOT_URL, this.packageobject, {headers: headerS})
+      const headerS = new HttpHeaders().set('Content-Type', 'application/json'); // define the sent content to being a Json object
+      this.http.post<any>(this.ROOT_URL, this.packageobject, {headers: headerS}) // send the POST to create the user account
         .subscribe(res => {
           console.log('User successfully created under UID:' + res);
-          if (res !== '') {
-            const headerS1 = new HttpHeaders().set('Content-Type', 'application/json');
-            this.http.post(this.URLgettoken, this.packageobject, {headers: headerS1, responseType: 'text'})
+          this.cookieService.put('uid', res); // store UID for later use
+          if (res !== '') { // verify if user creation was successful
+            const headerS1 = new HttpHeaders().set('Content-Type', 'application/json'); // define the sent content to being a Json object
+            // tslint:disable-next-line:max-line-length
+            this.http.post(this.URLgettoken, this.packageobject, {headers: headerS1, responseType: 'text'}) // send user data to generate token
               .subscribe(
                 res1 => {
-                  this.token = res1;
-                  this.cookieService.put('token', this.token);
+                  this.cookieService.put('token', res1);
                 }
               );
           }
@@ -50,6 +50,7 @@ export class RegisterComponent implements OnInit {
       console.error('Input field(s) were left empty');
     }
   }
+
 
   doUsername(input: string) {
     this.packageobject.username = input;
