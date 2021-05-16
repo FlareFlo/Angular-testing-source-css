@@ -27,11 +27,15 @@ export class UsermanagementComponent implements OnInit {
   response: any; // temporary object for translating response to local object
 
   doPUT() {
-    this.token = this.cookieService.get('token');
-    let headerS = new HttpHeaders().set('Content-Type', 'application/json');
-    headerS = headerS.append('Token', this.token);
-    this.http.put<any>(this.ROOT_URL, this.packageobject, {headers: headerS})
-      .subscribe();
+    if (this.packageobject.password !== null) {
+      this.token = this.cookieService.get('token');
+      let headerS = new HttpHeaders().set('Content-Type', 'application/json');
+      headerS = headerS.append('Token', this.token);
+      this.http.put<any>(this.ROOT_URL, this.packageobject, {headers: headerS})
+        .subscribe();
+    } else {
+      console.error('no password was provided');
+    }
   }
 
   getStuff() {
