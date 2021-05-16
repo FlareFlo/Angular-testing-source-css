@@ -17,6 +17,7 @@ import {LoginComponent} from './login/login.component';
 import {ProfileComponent} from './profile/profile.component';
 import {CookieModule, CookieService} from 'ngx-cookie';
 import { RegisterComponent } from './register/register.component';
+import { DatatabletestComponent } from './datatabletest/datatabletest.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { RegisterComponent } from './register/register.component';
     TokentesterComponent,
     LoginComponent,
     ProfileComponent,
-    RegisterComponent
+    RegisterComponent,
+    DatatabletestComponent
   ],
   imports: [
     BrowserModule,

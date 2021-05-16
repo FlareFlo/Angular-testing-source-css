@@ -9,6 +9,7 @@ import {TokentesterComponent} from './tokentester/tokentester.component';
 import {LoginComponent} from './login/login.component';
 import {ProfileComponent} from './profile/profile.component';
 import {RegisterComponent} from './register/register.component';
+import {DatatabletestComponent} from './datatabletest/datatabletest.component';
 
 const routes: Routes = [
   {
@@ -46,6 +47,10 @@ const routes: Routes = [
   {
     path: 'register',
     component: RegisterComponent
+  },
+  {
+    path: 'datatabletest',
+    component: DatatabletestComponent
   }
 
 ];
