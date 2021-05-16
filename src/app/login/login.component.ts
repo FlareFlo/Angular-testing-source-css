@@ -13,6 +13,7 @@ export class LoginComponent implements OnInit {
   }
 
   readonly URLgettoken = 'https://backend.yap.dragoncave.dev/security/token';
+  readonly ROOT_URL = 'https://backend.yap.dragoncave.dev/user';
 
   packageobject = {
     emailAddress: '',
@@ -21,22 +22,40 @@ export class LoginComponent implements OnInit {
 
   token!: string;
 
+  returnvalue: any;
+
   doPost() {
     if (this.packageobject.emailAddress !== '' && this.packageobject.password !== '') {
-      const headerS = new HttpHeaders().set('Content-Type', 'application/json');
-      console.log(this.packageobject);
-      this.http.post(this.URLgettoken, this.packageobject, {headers: headerS, responseType: 'text'})
+      const header0 = new HttpHeaders().set('Content-Type', 'application/json'); // define sent data to be JSON object
+      this.http.post(this.URLgettoken, this.packageobject, {headers: header0, responseType: 'text'}) // getting login token
         .subscribe(
           res => {
             this.token = res;
-            console.log(this.token);
             this.cookieService.put('token', this.token);
           }
         );
+
       this.cookieService.remove('guest');
+
+      this.getUID();
+
     } else {
       console.error('One or more input fields were left empty');
     }
+  }
+
+  getUID()  {
+    // tslint:disable-next-line:prefer-const
+    let header1 = new HttpHeaders();
+    header1 = header1.append('Token', this.cookieService.get('token'));
+
+    this.http.get(this.ROOT_URL, {headers: header1})
+      .subscribe(
+        response => {
+          this.returnvalue = response;
+          this.cookieService.put('uid', this.returnvalue.userid);
+        }
+      );
   }
 
   doEmail(input: string) {
