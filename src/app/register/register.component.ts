@@ -30,6 +30,7 @@ export class RegisterComponent implements OnInit {
       && this.packageobject.emailAddress !== ''
       && this.packageobject.password !== ''
     ) {
+      this.cookieService.removeAll();
       const headerS = new HttpHeaders().set('Content-Type', 'application/json'); // define the sent content to being a Json object
       this.http.post<any>(this.ROOT_URL, this.packageobject, {headers: headerS}) // send the POST to create the user account
         .subscribe(res => {

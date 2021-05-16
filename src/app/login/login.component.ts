@@ -28,6 +28,7 @@ export class LoginComponent implements OnInit {
 
   doPost() {
     if (this.packageobject.emailAddress !== '' && this.packageobject.password !== '') {
+      this.cookieService.removeAll();
       const header0 = new HttpHeaders().set('Content-Type', 'application/json'); // define sent data to be JSON object
       this.http.post(this.URLgettoken, this.packageobject, {headers: header0, responseType: 'text'}) // getting login token
         .subscribe(
