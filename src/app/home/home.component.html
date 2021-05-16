@@ -4,12 +4,12 @@
 
 
     <h1>Get object from database</h1>
-    <form form="ngForm">
+    <form class="ngForm">
       <input #URL type="text" class="form-control" placeholder="Enter GET URL" (keyup.enter)="getStuff(URL.value)">
     </form>
     <pre>
   <code>
-     {{ packageobject | json }}
+     {{ returnvalue | json }}
   </code>
 </pre>
   </div>

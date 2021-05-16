@@ -16,16 +16,7 @@ export class HomeComponent {
   constructor(private http: HttpClient, private cookieService: CookieService) {
   }
 
-  packageobject = {
-    userid: 0,
-    username: '',
-    createDate: '',
-    lastLogin: '',
-    emailAddress: ''
-  };
-
   token!: string;
-
 
   getStuff(input: string) {
     this.token = this.cookieService.get('token');
@@ -37,7 +28,6 @@ export class HomeComponent {
       .toPromise()
       .then(data => {
         this.returnvalue = data;
-        this.packageobject = this.returnvalue;
       });
   }
 
