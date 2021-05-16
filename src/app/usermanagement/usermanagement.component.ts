@@ -48,7 +48,6 @@ export class UsermanagementComponent implements OnInit {
         res => {
           this.response = res;
           this.packageobject = this.response;
-          console.log(this.packageobject);
         }
       );
   }
