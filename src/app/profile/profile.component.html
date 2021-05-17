@@ -56,18 +56,18 @@
           <label class='main__input-label'>Username:</label>
           <input class='main__input' placeholder='{{this.Udata.username}}' type='text'>
           <label class='main__input-label'>Your e-mail:</label>
-          <input class='main__input' placeholder='{{this.Udata.emailAddress}}' type='text'>
+          <input #email class='main__input' placeholder='{{this.Udata.emailAddress}}' type='text' (keyup)="doEmail(email.value)">
 
           <div class='main__header'>
             <h3>Change Password</h3>
           </div>
 
           <label class='main__input-label'>Password:</label>
-          <input class='main__input' placeholder='Old password' type='password'>
-          <input class='main__input' placeholder='New password' type='password'>
+          <input #oldPassword class='main__input' placeholder='Old password' type='password' (keyup)="dooldPassword(oldPassword.value)">
+          <input #newPassword class='main__input' placeholder='New password' type='password' (keyup)="doNewPassword(newPassword.value)">
 
         </form>
-        <button class='btn main__save-button'>Save</button>
+        <button class='btn main__save-button' (click)="pwdchange()" (keyup.enter)="pwdchange()">Save</button>
 
       </div>
     </div>
