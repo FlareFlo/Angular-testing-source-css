@@ -96,7 +96,9 @@ body {
 }
 
 .main__avatar {
+  /*
   background: url("https://images.unsplash.com/photo-1610898564097-e28bd69740a4?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80");
+  */
   background-size: cover;
   width: 150px;
   height: 150px;
