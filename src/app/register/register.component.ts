@@ -18,10 +18,11 @@ export class RegisterComponent implements OnInit {
   packageobject = {
     username: '',
     emailAddress: '',
-    password: ''
+    password: '',
   };
 
   token!: string;
+  password2!: string;
 
 
   doPost() {
@@ -39,7 +40,10 @@ export class RegisterComponent implements OnInit {
           if (res !== '') { // verify if user creation was successful
             const headerS1 = new HttpHeaders().set('Content-Type', 'application/json'); // define the sent content to being a Json object
             // tslint:disable-next-line:max-line-length
-            this.http.post(this.URLgettoken, this.packageobject, {headers: headerS1, responseType: 'text'}) // send user data to generate token
+            this.http.post(this.URLgettoken, this.packageobject, {
+              headers: headerS1,
+              responseType: 'text'
+            }) // send user data to generate token
               .subscribe(
                 res1 => {
                   this.cookieService.put('token', res1);
@@ -62,7 +66,13 @@ export class RegisterComponent implements OnInit {
   }
 
   doPassword(input: string) {
-    this.packageobject.password = input;
+    if (this.password2 === input) {
+      this.packageobject.password = input;
+    }
+  }
+
+  doPasswordrepeat(input: string) {
+    this.password2 = input;
   }
 
   ngOnInit(): void {
