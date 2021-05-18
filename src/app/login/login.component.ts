@@ -23,22 +23,21 @@ export class LoginComponent implements OnInit {
   token!: string;
   returnvalue: any;
   message = 'Welcome';
+
   // loginmessage = 'Login';
 
 
   doPost() {
     if (this.packageobject.emailAddress !== '' && this.packageobject.password !== '') {
-      this.cookieService.removeAll();
       const header0 = new HttpHeaders().set('Content-Type', 'application/json'); // define sent data to be JSON object
       this.http.post(this.URLgettoken, this.packageobject, {headers: header0, responseType: 'text'}) // getting login token
         .subscribe(
           res => {
+            this.cookieService.removeAll();
             this.cookieService.put('token', res);
             this.getUdata();
           }
         );
-
-      this.cookieService.remove('guest');
 
 
     } else {
