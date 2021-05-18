@@ -1,4 +1,3 @@
-
 <div class='container'>
   <!--
   <div class='sidebar'>
@@ -56,18 +55,22 @@
         </div>
         <form action='#' method='post'>
           <label class='main__input-label'>Username:</label>
-          <input class='main__input' placeholder='{{this.Udata.username}}' type='text'>
+          <input #username class='main__input' placeholder='{{this.packageobject.username}}' type='text'
+                 (keyup)="doUsername(username.value)">
           <label class='main__input-label'>Your e-mail:</label>
-          <input #email (keyup)="doEmail(email.value)" class='main__input' placeholder='{{this.Udata.emailAddress}}'
+          <input #email (keyup)="doEmail(email.value)" class='main__input' placeholder='{{this.packageobject.emailAddress}}'
                  type='text'>
+          <button class='btn main__save-button' (click)="usrchange()" (keyup.enter)="usrchange()">Save</button>
 
           <div class='main__header'>
             <h3>Change Password</h3>
           </div>
 
           <label class='main__input-label'>Password:</label>
-          <input #oldPassword class='main__input' placeholder='Old password' type='password' (keyup)="dooldPassword(oldPassword.value)">
-          <input #newPassword class='main__input' placeholder='New password' type='password' (keyup)="doNewPassword(newPassword.value)">
+          <input #oldPassword class='main__input' placeholder='Old password' type='password'
+                 (keyup)="dooldPassword(oldPassword.value)">
+          <input #newPassword class='main__input' placeholder='New password (only if you wish to change it)'
+                 type='password' (keyup)="doNewPassword(newPassword.value)">
 
         </form>
         <button class='btn main__save-button' (click)="pwdchange()" (keyup.enter)="pwdchange()">Save</button>

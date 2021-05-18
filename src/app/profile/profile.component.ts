@@ -12,13 +12,16 @@ export class ProfileComponent implements OnInit {
   constructor(private http: HttpClient, public cookieService: CookieService) {
   }
 
-  readonly ROOT_URL = 'https://backend.yap.dragoncave.dev/security/changePassword';
+  readonly ROOT_URL = 'https://backend.yap.dragoncave.dev/user';
+  readonly ROOT_URL_PWD = 'https://backend.yap.dragoncave.dev/security/changePassword';
+  readonly ROOT_URL_USR = 'https://backend.yap.dragoncave.dev/user';
 
   Udata!: any;
-  // token!: any;
+  token!: any;
   placeholder: any;
 
   packageobject = {
+    username: '',
     emailAddress: '',
     newPassword: '',
     oldPassword: ''
@@ -31,11 +34,42 @@ export class ProfileComponent implements OnInit {
       // this.token = this.cookieService.get('token');
       const headerS = new HttpHeaders().set('Content-Type', 'application/json');
       // headerS = headerS.append('Token', this.token);
-      this.http.put<any>(this.ROOT_URL, this.packageobject, {headers: headerS})
+      this.http.put<any>(this.ROOT_URL_PWD, this.packageobject, {headers: headerS})
         .subscribe();
     } else {
       console.error('One or more input fields were left empty!');
     }
+  }
+
+  usrchange() {
+    if (
+      // tslint:disable-next-line:max-line-length
+      this.packageobject.newPassword !== null && this.packageobject.emailAddress !== null && this.packageobject.oldPassword !== null && this.packageobject.username !== null
+    ) {
+      this.token = this.cookieService.get('token');
+      let headerS = new HttpHeaders().set('Content-Type', 'application/json');
+      headerS = headerS.append('Token', this.token);
+      this.http.put<any>(this.ROOT_URL_USR, this.packageobject, {headers: headerS})
+        .subscribe(() => {
+            this.getUdata();
+          }
+        );
+    } else {
+      console.error('One or more input fields were left empty!');
+    }
+  }
+
+  getUdata() {
+    // tslint:disable-next-line:prefer-const
+    let header1 = new HttpHeaders();
+    header1 = header1.append('Token', this.cookieService.get('token'));
+
+    this.http.get(this.ROOT_URL, {headers: header1})
+      .subscribe(
+        response => {
+          this.cookieService.putObject('Udata', response);
+        }
+      );
   }
 
   doEmail(emailinput: string) {
@@ -50,13 +84,16 @@ export class ProfileComponent implements OnInit {
     this.packageobject.newPassword = passwordinput;
   }
 
+  doUsername(usernameinput: string) {
+    this.packageobject.username = usernameinput;
+  }
+
   ngOnInit(): void {
-    if (this.cookieService.getObject('Udata') !== null) {
-      this.Udata = this.cookieService.getObject('Udata');
-    } else {
+    if (this.cookieService.getObject('Udata') == null) {
       window.location.href = '/login';
     }
     this.placeholder = this.cookieService.getObject('Udata');
     this.packageobject.emailAddress = this.placeholder.emailAddress;
+    this.packageobject.username = this.placeholder.username;
   }
 }
