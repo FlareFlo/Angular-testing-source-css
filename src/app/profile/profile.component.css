@@ -1,5 +1,6 @@
 *, *:before, *:after {
   box-sizing: border-box;
+  color: #FFFFFF;
 }
 
 body {
@@ -141,12 +142,12 @@ body {
 .main__input {
   display: inline-block;
   width: 100%;
-  border: 1px solid #f1f3f5;
+  border: 1px solid #1c1c1c;
   margin-bottom: 20px;
   outline: none;
   padding: 15px;
   border-radius: 3px;
-  color: #000;
+  background-color: #494949;
   font-family: "Montserrat", sans-serif;
 }
 .main__input:focus {
