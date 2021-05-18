@@ -28,10 +28,12 @@ input {
 }
 
 input:hover {
+  color: white;
   background-color: #282C34;
 }
 
 input:focus {
+  color: white;
   background-color: #282C34;
 }
 
