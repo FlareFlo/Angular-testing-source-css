@@ -9,7 +9,7 @@ import {CookieService} from 'ngx-cookie';
 })
 export class UsermanagementComponent implements OnInit {
 
-  constructor(private  http: HttpClient, private cookieService: CookieService) {
+  constructor(private http: HttpClient, private cookieService: CookieService) {
     this.getStuff();
   }
 
