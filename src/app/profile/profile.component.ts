@@ -26,7 +26,8 @@ export class ProfileComponent implements OnInit {
 
   pwdchange() {
     if (
-      this.packageobject.newPassword !== null && this.packageobject.emailAddress !== null && this.packageobject.oldPassword !== null) {
+      this.packageobject.newPassword !== null && this.packageobject.emailAddress !== null && this.packageobject.oldPassword !== null
+    ) {
       // this.token = this.cookieService.get('token');
       const headerS = new HttpHeaders().set('Content-Type', 'application/json');
       // headerS = headerS.append('Token', this.token);
@@ -55,8 +56,7 @@ export class ProfileComponent implements OnInit {
     } else {
       window.location.href = '/login';
     }
-    this.placeholder = this.cookieService.get('token');
+    this.placeholder = this.cookieService.getObject('Udata');
     this.packageobject.emailAddress = this.placeholder.emailAddress;
   }
-
 }
