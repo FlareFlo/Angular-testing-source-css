@@ -28,7 +28,11 @@ export class HomeComponent {
       .toPromise()
       .then(data => {
         this.returnvalue = data;
-      });
+      },
+        (error) => {
+          console.error(error);
+        }
+      );
   }
 
   // tslint:disable-next-line:use-lifecycle-interface

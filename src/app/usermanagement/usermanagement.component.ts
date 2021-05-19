@@ -32,7 +32,10 @@ export class UsermanagementComponent implements OnInit {
       let headerS = new HttpHeaders().set('Content-Type', 'application/json');
       headerS = headerS.append('Token', this.token);
       this.http.put<any>(this.ROOT_URL, this.packageobject, {headers: headerS})
-        .subscribe();
+        .subscribe(
+          (error) => {
+            console.error(error);
+          });
     } else {
       console.error('no password was provided');
     }
@@ -48,6 +51,9 @@ export class UsermanagementComponent implements OnInit {
         res => {
           this.response = res;
           this.packageobject = this.response;
+        },
+        (error) => {
+          console.error(error);
         }
       );
   }

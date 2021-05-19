@@ -25,7 +25,11 @@ export class PosterComponent implements OnInit {
     headerS = headerS.append('Token', this.token);
     console.log('Posting data...');
     const url = 'https://backend.yap.dragoncave.dev/user';
-    this.http.post(url, this.topostobject, {headers: headerS}).subscribe();
+    this.http.post(url, this.topostobject, {headers: headerS})
+      .subscribe(
+        (error) => {
+          console.error(error);
+        });
   }
 
   doUsername(userinput: string) {

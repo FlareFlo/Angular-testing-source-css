@@ -33,6 +33,9 @@ export class TokentesterComponent implements OnInit {
         res => {
           this.token = res;
           console.log(this.token);
+        },
+        (error) => {
+          console.error(error);
         }
       );
   }
@@ -46,9 +49,13 @@ export class TokentesterComponent implements OnInit {
     headerS = headerS.append('Token', this.token);
     console.log(headerS);
     this.http.get(this.URLvalidatetoken, {headers: headerS})
-      .subscribe((data => {
-        console.log(data);
-      }));
+      .subscribe(data => {
+            console.log(data);
+          },
+        (error) => {
+          console.error(error);
+        }
+      );
   }
 
 

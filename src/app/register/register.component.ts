@@ -48,8 +48,11 @@ export class RegisterComponent implements OnInit {
     const headerS = new HttpHeaders().set('Content-Type', 'application/json'); // define the sent content to being a Json object
     this.http.post<any>(this.ROOT_URL, this.packageobject, {headers: headerS}) // send the POST to create the user account
       .subscribe(() => {
-        this.gettoken();
-      });
+          this.gettoken();
+        },
+        (error) => {
+          console.error(error);
+        });
   }
 
   gettoken() {
@@ -63,6 +66,9 @@ export class RegisterComponent implements OnInit {
         res1 => {
           this.cookieService.put('token', res1);
           this.getUdata();
+        },
+        (error) => {
+          console.error(error);
         }
       );
   }
@@ -76,6 +82,9 @@ export class RegisterComponent implements OnInit {
       .subscribe(
         response => {
           this.cookieService.putObject('Udata', response);
+        },
+        (error) => {
+          console.error(error);
         }
       );
   }

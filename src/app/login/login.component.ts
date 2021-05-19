@@ -37,6 +37,9 @@ export class LoginComponent implements OnInit {
             this.cookieService.removeAll();
             this.cookieService.put('token', res);
             this.getUdata();
+          },
+          (error) => {
+            console.error(error);
           }
         );
 
@@ -55,6 +58,9 @@ export class LoginComponent implements OnInit {
       .subscribe(
         response => {
           this.cookieService.putObject('Udata', response);
+        },
+        (error) => {
+          console.error(error);
         }
       );
   }

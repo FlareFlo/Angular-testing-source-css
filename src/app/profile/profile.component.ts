@@ -51,7 +51,10 @@ export class ProfileComponent implements OnInit {
     const headerS = new HttpHeaders().set('Content-Type', 'application/json');
     // headerS = headerS.append('Token', this.token);
     this.http.put<any>(this.ROOT_URL_PWD, this.packageobject, {headers: headerS})
-      .subscribe();
+      .subscribe(
+        (error) => {
+          console.error(error);
+        });
   }
 
   usrchange(username: string, email: string, password: string) {
@@ -72,6 +75,9 @@ export class ProfileComponent implements OnInit {
       this.http.put<any>(this.ROOT_URL_USR, this.packageobject, {headers: headerS})
         .subscribe(() => {
             this.getUdata();
+          },
+          (error) => {
+            console.error(error);
           }
         );
     } else {
@@ -88,6 +94,9 @@ export class ProfileComponent implements OnInit {
       .subscribe(
         response => {
           this.cookieService.putObject('Udata', response);
+        },
+        (error) => {
+          console.error(error);
         }
       );
   }
