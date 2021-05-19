@@ -26,7 +26,9 @@ export class LoginComponent implements OnInit {
   // loginmessage = 'Login';
 
 
-  doPost() {
+  doPost(email: string, password: string) {
+    this.packageobject.emailAddress = email;
+    this.packageobject.password = password;
     if (this.packageobject.emailAddress !== '' && this.packageobject.password !== '') {
       const header0 = new HttpHeaders().set('Content-Type', 'application/json'); // define sent data to be JSON object
       this.http.post(this.URLgettoken, this.packageobject, {headers: header0, responseType: 'text'}) // getting login token
@@ -57,13 +59,6 @@ export class LoginComponent implements OnInit {
       );
   }
 
-  doEmail(input: string) {
-    this.packageobject.emailAddress = input;
-  }
-
-  doPassword(input: string) {
-    this.packageobject.password = input;
-  }
 
   welcomebackmessage() {
     if (this.cookieService.getObject('Udata') !== null) {
