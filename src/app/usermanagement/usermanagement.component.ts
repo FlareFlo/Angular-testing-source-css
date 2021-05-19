@@ -13,7 +13,7 @@ export class UsermanagementComponent implements OnInit {
     this.getStuff();
   }
 
-  readonly ROOT_URL = 'https://backend.yap.dragoncave.dev/user/';
+  readonly ROOT_URL_USR = 'https://backend.yap.dragoncave.dev/user/';
 
 
   packageobject = {
@@ -31,7 +31,7 @@ export class UsermanagementComponent implements OnInit {
       this.token = this.cookieService.get('token');
       let headerS = new HttpHeaders().set('Content-Type', 'application/json');
       headerS = headerS.append('Token', this.token);
-      this.http.put<any>(this.ROOT_URL, this.packageobject, {headers: headerS})
+      this.http.put<any>(this.ROOT_URL_USR, this.packageobject, {headers: headerS})
         .subscribe(
           (error) => {
             console.error(error);
@@ -45,7 +45,7 @@ export class UsermanagementComponent implements OnInit {
     this.token = this.cookieService.get('token'); // get cookie from browser
     let headerS = new HttpHeaders().set('Content-Type', 'application/json'); // define content as JSON
     headerS = headerS.append('Token', this.token); // add token to header
-    this.http.get<object>(this.ROOT_URL, {headers: headerS})
+    this.http.get<object>(this.ROOT_URL_USR, {headers: headerS})
       .toPromise()
       .then(
         res => {

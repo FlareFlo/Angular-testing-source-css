@@ -14,8 +14,8 @@ export class TokentesterComponent implements OnInit {
   }
 
 
-  readonly URLgettoken = 'https://backend.yap.dragoncave.dev/security/token';
-  readonly URLvalidatetoken = 'https://backend.yap.dragoncave.dev/security/token/checkValid ';
+  readonly ROOT_URL_SEC_TKN = 'https://backend.yap.dragoncave.dev/security/token';
+  readonly ROOT_URL_TKN_CV = 'https://backend.yap.dragoncave.dev/security/token/checkValid ';
 
   packageobject = {
     emailAddress: 'test@mail.com',
@@ -28,7 +28,7 @@ export class TokentesterComponent implements OnInit {
   doPost() {
     const headerS = new HttpHeaders().set('Content-Type', 'application/json');
     console.log(this.packageobject);
-    this.http.post(this.URLgettoken, this.packageobject, {headers: headerS, responseType: 'text'})
+    this.http.post(this.ROOT_URL_SEC_TKN, this.packageobject, {headers: headerS, responseType: 'text'})
       .subscribe(
         res => {
           this.token = res;
@@ -48,7 +48,7 @@ export class TokentesterComponent implements OnInit {
     let headerS = new HttpHeaders();
     headerS = headerS.append('Token', this.token);
     console.log(headerS);
-    this.http.get(this.URLvalidatetoken, {headers: headerS})
+    this.http.get(this.ROOT_URL_TKN_CV, {headers: headerS})
       .subscribe(data => {
             console.log(data);
           },

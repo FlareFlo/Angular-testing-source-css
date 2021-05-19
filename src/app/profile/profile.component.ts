@@ -12,9 +12,8 @@ export class ProfileComponent implements OnInit {
   constructor(private http: HttpClient, public cookieService: CookieService) {
   }
 
-  readonly ROOT_URL = 'https://backend.yap.dragoncave.dev/user';
-  readonly ROOT_URL_PWD = 'https://backend.yap.dragoncave.dev/security/changePassword';
   readonly ROOT_URL_USR = 'https://backend.yap.dragoncave.dev/user';
+  readonly ROOT_URL_PWD = 'https://backend.yap.dragoncave.dev/security/changePassword';
 
   Udata!: any;
   token!: any;
@@ -90,7 +89,7 @@ export class ProfileComponent implements OnInit {
     let header1 = new HttpHeaders();
     header1 = header1.append('Token', this.cookieService.get('token'));
 
-    this.http.get(this.ROOT_URL, {headers: header1})
+    this.http.get(this.ROOT_URL_USR, {headers: header1})
       .subscribe(
         response => {
           this.cookieService.putObject('Udata', response);

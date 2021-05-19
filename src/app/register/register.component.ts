@@ -12,8 +12,8 @@ export class RegisterComponent implements OnInit {
   constructor(private http: HttpClient, private cookieService: CookieService) {
   }
 
-  readonly ROOT_URL = 'https://backend.yap.dragoncave.dev/user';
-  readonly URLgettoken = 'https://backend.yap.dragoncave.dev/security/token';
+  readonly ROOT_URL_USR = 'https://backend.yap.dragoncave.dev/user';
+  readonly ROOT_URL_SEC_TKN = 'https://backend.yap.dragoncave.dev/security/token';
 
   packageobject = {
     username: '',
@@ -46,7 +46,7 @@ export class RegisterComponent implements OnInit {
   post() {
     this.cookieService.removeAll();
     const headerS = new HttpHeaders().set('Content-Type', 'application/json'); // define the sent content to being a Json object
-    this.http.post<any>(this.ROOT_URL, this.packageobject, {headers: headerS}) // send the POST to create the user account
+    this.http.post<any>(this.ROOT_URL_USR, this.packageobject, {headers: headerS}) // send the POST to create the user account
       .subscribe(() => {
           this.gettoken();
         },
@@ -58,7 +58,7 @@ export class RegisterComponent implements OnInit {
   gettoken() {
     const headerS1 = new HttpHeaders().set('Content-Type', 'application/json'); // define the sent content to being a Json object
     // tslint:disable-next-line:max-line-length
-    this.http.post(this.URLgettoken, this.packageobject, {
+    this.http.post(this.ROOT_URL_SEC_TKN, this.packageobject, {
       headers: headerS1,
       responseType: 'text'
     }) // send user data to generate token
@@ -78,7 +78,7 @@ export class RegisterComponent implements OnInit {
     let header1 = new HttpHeaders();
     header1 = header1.append('Token', this.cookieService.get('token'));
 
-    this.http.get(this.ROOT_URL, {headers: header1})
+    this.http.get(this.ROOT_URL_USR, {headers: header1})
       .subscribe(
         response => {
           this.cookieService.putObject('Udata', response);

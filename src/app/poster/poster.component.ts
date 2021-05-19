@@ -9,9 +9,12 @@ import {CookieService} from 'ngx-cookie';
 })
 export class PosterComponent implements OnInit {
 
-  constructor(private  http: HttpClient, private cookieService: CookieService) {
+  constructor(private http: HttpClient, private cookieService: CookieService) {
   }
-  topostobject = {
+
+  readonly ROOT_URL_USR = 'https://backend.yap.dragoncave.dev/user';
+
+  packageobject = {
     username: '',
     emailAddress: '',
     password: ''
@@ -23,9 +26,7 @@ export class PosterComponent implements OnInit {
     this.token = this.cookieService.get('token');
     let headerS = new HttpHeaders().set('Content-Type', 'application/json');
     headerS = headerS.append('Token', this.token);
-    console.log('Posting data...');
-    const url = 'https://backend.yap.dragoncave.dev/user';
-    this.http.post(url, this.topostobject, {headers: headerS})
+    this.http.post(this.ROOT_URL_USR, this.packageobject, {headers: headerS})
       .subscribe(
         (error) => {
           console.error(error);
@@ -33,21 +34,21 @@ export class PosterComponent implements OnInit {
   }
 
   doUsername(userinput: string) {
-    console.log('Writing: ' + userinput + ' over ' + this.topostobject.username);
-    this.topostobject.username = userinput;
-    console.log(this.topostobject);
+    console.log('Writing: ' + userinput + ' over ' + this.packageobject.username);
+    this.packageobject.username = userinput;
+    console.log(this.packageobject);
   }
 
   doEmail(emailinput: string) {
-    console.log('Writing: ' + emailinput + ' over ' + this.topostobject.emailAddress);
-    this.topostobject.emailAddress = emailinput;
-    console.log(this.topostobject);
+    console.log('Writing: ' + emailinput + ' over ' + this.packageobject.emailAddress);
+    this.packageobject.emailAddress = emailinput;
+    console.log(this.packageobject);
   }
 
   doPassword(passwordinput: string) {
-    console.log('Writing: ' + passwordinput + ' over ' + this.topostobject.password);
-    this.topostobject.password = passwordinput;
-    console.log(this.topostobject);
+    console.log('Writing: ' + passwordinput + ' over ' + this.packageobject.password);
+    this.packageobject.password = passwordinput;
+    console.log(this.packageobject);
   }
 
   ngOnInit(): void {
