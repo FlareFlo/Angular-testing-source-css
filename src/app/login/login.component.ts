@@ -12,8 +12,8 @@ export class LoginComponent implements OnInit {
   constructor(private http: HttpClient, private cookieService: CookieService) {
   }
 
-  readonly URLgettoken = 'https://backend.yap.dragoncave.dev/security/token';
-  readonly ROOT_URL = 'https://backend.yap.dragoncave.dev/user';
+  readonly ROOT_URL_TKN = 'https://backend.yap.dragoncave.dev/security/token';
+  readonly ROOT_URL_USR = 'https://backend.yap.dragoncave.dev/user';
 
   packageobject = {
     emailAddress: '',
@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
     this.packageobject.password = password;
     if (this.packageobject.emailAddress !== '' && this.packageobject.password !== '') {
       const header0 = new HttpHeaders().set('Content-Type', 'application/json'); // define sent data to be JSON object
-      this.http.post(this.URLgettoken, this.packageobject, {headers: header0, responseType: 'text'}) // getting login token
+      this.http.post(this.ROOT_URL_TKN, this.packageobject, {headers: header0, responseType: 'text'}) // getting login token
         .subscribe(
           res => {
             this.cookieService.removeAll();
@@ -54,7 +54,7 @@ export class LoginComponent implements OnInit {
     let header1 = new HttpHeaders();
     header1 = header1.append('Token', this.cookieService.get('token'));
 
-    this.http.get(this.ROOT_URL, {headers: header1})
+    this.http.get(this.ROOT_URL_USR, {headers: header1})
       .subscribe(
         response => {
           this.cookieService.putObject('Udata', response);
