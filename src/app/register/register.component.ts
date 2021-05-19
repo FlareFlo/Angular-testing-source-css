@@ -49,6 +49,7 @@ export class RegisterComponent implements OnInit {
     this.http.post<any>(this.ROOT_URL_USR, this.packageobject, {headers: headerS}) // send the POST to create the user account
       .subscribe(() => {
           this.gettoken();
+          window.location.href = '/profile';
         },
         (error) => {
           console.error(error);
