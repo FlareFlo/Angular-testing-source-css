@@ -36,6 +36,7 @@ export class ProfileComponent implements OnInit {
       && this.packageobject.oldPassword !== null
     ) {
       if (this.packageobject.newPassword.length <= 10) {
+        this.cookieService.removeAll();
         this.put();
       } else {
         console.error('Password too short, 10 characters minimum!');
@@ -51,6 +52,9 @@ export class ProfileComponent implements OnInit {
     // headerS = headerS.append('Token', this.token);
     this.http.put<any>(this.ROOT_URL_PWD, this.packageobject, {headers: headerS})
       .subscribe(
+        res => {
+          console.log(res);
+        },
         (error) => {
           console.error(error);
         });
