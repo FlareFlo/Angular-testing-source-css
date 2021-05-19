@@ -13,24 +13,8 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if (window.location.pathname === '/login') {
-
-    } else {
-      if (this.cookieService.get('token') == null && this.cookieService.get('guest') == null) {
-
-        if (confirm('Do you want to continue as a guest? (no login found)')) {
-          this.cookieService.putObject('guest', {value: true});
-        } else {
-          window.location.href = '/login';
-        }
-      }
-
-    }
-    if (this.cookieService.get('token') !== null){
-      this.cookieService.remove('guest');
+    if (window.location.pathname !== '/login' && this.cookieService.get('token') == null) {
+      window.location.href = '/login';
     }
   }
 }
-
-
-
