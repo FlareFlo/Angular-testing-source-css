@@ -55,25 +55,23 @@
         </div>
         <form action='#' method='post'>
           <label class='main__input-label'>Username:</label>
-          <input #username class='main__input' placeholder='{{this.packageobject.username}}' type='text'
-                 (keyup)="doUsername(username.value)">
+          <input #username class='main__input' placeholder='{{this.packageobject.username}}' type='text'>
           <label class='main__input-label'>Your e-mail:</label>
-          <input #email (keyup)="doEmail(email.value)" class='main__input' placeholder='{{this.packageobject.emailAddress}}'
+          <input #email class='main__input' placeholder='{{this.packageobject.emailAddress}}'
                  type='text'>
-          <button class='btn main__save-button' (click)="usrchange()" (keyup.enter)="usrchange()">Save</button>
+          <button class='btn main__save-button' (click)="usrchange(username.value, email.value, oldPassword.value)" (keyup.enter)="usrchange(username.value, email.value, oldPassword.value)">Save</button>
 
           <div class='main__header'>
             <h3>Change Password</h3>
           </div>
 
           <label class='main__input-label'>Password:</label>
-          <input #oldPassword class='main__input' placeholder='Old password' type='password'
-                 (keyup)="dooldPassword(oldPassword.value)">
+          <input #oldPassword class='main__input' placeholder='Old password' type='password'>
           <input #newPassword class='main__input' placeholder='New password (only if you wish to change it)'
-                 type='password' (keyup)="doNewPassword(newPassword.value)">
+                 type='password'>
 
         </form>
-        <button class='btn main__save-button' (click)="pwdchange()" (keyup.enter)="pwdchange()">Save</button>
+        <button class='btn main__save-button' (click)="pwdchange(oldPassword.value, newPassword.value)" (keyup.enter)="pwdchange(oldPassword.value, newPassword.value)">Save</button>
 
       </div>
     </div>

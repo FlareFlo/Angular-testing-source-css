@@ -27,24 +27,44 @@ export class ProfileComponent implements OnInit {
     oldPassword: ''
   };
 
-  pwdchange() {
+  pwdchange(oldpassword: string, newpassword: string) {
+    this.packageobject.oldPassword = oldpassword;
+    this.packageobject.newPassword = newpassword;
+
     if (
-      this.packageobject.newPassword !== null && this.packageobject.emailAddress !== null && this.packageobject.oldPassword !== null
+      this.packageobject.newPassword !== null
+      && this.packageobject.emailAddress !== null
+      && this.packageobject.oldPassword !== null
     ) {
-      // this.token = this.cookieService.get('token');
-      const headerS = new HttpHeaders().set('Content-Type', 'application/json');
-      // headerS = headerS.append('Token', this.token);
-      this.http.put<any>(this.ROOT_URL_PWD, this.packageobject, {headers: headerS})
-        .subscribe();
+      if (this.packageobject.newPassword.length <= 10) {
+        this.put();
+      } else {
+        console.error('Password too short, 10 characters minimum!');
+      }
     } else {
       console.error('One or more input fields were left empty!');
     }
   }
 
-  usrchange() {
+  put() {
+    // this.token = this.cookieService.get('token');
+    const headerS = new HttpHeaders().set('Content-Type', 'application/json');
+    // headerS = headerS.append('Token', this.token);
+    this.http.put<any>(this.ROOT_URL_PWD, this.packageobject, {headers: headerS})
+      .subscribe();
+  }
+
+  usrchange(username: string, email: string, password: string) {
+    this.packageobject.username = username;
+    this.packageobject.emailAddress = email;
+    this.packageobject.oldPassword = password;
+
     if (
       // tslint:disable-next-line:max-line-length
-      this.packageobject.newPassword !== null && this.packageobject.emailAddress !== null && this.packageobject.oldPassword !== null && this.packageobject.username !== null
+      this.packageobject.newPassword !== null
+      && this.packageobject.emailAddress !== null
+      && this.packageobject.oldPassword !== null
+      && this.packageobject.username !== null
     ) {
       this.token = this.cookieService.get('token');
       let headerS = new HttpHeaders().set('Content-Type', 'application/json');
@@ -72,26 +92,11 @@ export class ProfileComponent implements OnInit {
       );
   }
 
-  doEmail(emailinput: string) {
-    this.packageobject.emailAddress = emailinput;
-  }
-
-  dooldPassword(passwordinput: string) {
-    this.packageobject.oldPassword = passwordinput;
-  }
-
-  doNewPassword(passwordinput: string) {
-    this.packageobject.newPassword = passwordinput;
-  }
-
-  doUsername(usernameinput: string) {
-    this.packageobject.username = usernameinput;
-  }
-
   ngOnInit(): void {
     if (this.cookieService.getObject('Udata') == null) {
       window.location.href = '/login';
     }
+
     this.placeholder = this.cookieService.getObject('Udata');
     this.packageobject.emailAddress = this.placeholder.emailAddress;
     this.packageobject.username = this.placeholder.username;
