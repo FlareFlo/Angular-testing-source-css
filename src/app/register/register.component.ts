@@ -47,23 +47,37 @@ export class RegisterComponent implements OnInit {
     this.cookieService.removeAll();
     const headerS = new HttpHeaders().set('Content-Type', 'application/json'); // define the sent content to being a Json object
     this.http.post<any>(this.ROOT_URL, this.packageobject, {headers: headerS}) // send the POST to create the user account
-      .subscribe(res => {
-        console.log('User successfully created under UID:' + res);
-        this.cookieService.put('uid', res); // store UID for later use
-        if (res !== '') { // verify if user creation was successful
-          const headerS1 = new HttpHeaders().set('Content-Type', 'application/json'); // define the sent content to being a Json object
-          // tslint:disable-next-line:max-line-length
-          this.http.post(this.URLgettoken, this.packageobject, {
-            headers: headerS1,
-            responseType: 'text'
-          }) // send user data to generate token
-            .subscribe(
-              res1 => {
-                this.cookieService.put('token', res1);
-              }
-            );
-        }
+      .subscribe(() => {
+        this.gettoken();
       });
+  }
+
+  gettoken() {
+    const headerS1 = new HttpHeaders().set('Content-Type', 'application/json'); // define the sent content to being a Json object
+    // tslint:disable-next-line:max-line-length
+    this.http.post(this.URLgettoken, this.packageobject, {
+      headers: headerS1,
+      responseType: 'text'
+    }) // send user data to generate token
+      .subscribe(
+        res1 => {
+          this.cookieService.put('token', res1);
+          this.getUdata();
+        }
+      );
+  }
+
+  getUdata() {
+    // tslint:disable-next-line:prefer-const
+    let header1 = new HttpHeaders();
+    header1 = header1.append('Token', this.cookieService.get('token'));
+
+    this.http.get(this.ROOT_URL, {headers: header1})
+      .subscribe(
+        response => {
+          this.cookieService.putObject('Udata', response);
+        }
+      );
   }
 
   ngOnInit(): void {
