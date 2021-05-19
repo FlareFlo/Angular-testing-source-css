@@ -21,7 +21,6 @@ export class LoginComponent implements OnInit {
   };
 
   token!: string;
-  returnvalue: any;
   message = 'Welcome';
 
   // loginmessage = 'Login';
@@ -53,8 +52,7 @@ export class LoginComponent implements OnInit {
     this.http.get(this.ROOT_URL, {headers: header1})
       .subscribe(
         response => {
-          this.returnvalue = response;
-          this.cookieService.putObject('Udata', this.returnvalue);
+          this.cookieService.putObject('Udata', response);
         }
       );
   }
