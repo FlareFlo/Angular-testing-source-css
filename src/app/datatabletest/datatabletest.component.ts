@@ -39,12 +39,6 @@ export class DatatabletestComponent implements OnInit {
 		description: ''
 	};
 
-	entry = {
-		dueDate: 0,
-		title: '',
-		description: ''
-	};
-
 	entries = [
 		{
 			title: 'Entry1',
