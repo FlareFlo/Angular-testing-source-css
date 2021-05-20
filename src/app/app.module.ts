@@ -41,7 +41,8 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 		CookieModule.forRoot(),
 		AppRoutingModule,
 		HttpClientModule,
-		FormsModule
+		FormsModule,
+		DragDropModule
 	],
 	providers: [CookieService],
 	bootstrap: [AppComponent]

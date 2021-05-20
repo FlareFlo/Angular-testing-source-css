@@ -13,13 +13,6 @@ export class DatatabletestComponent implements OnInit {
 	constructor(private http: HttpClient, private cookieService: CookieService) {
 	}
 
-	rows = [
-		{ name: 'Austin', gender: 'Male', company: 'Swimlane' },
-		{ name: 'Dany', gender: 'Male', company: 'KFC' },
-		{ name: 'Molly', gender: 'Female', company: 'Burger King' }
-	];
-	columns = [{ prop: 'name' }, { name: 'Gender' }, { name: 'Company' }];
-
 	readonly ROOT_URL_USR_ENT = 'https://backend.yap.dragoncave.dev/user/entries';
 	readonly ROOT_URL_ENT = 'https://backend.yap.dragoncave.dev/entry';
 
@@ -34,6 +27,12 @@ export class DatatabletestComponent implements OnInit {
 			emailAddress: null
 		},
 		createDate: null,
+		dueDate: 0,
+		title: '',
+		description: ''
+	};
+
+	entry = {
 		dueDate: 0,
 		title: '',
 		description: ''
