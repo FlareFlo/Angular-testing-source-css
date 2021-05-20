@@ -26,15 +26,15 @@ export class DatatabletestComponent implements OnInit {
       emailAddress: null
     },
     createDate: null,
-    dueDate: 1912737086,
-    title: 'AMOGUS',
-    description: 'FACKCUMASDUBIASBHJDASBHDBASHJDBHJASBHJASDBHJASBIHJDASBHJDBHJASBHJKDASBHJDHJVBASVBHJDAS'
+    dueDate: 0,
+    title: '',
+    description: ''
   };
 
   entry = {
-    dueDate: 1624128375,
-    title: 'Amogus',
-    description: 'FACKCUMASDUBIASBHJDASBHDBASHJDBHJASBHJASDBHJASBIHJDASBHJDBHJASBHJKDASBHJDHJVBASVBHJDAS'
+    dueDate: 0,
+    title: '',
+    description: ''
   };
 
   getExistingEntries() {
