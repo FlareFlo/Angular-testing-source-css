@@ -22,6 +22,7 @@ export class RegisterComponent implements OnInit {
 	};
 
 	token!: string;
+	message!: string;
 
 	doPost(username: string, email: string, password: string, password2: string) {
 		this.packageobject.username = username;
@@ -44,10 +45,10 @@ export class RegisterComponent implements OnInit {
 	}
 
 	post() {
-		this.cookieService.removeAll();
 		const headerS = new HttpHeaders().set('Content-Type', 'application/json'); // define the sent content to being a Json object
 		this.http.post<any>(this.ROOT_URL_USR, this.packageobject, {headers: headerS}) // send the POST to create the user account
 			.subscribe(() => {
+					this.cookieService.removeAll();
 					this.gettoken();
 				},
 				(error) => {
@@ -90,7 +91,16 @@ export class RegisterComponent implements OnInit {
 			);
 	}
 
+	welcombeback() {
+		if (this.cookieService.getObject('Udata') === undefined) {
+			this.message = 'Register';
+		} else {
+			this.message = 'Register another account';
+		}
+	}
+
 	ngOnInit(): void {
+		this.welcombeback();
 	}
 
 }

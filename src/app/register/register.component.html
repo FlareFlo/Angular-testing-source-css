@@ -5,11 +5,11 @@
 		<form class="loginform">
 			<input #username placeholder="Username" required type="text">
 			<input #email pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="Email" required type="email"/>
-			<input #password placeholder="Password" required type="password">
+			<input #password placeholder="Password (>= 10 characters)" required type="password">
 			<input #password2 type="password" placeholder="Confirm password" required>
 			<button type="submit" value="submit" id="login-button"
-					(click)="doPost(username.value, email.value, password.value, password2.value)">Register
-			</button>
+					(click)="doPost(username.value, email.value, password.value, password2.value)"
+					(keyup.enter)="doPost(username.value, email.value, password.value, password2.value)">{{message}}</button>
 			<a class="register" routerLink="/login">Login</a>
 		</form>
 	</div>
