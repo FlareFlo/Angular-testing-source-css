@@ -57,7 +57,7 @@ export class DatatabletestComponent implements OnInit {
 	}
 
 	testsort() {
-		this.entries.sort((a, b) => (a.entryID > b.entryID) ? 1 : -1);
+		this.entries.sort((a, b) => (a.description > b.description) ? 1 : -1);
 	}
 
 	getEntryByID(i: number) {
@@ -71,7 +71,7 @@ export class DatatabletestComponent implements OnInit {
 			.subscribe(
 				response => {
 					this.placeholder = response;
-					this.entries[id] = {
+					this.entries[id - 2] = {
 						entryID: this.placeholder.entryID,
 						createDate: this.placeholder.createDate,
 						dueDate: this.placeholder.dueDate,
@@ -94,7 +94,6 @@ export class DatatabletestComponent implements OnInit {
 				response => {
 					// @ts-ignore
 					this.availableEntries = response;
-					console.log(this.availableEntries);
 					this.getAllEntries();
 				},
 				(error) => {
@@ -125,7 +124,6 @@ export class DatatabletestComponent implements OnInit {
 
 	ngOnInit(): void {
 		this.getExistingEntries();
-
 	}
 
 }
