@@ -1,15 +1,11 @@
 <div class="wrapper-new">
   <div class="container-new">
     <h1>{{message}}</h1>
-    <!-- <h1>{{message}}</h1> -->
-    <!-- ^ NEEDS FIXING, DOESNT WORK!-->
 
     <form class="loginform">
       <input #email pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="Email" type="email">
       <input #password placeholder="Password" type="password">
-      <button type="submit" id="login-button" (click)="doPost(email.value, password.value)">Login</button>
-      <!-- <button type="submit" id="login-button" (click)="doPost()">{{loginmessage}}</button> -->
-      <!-- ^ NEEDS FIXING, DOESNT WORK!-->
+      <button type="submit" id="login-button" (click)="doPost(email.value, password.value)">{{loginmessage}}</button>
       <a class="register" routerLink="/register">Register</a>
     </form>
   </div>

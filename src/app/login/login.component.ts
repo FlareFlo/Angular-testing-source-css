@@ -22,13 +22,13 @@ export class LoginComponent implements OnInit {
 
   token!: string;
   message = 'Welcome';
-
-  // loginmessage = 'Login';
+  loginmessage = 'Login';
 
 
   doPost(email: string, password: string) {
     this.packageobject.emailAddress = email;
     this.packageobject.password = password;
+
     if (this.packageobject.emailAddress !== '' && this.packageobject.password !== '') {
       const header0 = new HttpHeaders().set('Content-Type', 'application/json'); // define sent data to be JSON object
       this.http.post(this.ROOT_URL_TKN, this.packageobject, {headers: header0, responseType: 'text'}) // getting login token
@@ -67,27 +67,24 @@ export class LoginComponent implements OnInit {
 
 
   welcomebackmessage() {
-    if (this.cookieService.getObject('Udata') !== null) {
+    if (this.cookieService.getObject('Udata') !== undefined) {
       let tempmsg: any;
       tempmsg = this.cookieService.getObject('Udata');
       this.message = 'Welcome back ' + tempmsg.username;
     }
   }
 
-  /*
   logoutkey() {
-    if (this.cookieService.getObject('Udata') !== null) {
+    if (this.cookieService.getObject('Udata') !== undefined) {
       this.loginmessage = 'Logout and Change user';
     }
   }
-  */
 
   ngOnInit(): void {
 
-    // this.welcomebackmessage();
-    // NEEDS FIXING, DOESNT WORK! (default values for variables not registered)
+    this.welcomebackmessage();
 
-    // this.logoutkey();
+    this.logoutkey();
 
   }
 
