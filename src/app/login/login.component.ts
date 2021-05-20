@@ -56,6 +56,7 @@ export class LoginComponent implements OnInit {
       .subscribe(
         response => {
           this.cookieService.putObject('Udata', response);
+          window.location.href = '/profile';
         },
         (error) => {
           console.error(error);
