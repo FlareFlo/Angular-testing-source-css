@@ -42,8 +42,6 @@ export class LoginComponent implements OnInit {
             console.error(error);
           }
         );
-
-
     } else {
       console.error('One or more input fields were left empty');
     }
@@ -65,27 +63,20 @@ export class LoginComponent implements OnInit {
       );
   }
 
-
   welcomebackmessage() {
     if (this.cookieService.getObject('Udata') !== undefined) {
       let tempmsg: any;
       tempmsg = this.cookieService.getObject('Udata');
       this.message = 'Welcome back ' + tempmsg.username;
     }
-  }
-
-  logoutkey() {
     if (this.cookieService.getObject('Udata') !== undefined) {
       this.loginmessage = 'Logout and Change user';
     }
   }
 
+
   ngOnInit(): void {
-
     this.welcomebackmessage();
-
-    this.logoutkey();
-
   }
 
 }
