@@ -14,7 +14,7 @@ export class DatatabletestComponent implements OnInit {
 	}
 
 	readonly ROOT_URL_USR_ENT = 'https://backend.yap.dragoncave.dev/user/entries';
-	readonly ROOT_URL_ENT = 'https://backend.yap.dragoncave.dev/entry';
+	readonly ROOT_URL_ENT = 'https://backend.yap.dragoncave.dev/entry/';
 
 
 	example = {
@@ -38,18 +38,16 @@ export class DatatabletestComponent implements OnInit {
 		description: ''
 	};
 
+	placeholder: any;
+	availableEntries!: [];
+
 	entries = [
 		{
-			title: 'Entry1',
-			description: 'sus3'
-		},
-		{
-			title: 'Entry2',
-			description: 'sus2'
-		},
-		{
-			title: 'Entry3',
-			description: 'sus1'
+			entryID: 0,
+			createDate: 0,
+			dueDate: 0,
+			title: 'placeholder',
+			description: 'placeholder'
 		}
 	];
 
@@ -59,7 +57,32 @@ export class DatatabletestComponent implements OnInit {
 	}
 
 	testsort() {
-		this.entries.sort((a, b) => (a.description > b.description) ? 1 : -1);
+		this.entries.sort((a, b) => (a.entryID > b.entryID) ? 1 : -1);
+	}
+
+	getEntryByID(i: number) {
+		// tslint:disable-next-line:no-shadowed-variable
+		const id = this.availableEntries[i];
+
+		let header0 = new HttpHeaders();
+		header0 = header0.append('Token', this.cookieService.get('token'));
+
+		this.http.get(this.ROOT_URL_ENT + id, {headers: header0})
+			.subscribe(
+				response => {
+					this.placeholder = response;
+					this.entries[id] = {
+						entryID: this.placeholder.entryID,
+						createDate: this.placeholder.createDate,
+						dueDate: this.placeholder.dueDate,
+						title: this.placeholder.title,
+						description: this.placeholder.description
+					};
+				},
+				(error) => {
+					console.error(error);
+				}
+			);
 	}
 
 	getExistingEntries() {
@@ -69,12 +92,22 @@ export class DatatabletestComponent implements OnInit {
 		this.http.get(this.ROOT_URL_USR_ENT, {headers: header1})
 			.subscribe(
 				response => {
-					console.log(response);
+					// @ts-ignore
+					this.availableEntries = response;
+					console.log(this.availableEntries);
+					this.getAllEntries();
 				},
 				(error) => {
 					console.error(error);
 				}
 			);
+	}
+
+	getAllEntries() {
+		for (let i = 0; i < this.availableEntries.length; i++) {
+			this.getEntryByID(i);
+		}
+		console.log(this.entries);
 	}
 
 	postEntry() {
@@ -91,6 +124,8 @@ export class DatatabletestComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
+		this.getExistingEntries();
+
 	}
 
 }

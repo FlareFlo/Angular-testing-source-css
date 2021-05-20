@@ -1,10 +1,10 @@
-<div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
-	<div class="example-box" *ngFor="let entries of entries" cdkDrag>
-		{{entries | json}}
-		<div class="container" *cdkDragPreview>{{entries.description}}</div>
+<div class="example-container">
+	<div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
+		<div class="example-box" *ngFor="let entries of entries" cdkDrag>
+			{{entries | json}}
+		</div>
+	</div>
+	<div class="container">
+		<button (click)="testsort()"></button>
 	</div>
 </div>
-<div class="container">
-	<button (click)="testsort()"></button>
-</div>
-
