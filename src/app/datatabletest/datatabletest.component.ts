@@ -37,30 +37,29 @@ export class DatatabletestComponent implements OnInit {
 		title: '',
 		description: ''
 	};
-	todo = [
-		'Get to work',
-		'Pick up groceries',
-		'Go home',
-		'Fall asleep'
-	];
 
-	done = [
-		'Get up',
-		'Brush teeth',
-		'Take a shower',
-		'Check e-mail',
-		'Walk dog'
-	];
-
-	drop(event: CdkDragDrop<string[]>) {
-		if (event.previousContainer === event.container) {
-			moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
-		} else {
-			transferArrayItem(event.previousContainer.data,
-				event.container.data,
-				event.previousIndex,
-				event.currentIndex);
+	entries = [
+		{
+			title: 'Entry1',
+			description: 'sus3'
+		},
+		{
+			title: 'Entry2',
+			description: 'sus2'
+		},
+		{
+			title: 'Entry3',
+			description: 'sus1'
 		}
+	];
+
+	// tslint:enable:max-line-length
+	drop(event: CdkDragDrop<{ title: string, description: string }[]>) {
+		moveItemInArray(this.entries, event.previousIndex, event.currentIndex);
+	}
+
+	testsort() {
+		this.entries.sort((a, b) => (a.description > b.description) ? 1 : -1);
 	}
 
 	getExistingEntries() {
@@ -92,7 +91,6 @@ export class DatatabletestComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
-		this.getExistingEntries();
 	}
 
 }
