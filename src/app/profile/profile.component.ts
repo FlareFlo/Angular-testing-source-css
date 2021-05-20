@@ -134,7 +134,6 @@ export class ProfileComponent implements OnInit {
 			let header2 = new HttpHeaders();
 			header2 = header2.append('Token', this.cookieService.get('token'));
 			console.log(this.packageobject);
-			console.log(header2);
 
 			// @ts-ignore
 			this.http.delete(this.ROOT_URL_USR, this.packageobject, {headers: header2})
