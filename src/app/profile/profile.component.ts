@@ -112,6 +112,7 @@ export class ProfileComponent implements OnInit {
     this.http.get(this.ROOT_URL_USR, {headers: header1})
       .subscribe(
         response => {
+          this.cookieService.remove('Udata');
           this.cookieService.putObject('Udata', response);
         },
         (error) => {
