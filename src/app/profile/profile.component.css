@@ -207,6 +207,7 @@ button {
 	cursor: pointer;
 	font-size: 18px;
 	transition-duration: 0.25s;
+	display: block;
 }
 
 .main__save-button {
