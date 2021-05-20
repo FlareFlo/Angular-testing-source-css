@@ -1,15 +1,18 @@
 <div class="parent">
-  <div class="div1"> </div>
-  <div class="div2">
+	<div class="div1"></div>
+	<div class="div2">
 
-    <form>
-      <h1>User creation</h1>
-      <input #username type="text" class="form-control" placeholder="Username" (keyup)="doUsername(username.value)" (keyup.enter)="doPOST()">
-      <input #email type="email" class="form-control" placeholder="Email" (keyup)="doEmail(email.value)" (keyup.enter)="doPOST()">
-      <input #password type="password" class="form-control" placeholder="Password" (keyup)="doPassword(password.value)" (keyup.enter)="doPOST()">
-      <button type="button" class="btn btn-primary" (click)="doPOST()">Post!</button>
-    </form>
+		<form>
+			<h1>User creation</h1>
+			<input #username type="text" class="form-control" placeholder="Username"
+				   (keyup)="doUsername(username.value)" (keyup.enter)="doPOST()">
+			<input #email type="email" class="form-control" placeholder="Email" (keyup)="doEmail(email.value)"
+				   (keyup.enter)="doPOST()">
+			<input #password type="password" class="form-control" placeholder="Password"
+				   (keyup)="doPassword(password.value)" (keyup.enter)="doPOST()">
+			<button type="button" class="btn btn-primary" (click)="doPOST()">Post!</button>
+		</form>
 
-  </div>
-  <div class="div3"> </div>
+	</div>
+	<div class="div3"></div>
 </div>

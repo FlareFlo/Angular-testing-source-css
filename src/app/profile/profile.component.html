@@ -1,80 +1,85 @@
 <div class='container'>
-  <!--
-  <div class='sidebar'>
-    <div class='sidebar__header'>
-      <img alt='' class='sidebar__avatar' src=''>
-      <p>Your Name</p>
-    </div>
-    <div class='sidebar__menu-item'>
-      <i class='fa fa-university'></i>
-      Option 1
-      <div class='sidebar__label'>
-        800
-      </div>
-    </div>
-    <div class='sidebar__menu-item'>
-      <i class='fa fa-bar-chart'></i>
-      Option 2
-    </div>
-    <div class='sidebar__menu-item sidebar__menu-item--active'>
-      <i class='fa fa-cog'></i>
-      My Profile
-    </div>
-    <div class='sidebar__menu-item'>
-      <i class='fa fa-suitcase'></i>
-      Option 3
-    </div>
-    <div class='sidebar__menu-item'>
-      <i class='fa fa-envelope-o'></i>
-      Help
-      <div class='sidebar__badge'>
-        3
-      </div>
-    </div>
-    <div class='sidebar__menu-item'>
-      <i class='fa fa-user-plus'></i>
-      Option 4
-    </div>
-  </div>
-  -->
-  <div class='main'>
-    <div class='main__header'>
-      <h2>My profile</h2>
-    </div>
-    <div class='main__content'>
-      <!--
-      <div class='main__avatar'>
-        <div class='main__avatar--overlay'>
-          Your profile picture
-        </div>
-      </div>
-      -->
-      <div class='main__settings-form'>
-        <div class='main__header'>
-          <h3>General Information</h3>
-        </div>
-        <form action='#' method='post'>
-          <label class='main__input-label'>Username:</label>
-          <input #username class='main__input' placeholder='{{this.packageobject.username}}' type='text'>
-          <label class='main__input-label'>Your e-mail:</label>
-          <input #email class='main__input' placeholder='{{this.packageobject.emailAddress}}'
-                 type='text'>
-          <button class='btn main__save-button' (click)="usrchange(username.value, email.value, oldPassword.value)" (keyup.enter)="usrchange(username.value, email.value, oldPassword.value)">Save</button>
+	<!--
+	<div class='sidebar'>
+	  <div class='sidebar__header'>
+		<img alt='' class='sidebar__avatar' src=''>
+		<p>Your Name</p>
+	  </div>
+	  <div class='sidebar__menu-item'>
+		<i class='fa fa-university'></i>
+		Option 1
+		<div class='sidebar__label'>
+		  800
+		</div>
+	  </div>
+	  <div class='sidebar__menu-item'>
+		<i class='fa fa-bar-chart'></i>
+		Option 2
+	  </div>
+	  <div class='sidebar__menu-item sidebar__menu-item--active'>
+		<i class='fa fa-cog'></i>
+		My Profile
+	  </div>
+	  <div class='sidebar__menu-item'>
+		<i class='fa fa-suitcase'></i>
+		Option 3
+	  </div>
+	  <div class='sidebar__menu-item'>
+		<i class='fa fa-envelope-o'></i>
+		Help
+		<div class='sidebar__badge'>
+		  3
+		</div>
+	  </div>
+	  <div class='sidebar__menu-item'>
+		<i class='fa fa-user-plus'></i>
+		Option 4
+	  </div>
+	</div>
+	-->
+	<div class='main'>
+		<div class='main__header'>
+			<h2>My profile</h2>
+		</div>
+		<div class='main__content'>
+			<!--
+			<div class='main__avatar'>
+			  <div class='main__avatar--overlay'>
+				Your profile picture
+			  </div>
+			</div>
+			-->
+			<div class='main__settings-form'>
+				<div class='main__header'>
+					<h3>General Information</h3>
+				</div>
+				<form action='#' method='post'>
+					<label class='main__input-label'>Username:</label>
+					<input #username class='main__input' placeholder='{{this.packageobject.username}}' type='text'>
+					<label class='main__input-label'>Your e-mail:</label>
+					<input #email class='main__input' placeholder='{{this.packageobject.emailAddress}}'
+						   type='text'>
+					<button class='btn main__save-button'
+							(click)="usrchange(username.value, email.value, oldPassword.value)"
+							(keyup.enter)="usrchange(username.value, email.value, oldPassword.value)">Save
+					</button>
 
-          <div class='main__header'>
-            <h3>Change Password</h3>
-          </div>
+					<div class='main__header'>
+						<h3>Change Password</h3>
+					</div>
 
-          <label class='main__input-label'>Password:</label>
-          <input #oldPassword class='main__input' placeholder='Old password' type='password'>
-          <input #newPassword class='main__input' placeholder='New password (only if you wish to change it)'
-                 type='password'>
+					<label class='main__input-label'>Password:</label>
+					<input #oldPassword class='main__input' placeholder='Old password' type='password'>
+					<input #newPassword class='main__input' placeholder='New password (only if you wish to change it)'
+						   type='password'>
 
-        </form>
-        <button class='btn main__save-button' (click)="pwdchange(oldPassword.value, newPassword.value)" (keyup.enter)="pwdchange(oldPassword.value, newPassword.value)">Save</button>
+				</form>
+				<button class='btn main__save-button' (click)="pwdchange(oldPassword.value, newPassword.value)"
+						(keyup.enter)="pwdchange(oldPassword.value, newPassword.value)">Save
+				</button>
 
-      </div>
-    </div>
-  </div>
+			</div>
+		</div>
+	</div>
 </div>
 

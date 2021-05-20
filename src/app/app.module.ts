@@ -16,34 +16,34 @@ import {TokentesterComponent} from './tokentester/tokentester.component';
 import {LoginComponent} from './login/login.component';
 import {ProfileComponent} from './profile/profile.component';
 import {CookieModule, CookieService} from 'ngx-cookie';
-import { RegisterComponent } from './register/register.component';
-import { DatatabletestComponent } from './datatabletest/datatabletest.component';
+import {RegisterComponent} from './register/register.component';
+import {DatatabletestComponent} from './datatabletest/datatabletest.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-    FooterComponent,
-    InfoComponent,
-    HomeComponent,
-    PosterComponent,
-    RollerComponent,
-    UsermanagementComponent,
-    TokentesterComponent,
-    LoginComponent,
-    ProfileComponent,
-    RegisterComponent,
-    DatatabletestComponent
-  ],
-  imports: [
-    BrowserModule,
-    CookieModule.forRoot(),
-    AppRoutingModule,
-    HttpClientModule,
-    FormsModule
-  ],
-  providers: [CookieService],
-  bootstrap: [AppComponent]
+	declarations: [
+		AppComponent,
+		HeaderComponent,
+		FooterComponent,
+		InfoComponent,
+		HomeComponent,
+		PosterComponent,
+		RollerComponent,
+		UsermanagementComponent,
+		TokentesterComponent,
+		LoginComponent,
+		ProfileComponent,
+		RegisterComponent,
+		DatatabletestComponent
+	],
+	imports: [
+		BrowserModule,
+		CookieModule.forRoot(),
+		AppRoutingModule,
+		HttpClientModule,
+		FormsModule
+	],
+	providers: [CookieService],
+	bootstrap: [AppComponent]
 })
 export class AppModule {
 }
