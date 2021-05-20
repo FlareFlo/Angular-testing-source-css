@@ -37,7 +37,7 @@ export class ProfileComponent implements OnInit {
     ) {
       if (this.packageobject.newPassword.length <= 10) {
         this.cookieService.removeAll();
-        this.put();
+        this.putPwd();
       } else {
         console.error('Password too short, 10 characters minimum!');
       }
@@ -46,7 +46,7 @@ export class ProfileComponent implements OnInit {
     }
   }
 
-  put() {
+  putPwd() {
     // this.token = this.cookieService.get('token');
     const headerS = new HttpHeaders().set('Content-Type', 'application/json');
     // headerS = headerS.append('Token', this.token);
@@ -61,8 +61,20 @@ export class ProfileComponent implements OnInit {
   }
 
   usrchange(username: string, email: string, password: string) {
-    this.packageobject.username = username;
-    this.packageobject.emailAddress = email;
+    if (username === '') {
+      let holder: any;
+      holder = this.cookieService.getObject('Udata');
+      this.packageobject.username = holder.username;
+    } else {
+      this.packageobject.username = username;
+    }
+    if (email === '') {
+      let holder: any;
+      holder = this.cookieService.getObject('Udata');
+      this.packageobject.emailAddress = holder.emailAddress;
+    } else {
+      this.packageobject.emailAddress = email;
+    }
     this.packageobject.oldPassword = password;
 
     if (
@@ -72,20 +84,24 @@ export class ProfileComponent implements OnInit {
       && this.packageobject.oldPassword !== null
       && this.packageobject.username !== null
     ) {
-      this.token = this.cookieService.get('token');
-      let headerS = new HttpHeaders().set('Content-Type', 'application/json');
-      headerS = headerS.append('Token', this.token);
-      this.http.put<any>(this.ROOT_URL_USR, this.packageobject, {headers: headerS})
-        .subscribe(() => {
-            this.getUdata();
-          },
-          (error) => {
-            console.error(error);
-          }
-        );
+      this.putUsr();
     } else {
       console.error('One or more input fields were left empty!');
     }
+  }
+
+  putUsr() {
+    this.token = this.cookieService.get('token');
+    let headerS = new HttpHeaders().set('Content-Type', 'application/json');
+    headerS = headerS.append('Token', this.token);
+    this.http.put<any>(this.ROOT_URL_USR, this.packageobject, {headers: headerS})
+      .subscribe(() => {
+          this.getUdata();
+        },
+        (error) => {
+          console.error(error);
+        }
+      );
   }
 
   getUdata() {
