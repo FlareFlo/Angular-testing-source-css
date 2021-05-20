@@ -127,14 +127,17 @@ export class ProfileComponent implements OnInit {
 		window.location.href = '/login';
 	}
 
-	deleteUser() {
+	deleteUser(oldPassword: string) {
 		const prompt = 'Enter your username to confirm deleting your account, This action is not reversible.';
 		if (window.prompt(prompt) === this.packageobject.username) {
+			this.packageobject.password = oldPassword;
 			let header2 = new HttpHeaders();
 			header2 = header2.append('Token', this.cookieService.get('token'));
+			console.log(this.packageobject);
+			console.log(header2);
 
 			// @ts-ignore
-			this.http.delete(this.ROOT_URL_USR, {headers: header2})
+			this.http.delete(this.ROOT_URL_USR, this.packageobject, {headers: header2})
 				.subscribe(
 					response => {
 						console.log(response);
