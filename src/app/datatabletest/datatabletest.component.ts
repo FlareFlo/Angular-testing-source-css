@@ -52,7 +52,7 @@ export class DatatabletestComponent implements OnInit {
       );
   }
 
-  postentry() {
+  postEntry() {
     let header2 = new HttpHeaders().set('Content-Type', 'application/json'); // define the sent content to being a Json object
     header2 = header2.append('Token', this.cookieService.get('token'));
     this.http.post<any>(this.ROOT_URL_ENT, this.entry, {headers: header2}) // send the POST to create the user account
