@@ -122,10 +122,6 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if (this.cookieService.getObject('Udata') == null) {
-      window.location.href = '/login';
-    }
-
     this.placeholder = this.cookieService.getObject('Udata');
     this.packageobject.emailAddress = this.placeholder.emailAddress;
     this.packageobject.username = this.placeholder.username;
