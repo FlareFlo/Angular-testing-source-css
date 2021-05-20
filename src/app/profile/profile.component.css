@@ -196,11 +196,9 @@ body {
 	}
 }
 
-
 button {
 	appearance: none;
 	outline: 0;
-	background-color: #49d496;
 	border: 0;
 	padding: 10px 15px;
 	color: #000000;
@@ -211,7 +209,20 @@ button {
 	transition-duration: 0.25s;
 }
 
-button:hover {
+.main__save-button {
+	background-color: #49d496;
+}
+
+.main__save-button:hover {
 	background-color: #3ce5ad;
+	width: 260px;
+}
+
+.main__logout-button {
+	background-color: #d44949;
+}
+
+.main__logout-button:hover {
+	background-color: #d44949;
 	width: 260px;
 }

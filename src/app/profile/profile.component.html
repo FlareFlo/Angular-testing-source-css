@@ -74,8 +74,13 @@
 						   type='password'>
 
 				</form>
-				<button class='btn main__save-button' (click)="pwdchange(oldPassword.value, newPassword.value)"
+				<button class='btn main__save-button' id="Save"
+						(click)="pwdchange(oldPassword.value, newPassword.value)"
 						(keyup.enter)="pwdchange(oldPassword.value, newPassword.value)">Save
+				</button>
+				<button class='btn main__logout-button' (click)="logout()">Logout
+				</button>
+				<button class='btn main__logout-button' (click)="deleteUser()">Delete account
 				</button>
 
 			</div>

@@ -23,7 +23,8 @@ export class ProfileComponent implements OnInit {
 		username: '',
 		emailAddress: '',
 		newPassword: '',
-		oldPassword: ''
+		oldPassword: '',
+		password: ''
 	};
 
 	pwdchange(oldpassword: string, newpassword: string) {
@@ -119,6 +120,32 @@ export class ProfileComponent implements OnInit {
 					console.error(error);
 				}
 			);
+	}
+
+	logout() {
+		this.cookieService.removeAll();
+		window.location.href = '/login';
+	}
+
+	deleteUser() {
+		const prompt = 'Enter your username to confirm deleting your account, This action is not reversible.';
+		if (window.prompt(prompt) === this.packageobject.username) {
+			let header2 = new HttpHeaders();
+			header2 = header2.append('Token', this.cookieService.get('token'));
+
+			// @ts-ignore
+			this.http.delete(this.ROOT_URL_USR, {headers: header2})
+				.subscribe(
+					response => {
+						console.log(response);
+						this.cookieService.removeAll();
+						window.location.href = '/login';
+					},
+					(error) => {
+						console.error(error);
+					}
+				);
+		}
 	}
 
 	ngOnInit(): void {
