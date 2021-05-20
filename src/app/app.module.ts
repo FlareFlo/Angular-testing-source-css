@@ -18,6 +18,7 @@ import {ProfileComponent} from './profile/profile.component';
 import {CookieModule, CookieService} from 'ngx-cookie';
 import {RegisterComponent} from './register/register.component';
 import {DatatabletestComponent} from './datatabletest/datatabletest.component';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 @NgModule({
 	declarations: [
@@ -40,7 +41,8 @@ import {DatatabletestComponent} from './datatabletest/datatabletest.component';
 		CookieModule.forRoot(),
 		AppRoutingModule,
 		HttpClientModule,
-		FormsModule
+		FormsModule,
+		DragDropModule
 	],
 	providers: [CookieService],
 	bootstrap: [AppComponent]
