@@ -127,6 +127,7 @@ export class ProfileComponent implements OnInit {
 		window.location.href = '/login';
 	}
 
+	/*
 	deleteUser(oldPassword: string) {
 		const prompt = 'Enter your username to confirm deleting your account, This action is not reversible.';
 		if (window.prompt(prompt) === this.packageobject.username) {
@@ -135,7 +136,6 @@ export class ProfileComponent implements OnInit {
 			header2 = header2.append('Token', this.cookieService.get('token'));
 			console.log(this.packageobject);
 
-			// @ts-ignore
 			this.http.delete(this.ROOT_URL_USR, this.packageobject, {headers: header2})
 				.subscribe(
 					response => {
@@ -147,8 +147,10 @@ export class ProfileComponent implements OnInit {
 						console.error(error);
 					}
 				);
+
 		}
 	}
+	*/
 
 	ngOnInit(): void {
 		this.placeholder = this.cookieService.getObject('Udata');
