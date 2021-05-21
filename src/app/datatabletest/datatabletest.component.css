@@ -9,7 +9,7 @@
 	visibility: initial;
 }
 
-#input1 {
+.form-control {
 	margin-bottom: 2vh;
 }
 
