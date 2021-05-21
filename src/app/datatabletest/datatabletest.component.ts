@@ -14,24 +14,10 @@ export class DatatabletestComponent implements OnInit {
 	constructor(private http: HttpClient, private cookieService: CookieService, public dialog: MatDialog) {
 	}
 
-	readonly ROOT_URL_BRD_8_ENT = 'https://backend.yap.dragoncave.dev/boards/8/entries';
-	readonly ROOT_URL_ENT = 'https://backend.yap.dragoncave.dev/entry/';
+	readonly ROOT_URL_BRD_8_ENTS = 'https://backend.yap.dragoncave.dev/boards/8/entries';
+	readonly ROOT_URL_ENT = 'https://backend.yap.dragoncave.dev/entry';
+	readonly ROOT_URL_BRD_8_ENT = 'https://backend.yap.dragoncave.dev/boards/8/entry/';
 
-
-	example = {
-		entryID: null,
-		creator: {
-			userid: null,
-			username: null,
-			createDate: null,
-			lastLogin: null,
-			emailAddress: null
-		},
-		createDate: null,
-		dueDate: 0,
-		title: '',
-		description: ''
-	};
 
 	entry = {
 		dueDate: 0,
@@ -55,7 +41,8 @@ export class DatatabletestComponent implements OnInit {
 	dragging!: boolean;
 	runonce = true;
 	clickID: any = 0;
-	showEdit: any = true;
+	showEdit: any = false;
+	showCreate: any = false;
 
 	// tslint:enable:max-line-length
 	drop(event: CdkDragDrop<{ title: string, description: string }[]>) {
@@ -79,6 +66,9 @@ export class DatatabletestComponent implements OnInit {
 		this.entries.sort((a, b) => (a.entryID > b.entryID) ? 1 : -1);
 	}
 
+	toggleCreate() {
+		this.showCreate = !this.showCreate;
+	}
 
 	getEntryByID(i: number) {
 		// tslint:disable-next-line:no-shadowed-variable
@@ -88,7 +78,7 @@ export class DatatabletestComponent implements OnInit {
 		let header0 = new HttpHeaders();
 		header0 = header0.append('Token', this.cookieService.get('token'));
 
-		this.http.get(this.ROOT_URL_ENT + id, {headers: header0})
+		this.http.get(this.ROOT_URL_ENT + '/' + id, {headers: header0})
 			.subscribe(
 				response => {
 					let pos: number;
@@ -119,7 +109,7 @@ export class DatatabletestComponent implements OnInit {
 		let header1 = new HttpHeaders();
 		header1 = header1.append('Token', this.cookieService.get('token'));
 
-		this.http.get(this.ROOT_URL_BRD_8_ENT, {headers: header1})
+		this.http.get(this.ROOT_URL_BRD_8_ENTS, {headers: header1})
 			.subscribe(
 				response => {
 					// @ts-ignore
@@ -142,8 +132,13 @@ export class DatatabletestComponent implements OnInit {
 		let header2 = new HttpHeaders().set('Content-Type', 'application/json'); // define the sent content to being a Json object
 		header2 = header2.append('Token', this.cookieService.get('token'));
 
-		this.entries[this.clickID].title = title;
-		this.entries[this.clickID].description = description;
+		if (title !== '') {
+			this.entries[this.clickID].title = title;
+		}
+		if (description !== '') {
+			this.entries[this.clickID].description = description;
+		}
+
 		this.http.put<any>(this.ROOT_URL_ENT, this.entries[this.clickID], {headers: header2}) // send the POST to create the user account
 			.subscribe(
 				(res) => {
@@ -154,6 +149,26 @@ export class DatatabletestComponent implements OnInit {
 					console.error(error);
 				});
 	}
+
+	postEntry(title: string, description: string, dueDate: string) {
+		let header2 = new HttpHeaders().set('Content-Type', 'application/json'); // define the sent content to being a Json object
+		header2 = header2.append('Token', this.cookieService.get('token'));
+
+		this.entry.title = title;
+		this.entry.description = description;
+		dueDate = dueDate.substr(3, 2) + '/' + dueDate.substr(0, 2) + '/' + dueDate.substr(6, 4);
+		this.entry.dueDate = new Date(dueDate).getTime() / 1000;
+		this.http.post<any>(this.ROOT_URL_BRD_8_ENT, this.entry, {headers: header2}) // send the POST to create the user account
+			.subscribe(
+				(res) => {
+					console.log(res);
+					this.showCreate = false;
+				},
+				(error) => {
+					console.error(error);
+				});
+	}
+
 
 	handleClick($event: MouseEvent) {
 		// @ts-ignore
@@ -175,7 +190,6 @@ export class DatatabletestComponent implements OnInit {
 
 	ngOnInit(): void {
 		this.getExistingEntries();
-		this.showEdit = false;
 	}
 
 }

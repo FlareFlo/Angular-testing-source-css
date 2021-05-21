@@ -19,25 +19,33 @@ label {
 }
 
 input {
-	background-color: #5a6273;
 	border-radius: 4px;
 	border-color: black;
 	width: 25vw;
 }
 
-input:hover {
+input[data-custom-input="create"]::placeholder{
+	color: #b1b1b1;
+}
+
+input[data-custom-input="update"]::placeholder{
+	color: white;
+}
+
+.form-control {
+	background-color: #5a6273;
+}
+
+.form-control:hover {
 	color: white;
 	background-color: #282C34;
 }
 
-input:focus {
+.form-control:focus {
 	color: white;
 	background-color: #282C34;
 }
 
-::placeholder {
-	color: #FFFFFF;
-}
 
 .button__sort {
 	background-color: #53e3a6 !important; /* Green */
@@ -87,6 +95,19 @@ input:focus {
 	width: 5em;
 	font-size: 1rem;
 	border-radius: 4px;
+}
+
+.button__close {
+	background-color: #e35353 !important;
+	border: none;
+	color: black;
+	text-align: center;
+	text-decoration: none;
+	display: inline;
+	width: 5em;
+	font-size: 1rem;
+	border-radius: 4px;
+	margin-left: 1vw;
 }
 
 .example-container {
