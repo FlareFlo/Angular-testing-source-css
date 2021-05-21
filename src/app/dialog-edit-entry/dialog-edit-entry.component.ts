@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {DatatabletestComponent} from '../datatabletest/datatabletest.component';
 
 @Component({
 	selector: 'app-dialog-edit-entry',
@@ -7,8 +8,10 @@ import {Component, OnInit} from '@angular/core';
 })
 export class DialogEditEntryComponent implements OnInit {
 
-	constructor() {
+	constructor(public datatabletestComponent: DatatabletestComponent) {
 	}
+
+
 
 	ngOnInit(): void {
 	}

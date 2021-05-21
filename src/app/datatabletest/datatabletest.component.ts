@@ -1,10 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {CookieService} from 'ngx-cookie';
-import {CdkDragDrop, CdkDragStart, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
+import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 import {MatDialog} from '@angular/material/dialog';
 import {DialogEditEntryComponent} from '../dialog-edit-entry/dialog-edit-entry.component';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @Component({
 	selector: 'app-datatabletest',
@@ -56,6 +55,7 @@ export class DatatabletestComponent implements OnInit {
 
 	dragging!: boolean;
 	runonce = true;
+	clickID = 'Cheese';
 
 	// tslint:enable:max-line-length
 	drop(event: CdkDragDrop<{ title: string, description: string }[]>) {
@@ -150,22 +150,21 @@ export class DatatabletestComponent implements OnInit {
 				});
 	}
 
-	handleDragStart(event: CdkDragStart) {
-		this.dragging = true;
-	}
-
 	handleClick($event: MouseEvent) {
 		// @ts-ignore
-		console.log($event.target.id);
+		this.clickID = $event.target.id;
+		console.log(this.clickID);
 		if (this.dragging) {
 			this.dragging = false;
 			return;
 		}
+		this.openDialog();
 	}
 
-	openDialog() {
+	openDialog(): void {
 		this.dialog.open(DialogEditEntryComponent);
 	}
+
 
 	ngOnInit(): void {
 		this.getExistingEntries();

@@ -51,7 +51,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 		MatDialogModule,
 		BrowserAnimationsModule
 	],
-	providers: [CookieService],
+	providers: [CookieService, DatatabletestComponent],
 	bootstrap: [AppComponent]
 })
 export class AppModule {
