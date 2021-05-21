@@ -89,7 +89,7 @@ export class DatatabletestComponent implements OnInit {
 				response => {
 					let pos: number;
 
-					if (this.runonce == true) {
+					if (this.runonce) {
 						pos = 0;
 						this.runonce = false;
 					} else {
