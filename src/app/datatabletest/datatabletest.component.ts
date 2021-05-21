@@ -13,7 +13,7 @@ export class DatatabletestComponent implements OnInit {
 	constructor(private http: HttpClient, private cookieService: CookieService) {
 	}
 
-	readonly ROOT_URL_USR_ENT = 'https://backend.yap.dragoncave.dev/user/entries';
+	readonly ROOT_URL_BRD_8_ENT = 'https://backend.yap.dragoncave.dev/boards/8/entries';
 	readonly ROOT_URL_ENT = 'https://backend.yap.dragoncave.dev/entry/';
 
 
@@ -46,12 +46,13 @@ export class DatatabletestComponent implements OnInit {
 			entryID: 0,
 			createDate: 0,
 			dueDate: 0,
-			title: 'placeholder',
-			description: 'placeholder'
+			title: 'No Entries found!',
+			description: 'Either the server is offline, or you cant see any entries yet.'
 		}
 	];
 
 	dragging!: boolean;
+	runonce = true;
 
 	// tslint:enable:max-line-length
 	drop(event: CdkDragDrop<{ title: string, description: string }[]>) {
@@ -79,14 +80,24 @@ export class DatatabletestComponent implements OnInit {
 		// tslint:disable-next-line:no-shadowed-variable
 		const id = this.availableEntries[i];
 
+
 		let header0 = new HttpHeaders();
 		header0 = header0.append('Token', this.cookieService.get('token'));
 
 		this.http.get(this.ROOT_URL_ENT + id, {headers: header0})
 			.subscribe(
 				response => {
+					let pos: number;
+
+					if (this.runonce == true) {
+						pos = 0;
+						this.runonce = false;
+					} else {
+						pos = this.entries.length;
+					}
+
 					this.placeholder = response;
-					this.entries[id - 2] = {
+					this.entries[pos] = {
 						entryID: this.placeholder.entryID,
 						createDate: this.placeholder.createDate,
 						dueDate: this.placeholder.dueDate,
@@ -104,7 +115,7 @@ export class DatatabletestComponent implements OnInit {
 		let header1 = new HttpHeaders();
 		header1 = header1.append('Token', this.cookieService.get('token'));
 
-		this.http.get(this.ROOT_URL_USR_ENT, {headers: header1})
+		this.http.get(this.ROOT_URL_BRD_8_ENT, {headers: header1})
 			.subscribe(
 				response => {
 					// @ts-ignore
@@ -121,7 +132,6 @@ export class DatatabletestComponent implements OnInit {
 		for (let i = 0; i < this.availableEntries.length; i++) {
 			this.getEntryByID(i);
 		}
-		console.log(this.entries);
 	}
 
 	postEntry() {
@@ -137,11 +147,11 @@ export class DatatabletestComponent implements OnInit {
 				});
 	}
 
-	handleDragStart(event: CdkDragStart): void {
+	handleDragStart(event: CdkDragStart) {
 		this.dragging = true;
 	}
 
-	handleClick(event: MouseEvent): void {
+	handleClick(event: MouseEvent) {
 		if (this.dragging) {
 			this.dragging = false;
 			return;
