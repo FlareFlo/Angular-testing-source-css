@@ -151,7 +151,9 @@ export class DatatabletestComponent implements OnInit {
 		this.dragging = true;
 	}
 
-	handleClick(event: MouseEvent) {
+	handleClick($event: MouseEvent) {
+		// @ts-ignore
+		console.log($event.target.id);
 		if (this.dragging) {
 			this.dragging = false;
 			return;

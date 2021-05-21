@@ -30,6 +30,18 @@
 	font-size: 0.85rem;
 }
 
+.button__editEntry {
+	background-color: #53e3a6 !important;
+	border: none;
+	color: black;
+	text-align: center;
+	text-decoration: none;
+	display: inline;
+	width: 5em;
+	font-size: 1rem;
+	border-radius: 4px;
+}
+
 .example-container {
 	width: 20vw;
 	display: inline-block;
