@@ -75,7 +75,7 @@ export class DatatabletestComponent implements OnInit {
 	}
 
 	closeEdit() {
-		this.showEdit = false;
+			this.showEdit = false;
 	}
 
 	closeCreate() {
