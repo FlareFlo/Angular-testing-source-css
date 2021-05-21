@@ -151,14 +151,17 @@ export class DatatabletestComponent implements OnInit {
 
 	handleClick($event: MouseEvent) {
 		// @ts-ignore
-		this.clickID = $event.target.id;
+		// tslint:disable-next-line:radix
+		const locale = $event.target.id;
+		// tslint:disable-next-line:triple-equals
+		this.clickID = (this.entries.findIndex(x => x.entryID == locale));
 		if (this.dragging) {
 			this.dragging = false;
 			return;
 		}
 	}
 
-	localizer(data: any){
+	localizer(data: any) {
 		return new Date(data).toLocaleDateString('de-DE');
 	}
 
