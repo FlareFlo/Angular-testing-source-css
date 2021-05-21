@@ -8,9 +8,9 @@
 	<div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
 		<div class="example-box" *ngFor="let entries of entries" cdkDrag>
 			{{entries.title}}
-			<button id="{{entries.entryID}}" class="button__editEntry" (click)="handleClick($event)">Edit</button>
+			<button id="{{entries.entryID}}" class="button__editEntry" (click)="handleClick($event); closeCreate()">Edit</button>
 		</div>
-		<button class="button__addEntry" (click)="toggleCreate()">Add new entry</button>
+		<button class="button__addEntry" (click)="toggleCreate(); closeEdit()">Add new entry</button>
 	</div>
 </div>
 <div class="md-form" *ngIf="showEdit">
@@ -22,7 +22,8 @@
 	<div>Entry ID: {{this.entries[this.clickID].entryID}}</div>
 	<div>Create date: {{localizer(this.entries[this.clickID].createDate)}}</div>
 	<div>Due date: {{localizer(this.entries[this.clickID].dueDate)}}</div>
-	<button class="button__submit" (click)="putEntry(title.value, description.value)">Update</button>
+	<button class="button__submit" (click)="putEntry(title.value, description.value)">Update/Close</button>
+	<button class="button__close">Delete entry</button>
 </div>
 <div class="md-form" *ngIf="showCreate">
 	<label>Title</label>

@@ -70,6 +70,18 @@ export class DatatabletestComponent implements OnInit {
 		this.showCreate = !this.showCreate;
 	}
 
+	toggleEdit() {
+		this.showCreate = !this.showCreate;
+	}
+
+	closeEdit() {
+		this.showEdit = false;
+	}
+
+	closeCreate() {
+		this.showCreate = false;
+	}
+
 	getEntryByID(i: number) {
 		// tslint:disable-next-line:no-shadowed-variable
 		const id = this.availableEntries[i];
