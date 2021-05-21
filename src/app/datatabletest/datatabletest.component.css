@@ -3,18 +3,45 @@
 	overflow: hidden;
 }
 
+.button__sort {
+	background-color: #53e3a6 !important; /* Green */
+	border: none;
+	color: black;
+	padding: 10px 10px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-grid;
+	width: 10vw;
+	font-size: calc(10px + (4px * 1rem));
+	border-radius: 4px;
+	margin-left: 1vw;
+	margin-bottom: 1.5rem;
+}
+
+.button__addEntry {
+	background-color: #53e3a6 !important;
+	border: none;
+	color: black;
+	padding: 10px;
+	text-align: center;
+	text-decoration: none;
+	display: inline;
+	width: 100%;
+	font-size: 0.85rem;
+}
+
 .example-container {
-	width: 400px;
-	max-width: 100%;
+	width: 20vw;
 	display: inline-block;
 	vertical-align: top;
-	margin: 0 0 0 6rem;
+	horiz-align: center;
+	margin: 1rem 0 0 30vw;
 }
 
 .example-list {
 	border: solid 1px #ccc;
 	min-height: 60px;
-	background: white;
+	background: #1c1c1c;
 	border-radius: 4px;
 	overflow: hidden;
 	display: block;
@@ -23,14 +50,14 @@
 .example-box {
 	padding: 20px 10px;
 	border-bottom: solid 1px #ccc;
-	color: rgba(0, 0, 0, 0.87);
+	color: #FFFFFF;
 	display: flex;
 	flex-direction: row;
 	align-items: center;
 	justify-content: space-between;
 	box-sizing: border-box;
 	cursor: move;
-	background: white;
+	background: #818181;
 	font-size: 14px;
 }
 
