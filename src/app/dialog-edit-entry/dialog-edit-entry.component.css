@@ -1,0 +1,24 @@
+* {
+	color: #FFFFFF;
+}
+
+.container {
+	padding: 24px;
+	border-radius: 4px;
+	box-sizing: border-box;
+	overflow: auto;
+}
+button {
+	background-color: #53e3a6 !important; /* Green */
+	border: none;
+	color: black;
+	padding: 10px 10px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-grid;
+	width: 10vw;
+	font-size: calc(10px + (4px * 1rem));
+	border-radius: 4px;
+	margin-left: 1vw;
+	margin-bottom: 1.5rem;
+}
