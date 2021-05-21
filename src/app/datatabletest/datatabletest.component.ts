@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {CookieService} from 'ngx-cookie';
-import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
+import {CdkDragDrop, CdkDragStart, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
 
 @Component({
 	selector: 'app-datatabletest',
@@ -51,14 +51,29 @@ export class DatatabletestComponent implements OnInit {
 		}
 	];
 
+	dragging!: boolean;
+
 	// tslint:enable:max-line-length
 	drop(event: CdkDragDrop<{ title: string, description: string }[]>) {
 		moveItemInArray(this.entries, event.previousIndex, event.currentIndex);
 	}
 
-	testsort() {
+	sortByDueDate() {
+		this.entries.sort((a, b) => (a.dueDate > b.dueDate) ? 1 : -1);
+	}
+
+	sortByTitle() {
+		this.entries.sort((a, b) => (a.title > b.title) ? 1 : -1);
+	}
+
+	sortByDescription() {
 		this.entries.sort((a, b) => (a.description > b.description) ? 1 : -1);
 	}
+
+	sortByID() {
+		this.entries.sort((a, b) => (a.entryID > b.entryID) ? 1 : -1);
+	}
+
 
 	getEntryByID(i: number) {
 		// tslint:disable-next-line:no-shadowed-variable
@@ -120,6 +135,18 @@ export class DatatabletestComponent implements OnInit {
 				(error) => {
 					console.error(error);
 				});
+	}
+
+	handleDragStart(event: CdkDragStart): void {
+		this.dragging = true;
+	}
+
+	handleClick(event: MouseEvent): void {
+		if (this.dragging) {
+			this.dragging = false;
+			return;
+		}
+		alert('Clicked object!');
 	}
 
 	ngOnInit(): void {

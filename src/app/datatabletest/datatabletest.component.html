@@ -1,10 +1,14 @@
+<div class="container">
+	<button class="button__sort" (click)="sortByDueDate()">Sort by Due date</button>
+	<button class="button__sort" (click)="sortByTitle()">Sort by title</button>
+	<button class="button__sort" (click)="sortByDescription()">Sort by description</button>
+	<button class="button__sort" (click)="sortByID()">Sort by ID</button>
+</div>
 <div class="example-container">
 	<div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
-		<div class="example-box" *ngFor="let entries of entries" cdkDrag>
-			{{entries | json}}
+		<div class="example-box" *ngFor="let entries of entries" cdkDrag (click)="handleClick($event)">
+			{{entries.title}}
 		</div>
-	</div>
-	<div class="container">
-		<button (click)="testsort()"></button>
+		<button class="button__addEntry">Add new entry</button>
 	</div>
 </div>
