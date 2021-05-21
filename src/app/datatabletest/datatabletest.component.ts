@@ -153,17 +153,23 @@ export class DatatabletestComponent implements OnInit {
 	handleClick($event: MouseEvent) {
 		// @ts-ignore
 		this.clickID = $event.target.id;
-		console.log(this.clickID);
 		if (this.dragging) {
 			this.dragging = false;
 			return;
 		}
-		this.openDialog();
 	}
 
-	openDialog(): void {
-		this.dialog.open(DialogEditEntryComponent);
-	}
+	/*
+		openDialog(): void {
+			this.dialog.open(DialogEditEntryComponent);
+		}
+
+		getReload() {
+			console.log(this.clickID);
+			// @ts-ignore
+			return this.entries[this.clickID];
+		}
+	 */
 
 
 	ngOnInit(): void {
