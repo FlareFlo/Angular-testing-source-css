@@ -8,7 +8,7 @@
 	<div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
 		<div class="example-box" *ngFor="let entries of entries" cdkDrag>
 			{{entries.title}}
-			<button id="{{entries.entryID}}" class="button__editEntry" (click)="handleClick($event)">Edit</button>
+			<button id="{{entries.entryID}}" class="button__editEntry" (click)="openDialog()">Edit</button>
 		</div>
 		<button class="button__addEntry">Add new entry</button>
 	</div>

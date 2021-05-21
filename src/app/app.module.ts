@@ -18,7 +18,10 @@ import {ProfileComponent} from './profile/profile.component';
 import {CookieModule, CookieService} from 'ngx-cookie';
 import {RegisterComponent} from './register/register.component';
 import {DatatabletestComponent} from './datatabletest/datatabletest.component';
-import { DragDropModule } from '@angular/cdk/drag-drop';
+import {DragDropModule} from '@angular/cdk/drag-drop';
+import {DialogEditEntryComponent} from './dialog-edit-entry/dialog-edit-entry.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
 	declarations: [
@@ -34,15 +37,19 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 		LoginComponent,
 		ProfileComponent,
 		RegisterComponent,
-		DatatabletestComponent
+		DatatabletestComponent,
+		DialogEditEntryComponent
 	],
+	entryComponents: [DialogEditEntryComponent],
 	imports: [
 		BrowserModule,
 		CookieModule.forRoot(),
 		AppRoutingModule,
 		HttpClientModule,
 		FormsModule,
-		DragDropModule
+		DragDropModule,
+		MatDialogModule,
+		BrowserAnimationsModule
 	],
 	providers: [CookieService],
 	bootstrap: [AppComponent]

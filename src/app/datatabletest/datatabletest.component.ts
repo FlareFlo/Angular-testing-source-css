@@ -2,6 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {CookieService} from 'ngx-cookie';
 import {CdkDragDrop, CdkDragStart, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
+import {MatDialog} from '@angular/material/dialog';
+import {DialogEditEntryComponent} from '../dialog-edit-entry/dialog-edit-entry.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @Component({
 	selector: 'app-datatabletest',
@@ -10,7 +13,7 @@ import {CdkDragDrop, CdkDragStart, moveItemInArray, transferArrayItem} from '@an
 })
 export class DatatabletestComponent implements OnInit {
 
-	constructor(private http: HttpClient, private cookieService: CookieService) {
+	constructor(private http: HttpClient, private cookieService: CookieService, public dialog: MatDialog) {
 	}
 
 	readonly ROOT_URL_BRD_8_ENT = 'https://backend.yap.dragoncave.dev/boards/8/entries';
@@ -158,6 +161,10 @@ export class DatatabletestComponent implements OnInit {
 			this.dragging = false;
 			return;
 		}
+	}
+
+	openDialog() {
+		this.dialog.open(DialogEditEntryComponent);
 	}
 
 	ngOnInit(): void {
