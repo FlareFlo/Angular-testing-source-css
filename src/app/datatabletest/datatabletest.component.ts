@@ -55,10 +55,12 @@ export class DatatabletestComponent implements OnInit {
 	dragging!: boolean;
 	runonce = true;
 	clickID: any = 0;
+	showEdit: any = true;
 
 	// tslint:enable:max-line-length
 	drop(event: CdkDragDrop<{ title: string, description: string }[]>) {
 		moveItemInArray(this.entries, event.previousIndex, event.currentIndex);
+		this.showEdit = false;
 	}
 
 	sortByDueDate() {
@@ -136,13 +138,17 @@ export class DatatabletestComponent implements OnInit {
 		}
 	}
 
-	postEntry() {
+	putEntry(title: string, description: string) {
 		let header2 = new HttpHeaders().set('Content-Type', 'application/json'); // define the sent content to being a Json object
 		header2 = header2.append('Token', this.cookieService.get('token'));
-		this.http.post<any>(this.ROOT_URL_ENT, this.entry, {headers: header2}) // send the POST to create the user account
+
+		this.entries[this.clickID].title = title;
+		this.entries[this.clickID].description = description;
+		this.http.put<any>(this.ROOT_URL_ENT, this.entries[this.clickID], {headers: header2}) // send the POST to create the user account
 			.subscribe(
 				(res) => {
 					console.log(res);
+					this.showEdit = false;
 				},
 				(error) => {
 					console.error(error);
@@ -155,6 +161,7 @@ export class DatatabletestComponent implements OnInit {
 		const locale = $event.target.id;
 		// tslint:disable-next-line:triple-equals
 		this.clickID = (this.entries.findIndex(x => x.entryID == locale));
+		this.showEdit = true;
 		if (this.dragging) {
 			this.dragging = false;
 			return;
@@ -168,6 +175,7 @@ export class DatatabletestComponent implements OnInit {
 
 	ngOnInit(): void {
 		this.getExistingEntries();
+		this.showEdit = false;
 	}
 
 }

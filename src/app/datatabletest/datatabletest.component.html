@@ -13,14 +13,14 @@
 		<button class="button__addEntry">Add new entry</button>
 	</div>
 </div>
-<div class="md-form">
+<div class="md-form" *ngIf="showEdit">
 	<label>Title</label>
-	<input mdbinput class="form-control" id="input1" type="text" placeholder="{{this.entries[this.clickID].title}}">
+	<input #title mdbinput class="form-control" id="input1" type="text" placeholder="{{this.entries[this.clickID].title}}">
 	<label>Description</label>
-	<input mdbinput class="form-control" type="text" placeholder="{{this.entries[this.clickID].description}}">
+	<input #description mdbinput class="form-control" type="text" placeholder="{{this.entries[this.clickID].description}}">
 	<div>Entry ID: {{this.entries[this.clickID].entryID}}</div>
 	<div>Create date: {{localizer(this.entries[this.clickID].createDate)}}</div>
 	<div>Due date: {{localizer(this.entries[this.clickID].dueDate)}}</div>
-	<button class="button__submit">Update</button>
+	<button class="button__submit" (click)="putEntry(title.value, description.value)">Update</button>
 </div>
 

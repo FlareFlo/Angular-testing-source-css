@@ -6,6 +6,7 @@
 .md-form {
 	margin-left: 30vw;
 	margin-top: 3vh;
+	visibility: initial;
 }
 
 #input1 {
