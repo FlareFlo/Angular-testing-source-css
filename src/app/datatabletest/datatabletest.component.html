@@ -13,14 +13,14 @@
 		<button class="button__addEntry">Add new entry</button>
 	</div>
 </div>
-<div class="container">
-	<h3>{{this.entries[this.clickID].title}}</h3>
-	<h4>{{this.entries[this.clickID].description}}</h4>
+<div class="md-form">
+	<label>Title</label>
+	<input mdbinput class="form-control" id="input1" type="text" placeholder="{{this.entries[this.clickID].title}}">
+	<label>Description</label>
+	<input mdbinput class="form-control" type="text" placeholder="{{this.entries[this.clickID].description}}">
 	<div>Entry ID: {{this.entries[this.clickID].entryID}}</div>
 	<div>Create date: {{localizer(this.entries[this.clickID].createDate)}}</div>
 	<div>Due date: {{localizer(this.entries[this.clickID].dueDate)}}</div>
-	<form class="ngForm">
-		<input type="text" class="form-control" placeholder="Enter GET URL">
-	</form>
+	<button class="button__submit">Update</button>
 </div>
 

@@ -2,13 +2,26 @@
 	color: #FFFFFF;
 	overflow: hidden;
 }
+
+.md-form {
+	margin-left: 30vw;
+	margin-top: 3vh;
+}
+
+#input1 {
+	margin-bottom: 2vh;
+}
+
+label {
+	font-size: 0.75rem;
+	margin-bottom: 0;
+}
+
 input {
 	background-color: #5a6273;
 	border-radius: 4px;
 	border-color: black;
 	width: 25vw;
-	margin-left: 20vw;
-	margin-top: 5vh;
 }
 
 input:hover {
@@ -19,6 +32,10 @@ input:hover {
 input:focus {
 	color: white;
 	background-color: #282C34;
+}
+
+::placeholder {
+	color: #FFFFFF;
 }
 
 .button__sort {
@@ -33,7 +50,6 @@ input:focus {
 	font-size: calc(10px + (4px * 1rem));
 	border-radius: 4px;
 	margin-left: 1vw;
-	margin-bottom: 1.5rem;
 }
 
 .button__addEntry {
@@ -49,6 +65,18 @@ input:focus {
 }
 
 .button__editEntry {
+	background-color: #53e3a6 !important;
+	border: none;
+	color: black;
+	text-align: center;
+	text-decoration: none;
+	display: inline;
+	width: 5em;
+	font-size: 1rem;
+	border-radius: 4px;
+}
+
+.button__submit {
 	background-color: #53e3a6 !important;
 	border: none;
 	color: black;
