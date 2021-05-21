@@ -158,7 +158,6 @@ export class DatatabletestComponent implements OnInit {
 			this.dragging = false;
 			return;
 		}
-		alert('Clicked object!');
 	}
 
 	ngOnInit(): void {

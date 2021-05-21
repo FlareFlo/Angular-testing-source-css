@@ -6,7 +6,7 @@
 </div>
 <div class="example-container">
 	<div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
-		<div class="example-box"  *ngFor="let entries of entries" cdkDrag>
+		<div class="example-box" *ngFor="let entries of entries" cdkDrag>
 			{{entries.title}}
 			<button id="{{entries.entryID}}" class="button__editEntry" (click)="handleClick($event)">Edit</button>
 		</div>
