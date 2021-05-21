@@ -2,6 +2,24 @@
 	color: #FFFFFF;
 	overflow: hidden;
 }
+input {
+	background-color: #5a6273;
+	border-radius: 4px;
+	border-color: black;
+	width: 25vw;
+	margin-left: 20vw;
+	margin-top: 5vh;
+}
+
+input:hover {
+	color: white;
+	background-color: #282C34;
+}
+
+input:focus {
+	color: white;
+	background-color: #282C34;
+}
 
 .button__sort {
 	background-color: #53e3a6 !important; /* Green */

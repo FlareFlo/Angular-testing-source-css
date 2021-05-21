@@ -8,9 +8,19 @@
 	<div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
 		<div class="example-box" *ngFor="let entries of entries" cdkDrag>
 			{{entries.title}}
-			<button id="{{entries.entryID}}" class="button__editEntry">Edit</button>
+			<button id="{{entries.entryID}}" class="button__editEntry" (click)="handleClick($event)">Edit</button>
 		</div>
 		<button class="button__addEntry">Add new entry</button>
 	</div>
+</div>
+<div class="container">
+	<h3>{{this.entries[this.clickID].title}}</h3>
+	<h4>{{this.entries[this.clickID].description}}</h4>
+	<div>Entry ID: {{this.entries[this.clickID].entryID}}</div>
+	<div>Create date: {{localizer(this.entries[this.clickID].createDate)}}</div>
+	<div>Due date: {{localizer(this.entries[this.clickID].dueDate)}}</div>
+	<form class="ngForm">
+		<input type="text" class="form-control" placeholder="Enter GET URL">
+	</form>
 </div>
 

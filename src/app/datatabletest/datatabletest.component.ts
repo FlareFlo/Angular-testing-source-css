@@ -3,7 +3,6 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {CookieService} from 'ngx-cookie';
 import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 import {MatDialog} from '@angular/material/dialog';
-import {DialogEditEntryComponent} from '../dialog-edit-entry/dialog-edit-entry.component';
 
 @Component({
 	selector: 'app-datatabletest',
@@ -55,7 +54,7 @@ export class DatatabletestComponent implements OnInit {
 
 	dragging!: boolean;
 	runonce = true;
-	clickID = 'Cheese';
+	clickID: any = 0;
 
 	// tslint:enable:max-line-length
 	drop(event: CdkDragDrop<{ title: string, description: string }[]>) {
@@ -159,7 +158,18 @@ export class DatatabletestComponent implements OnInit {
 		}
 	}
 
-	/*
+	localizer(data: any){
+		return new Date(data).toLocaleDateString('de-DE');
+	}
+
+
+	ngOnInit(): void {
+		this.getExistingEntries();
+	}
+
+}
+
+/*
 		openDialog(): void {
 			this.dialog.open(DialogEditEntryComponent);
 		}
@@ -170,10 +180,3 @@ export class DatatabletestComponent implements OnInit {
 			return this.entries[this.clickID];
 		}
 	 */
-
-
-	ngOnInit(): void {
-		this.getExistingEntries();
-	}
-
-}
