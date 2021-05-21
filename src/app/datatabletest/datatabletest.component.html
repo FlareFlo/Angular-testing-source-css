@@ -23,7 +23,7 @@
 	<div>Create date: {{localizer(this.entries[this.clickID].createDate)}}</div>
 	<div>Due date: {{localizer(this.entries[this.clickID].dueDate)}}</div>
 	<button class="button__submit" (click)="putEntry(title.value, description.value)">Update/Close</button>
-	<button class="button__close">Delete entry</button>
+	<button class="button__close" (click)="deleteEntry()">Delete entry</button>
 </div>
 <div class="md-form" *ngIf="showCreate">
 	<label>Title</label>

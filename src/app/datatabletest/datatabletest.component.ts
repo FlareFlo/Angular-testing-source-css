@@ -77,7 +77,7 @@ export class DatatabletestComponent implements OnInit {
 	}
 
 	closeEdit() {
-			this.showEdit = false;
+		this.showEdit = false;
 	}
 
 	closeCreate() {
@@ -182,6 +182,18 @@ export class DatatabletestComponent implements OnInit {
 				(error) => {
 					console.error(error);
 				});
+	}
+
+	deleteEntry() {
+		let header = new HttpHeaders().set('Content-Type', 'application/json'); // define the sent content to being a Json object
+		header = header.append('Token', this.cookieService.get('token'));
+		this.http.delete(this.ROOT_URL_ENT + '/' + this.entries[this.clickID].entryID, {headers: header})
+			.subscribe(
+				(res) => {
+					console.log(res);
+					location.reload();
+				}
+			);
 	}
 
 
