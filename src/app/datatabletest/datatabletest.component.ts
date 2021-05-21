@@ -22,7 +22,9 @@ export class DatatabletestComponent implements OnInit {
 	entry = {
 		dueDate: 0,
 		title: '',
-		description: ''
+		description: '',
+		createDate: 0,
+		entryID: 0,
 	};
 
 	placeholder: any;
@@ -175,6 +177,7 @@ export class DatatabletestComponent implements OnInit {
 				(res) => {
 					console.log(res);
 					this.showCreate = false;
+					this.entries[this.entries.length] = this.entry;
 				},
 				(error) => {
 					console.error(error);
