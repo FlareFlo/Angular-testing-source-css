@@ -54,7 +54,9 @@ export class ProfileComponent implements OnInit {
 		this.http.put<any>(this.ROOT_URL_PWD, this.packageobject, {headers: headerS})
 			.subscribe(
 				res => {
+					this.cookieService.removeAll();
 					console.log(res);
+					window.location.href = '/login';
 				},
 				(error) => {
 					console.error(error);
