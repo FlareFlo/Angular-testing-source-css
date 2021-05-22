@@ -185,7 +185,7 @@ export class BoardsComponent implements OnInit {
 	}
 
 	openPopup() {
-		this.dialog.open(DialogEditEntryComponent);
+		this.dialog.open(DialogEditEntryComponent, {disableClose: true});
 	}
 
 	ngOnInit(): void {

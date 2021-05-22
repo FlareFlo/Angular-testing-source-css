@@ -151,6 +151,7 @@ input[data-custom-input="update"]::placeholder {
 	background: #818181;
 	font-size: 14px;
 	height: calc(10px + 3vh);
+	cursor: pointer;
 }
 
 .example-box:hover {

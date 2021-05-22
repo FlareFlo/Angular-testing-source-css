@@ -13,8 +13,9 @@ export class DialogEditEntryComponent implements OnInit {
 	}
 
 
-
 	ngOnInit(): void {
+
 	}
+
 
 }

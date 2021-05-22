@@ -5,7 +5,7 @@
 </div>
 <div class="example-container">
 	<div class="example-list">
-		<div class="example-box" *ngFor="let boards of boards" id="{{boards.boardID}}" (click)="handleClick($event)">
+		<div class="example-box" *ngFor="let boards of boards" id="{{boards.boardID}}" (dblclick)="handleClick($event)" (click)="handleClick($event); goToBoard()">
 			{{boards.name}}
 		</div>
 		<button class="button__addEntry" (click)="openPopup()">Create new board</button>
