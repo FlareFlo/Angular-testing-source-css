@@ -1,7 +1,5 @@
 <div class="container">
-	<button class="button__sort">Sort by Due date</button>
 	<button class="button__sort">Sort by title</button>
-	<button class="button__sort">Sort by description</button>
 	<button class="button__sort">Sort by ID</button>
 </div>
 <div class="example-container">
@@ -10,6 +8,6 @@
 			{{boards.name}}
 			<button id="{{boards.boardID}}" class="button__editEntry" (click)="handleClick($event)">Edit</button>
 		</div>
-		<button class="button__addEntry">Add new entry</button>
+		<button class="button__addEntry">Create new board</button>
 	</div>
 </div>

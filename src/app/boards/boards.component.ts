@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {CookieService} from 'ngx-cookie';
 import {MatDialog} from '@angular/material/dialog';
 import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
@@ -14,6 +14,9 @@ export class BoardsComponent implements OnInit {
 	constructor(private http: HttpClient, private cookieService: CookieService, public dialog: MatDialog) {
 	}
 
+	readonly ROOT_URL_BOARDS_USER = 'https://backend.yap.dragoncave.dev/boards/user';
+	readonly ROOT_URL_BOARD_ = 'https://backend.yap.dragoncave.dev/boards/';
+
 	boards = [
 		{
 			boardID: 0,
@@ -23,6 +26,9 @@ export class BoardsComponent implements OnInit {
 	];
 
 	dragging!: boolean;
+	availableBoards!: [];
+	runonce = true;
+	placeholder: any;
 
 	drop(event: CdkDragDrop<{ title: string, description: string }[]>) {
 		moveItemInArray(this.boards, event.previousIndex, event.currentIndex);
@@ -35,6 +41,65 @@ export class BoardsComponent implements OnInit {
 		}
 	}
 
+	getExistingBoards() {
+		let header1 = new HttpHeaders();
+		header1 = header1.append('Token', this.cookieService.get('token'));
+
+		this.http.get(this.ROOT_URL_BOARDS_USER, {headers: header1})
+			.subscribe(
+				response => {
+					// @ts-ignore
+					this.availableBoards = response;
+					console.log(response);
+					this.getAllBoards();
+				},
+				(error) => {
+					console.error(error);
+				}
+			);
+	}
+
+	getAllBoards() {
+		for (let i = 0; i < this.boards.length + 1; i++) {
+			this.getBoardByID(i);
+		}
+	}
+
+	getBoardByID(i: number) {
+		// tslint:disable-next-line:no-shadowed-variable
+		const id = this.availableBoards[i];
+
+
+		let header0 = new HttpHeaders();
+		header0 = header0.append('Token', this.cookieService.get('token'));
+
+		this.http.get(this.ROOT_URL_BOARD_ + id, {headers: header0})
+			.subscribe(
+				response => {
+					let pos: number;
+
+					if (this.runonce) {
+						pos = 0;
+						this.runonce = false;
+					} else {
+						pos = this.boards.length;
+					}
+
+					this.placeholder = response;
+					this.boards[pos] = {
+						boardID: this.placeholder.boardID,
+						name: this.placeholder.name,
+						createDate: this.placeholder.createDate
+					};
+					console.log(this.boards);
+				},
+				(error) => {
+					console.error(error);
+				}
+			);
+	}
+
 	ngOnInit(): void {
+		this.getExistingBoards();
 	}
 }
