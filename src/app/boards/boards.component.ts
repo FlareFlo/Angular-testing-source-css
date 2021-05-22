@@ -36,6 +36,8 @@ export class BoardsComponent implements OnInit {
 	runonce = true;
 	placeholder: any;
 	clickID: any = 0;
+	showEdit: any = false;
+	showCreate: any = false;
 
 	drop(event: CdkDragDrop<{ title: string, description: string }[]>) {
 		moveItemInArray(this.boards, event.previousIndex, event.currentIndex);
@@ -148,6 +150,10 @@ export class BoardsComponent implements OnInit {
 
 	sortByCreateDate() {
 		this.boards.sort((a, b) => (a.createDate > b.createDate) ? 1 : -1);
+	}
+
+	toggleCreate() {
+		this.showCreate = !this.showCreate;
 	}
 
 
