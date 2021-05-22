@@ -3,7 +3,6 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {CookieService} from 'ngx-cookie';
 import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 import {MatDialog} from '@angular/material/dialog';
-import {BoardsComponent} from '../boards/boards.component';
 
 @Component({
 	selector: 'app-datatabletest',
@@ -13,7 +12,7 @@ import {BoardsComponent} from '../boards/boards.component';
 export class DatatabletestComponent implements OnInit {
 
 	constructor(
-		private http: HttpClient, private cookieService: CookieService, public dialog: MatDialog, public boardsComponent: BoardsComponent) {
+		private http: HttpClient, private cookieService: CookieService, public dialog: MatDialog) {
 	}
 
 	readonly ROOT_URL_ENTRY = 'https://backend.yap.dragoncave.dev/entry';
@@ -223,8 +222,8 @@ export class DatatabletestComponent implements OnInit {
 
 
 	ngOnInit(): void {
+		this.boardSelect = this.cookieService.get('activeBoard');
 		this.getExistingEntries();
-		this.boardSelect = this.boardsComponent.clickID;
 	}
 
 }

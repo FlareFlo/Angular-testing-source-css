@@ -1,5 +1,5 @@
 <div class="container">
-	<input #board mdbinput class="form-control" type="text" placeholder="Board" data-custom-input="create" (keyup)="doBoard(board.value); getExistingEntries()" (keyup.enter)="getExistingEntries()">
+	<input #board mdbinput class="form-control" type="text" placeholder="{{boardSelect}}" data-custom-input="create" (keyup)="doBoard(board.value); getExistingEntries()" (keyup.enter)="getExistingEntries()">
 	<button class="button__sort" (click)="sortByDueDate()">Sort by Due date</button>
 	<button class="button__sort" (click)="sortByTitle()">Sort by title</button>
 	<button class="button__sort" (click)="sortByDescription()">Sort by description</button>

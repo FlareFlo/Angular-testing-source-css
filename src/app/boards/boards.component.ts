@@ -38,6 +38,7 @@ export class BoardsComponent implements OnInit {
 	clickID: any = 0;
 	showEdit: any = false;
 	showCreate: any = false;
+	locale = 0;
 
 	drop(event: CdkDragDrop<{ title: string, description: string }[]>) {
 		moveItemInArray(this.boards, event.previousIndex, event.currentIndex);
@@ -45,9 +46,9 @@ export class BoardsComponent implements OnInit {
 
 	handleClick($event: MouseEvent) {
 		// @ts-ignore
-		const locale = $event.target.id;
+		this.locale = $event.target.id;
 		// tslint:disable-next-line:triple-equals
-		this.clickID = (this.boards.findIndex(x => x.boardID == locale));
+		this.clickID = (this.boards.findIndex(x => x.boardID == this.locale));
 		this.showEdit = true;
 	}
 
@@ -143,7 +144,8 @@ export class BoardsComponent implements OnInit {
 	 */
 
 	goToBoard() {
-
+		this.cookieService.put('activeBoard', this.locale.toString());
+		location.href = '/datatabletest';
 	}
 
 	sortByName() {
