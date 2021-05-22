@@ -50,7 +50,7 @@ const routes: Routes = [
 		component: RegisterComponent
 	},
 	{
-		path: 'datatabletest',
+		path: 'entries',
 		component: DatatabletestComponent
 	},
 	{

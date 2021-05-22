@@ -144,7 +144,7 @@ export class BoardsComponent implements OnInit {
 
 	goToBoard() {
 		this.cookieService.put('activeBoard', this.locale.toString());
-		location.href = '/datatabletest';
+		location.href = '/entries';
 	}
 
 	sortByName() {
