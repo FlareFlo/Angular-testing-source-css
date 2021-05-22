@@ -16,6 +16,7 @@ export class DatatabletestComponent implements OnInit {
 	}
 
 	readonly ROOT_URL_ENTRY = 'https://backend.yap.dragoncave.dev/entry';
+	readonly ROOT_URL_ENTRY_ = 'https://backend.yap.dragoncave.dev/entry/';
 	readonly ROOT_URL_BOARDS_ = 'https://backend.yap.dragoncave.dev/boards/';
 
 
@@ -152,7 +153,8 @@ export class DatatabletestComponent implements OnInit {
 			this.entries[this.clickID].description = description;
 		}
 
-		this.http.put<any>(this.ROOT_URL_ENTRY, this.entries[this.clickID], {headers: header2}) // send the POST to create the user account
+		// tslint:disable-next-line:max-line-length
+		this.http.put<any>(this.ROOT_URL_ENTRY_ + this.entries[this.clickID].entryID, this.entries[this.clickID], {headers: header2}) // send the POST to create the user account
 			.subscribe(
 				(res) => {
 					console.log(res);
