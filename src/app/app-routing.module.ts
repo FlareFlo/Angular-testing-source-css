@@ -10,6 +10,7 @@ import {LoginComponent} from './login/login.component';
 import {ProfileComponent} from './profile/profile.component';
 import {RegisterComponent} from './register/register.component';
 import {DatatabletestComponent} from './datatabletest/datatabletest.component';
+import {BoardsComponent} from './boards/boards.component';
 
 const routes: Routes = [
 	{
@@ -51,6 +52,10 @@ const routes: Routes = [
 	{
 		path: 'datatabletest',
 		component: DatatabletestComponent
+	},
+	{
+		path: 'boards',
+		component: BoardsComponent
 	}
 
 ];

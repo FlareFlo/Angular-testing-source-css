@@ -22,6 +22,7 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
 import {DialogEditEntryComponent} from './dialog-edit-entry/dialog-edit-entry.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {BoardsComponent} from './boards/boards.component';
 
 @NgModule({
 	declarations: [
@@ -38,7 +39,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 		ProfileComponent,
 		RegisterComponent,
 		DatatabletestComponent,
-		DialogEditEntryComponent
+		DialogEditEntryComponent,
+		BoardsComponent
 	],
 	entryComponents: [DialogEditEntryComponent],
 	imports: [
