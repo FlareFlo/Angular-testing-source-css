@@ -26,9 +26,6 @@ export class DatatabletestComponent implements OnInit {
 		entryID: 0,
 	};
 
-	placeholder: any;
-	availableEntries!: [];
-
 	entries = [
 		{
 			entryID: 0,
@@ -39,6 +36,8 @@ export class DatatabletestComponent implements OnInit {
 		}
 	];
 
+	placeholder: any;
+	availableEntries!: [];
 	dragging!: boolean;
 	runonce = true;
 	clickID: any = 0;
