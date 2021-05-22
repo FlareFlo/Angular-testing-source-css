@@ -102,7 +102,6 @@ export class BoardsComponent implements OnInit {
 					console.error(error);
 				}
 			);
-		console.log(this.boards);
 	}
 
 	postBoard(name: string) {
