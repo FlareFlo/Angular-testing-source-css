@@ -48,6 +48,7 @@ export class BoardsComponent implements OnInit {
 		const locale = $event.target.id;
 		// tslint:disable-next-line:triple-equals
 		this.clickID = (this.boards.findIndex(x => x.boardID == locale));
+		this.showEdit = true;
 	}
 
 	getExistingBoards() {
@@ -155,6 +156,14 @@ export class BoardsComponent implements OnInit {
 
 	toggleCreate() {
 		this.showCreate = !this.showCreate;
+	}
+
+	toggleEdit() {
+		this.showEdit = !this.showEdit;
+	}
+
+	localizer(data: any) {
+		return new Date(data).toLocaleDateString('de-DE');
 	}
 
 

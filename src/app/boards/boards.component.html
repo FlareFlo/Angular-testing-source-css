@@ -18,3 +18,11 @@
 	<button class="button__submit" (click)="postBoard(name.value)">Create</button>
 	<button class="button__close" (click)="toggleCreate()">Close</button>
 </div>
+<div class="md-form" *ngIf="showEdit">
+	<label>Name</label>
+	<input #Name mdbinput class="form-control" data-custom-input="update" type="text" placeholder="{{this.boards[this.clickID].name}}">
+	<div>Entry ID: {{this.boards[this.clickID].boardID}}</div>
+	<div>Create date: {{localizer(this.boards[this.clickID].createDate)}}</div>
+	<button class="button__submit" (click)="toggleEdit()">Update/Close</button>
+	<button class="button__close">Delete entry</button>
+</div>
