@@ -68,7 +68,7 @@ export class BoardsComponent implements OnInit {
 	}
 
 	getAllBoards() {
-		for (let i = 0; i < this.boards.length + 1; i++) {
+		for (let i = 0; i < this.availableBoards.length; i++) {
 			this.getBoardByID(i);
 		}
 	}
@@ -100,6 +100,7 @@ export class BoardsComponent implements OnInit {
 					console.error(error);
 				}
 			);
+		console.log(this.boards);
 	}
 
 	postBoard(name: string) {
