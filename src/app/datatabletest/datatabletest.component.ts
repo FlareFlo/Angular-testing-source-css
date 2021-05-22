@@ -120,20 +120,22 @@ export class DatatabletestComponent implements OnInit {
 	}
 
 	getExistingEntries() {
-		let header1 = new HttpHeaders();
-		header1 = header1.append('Token', this.cookieService.get('token'));
+		if (this.boardSelect !== undefined && this.boardSelect !== '') {
+			let header1 = new HttpHeaders();
+			header1 = header1.append('Token', this.cookieService.get('token'));
 
-		this.http.get(this.ROOT_URL_BOARDS_ + this.boardSelect + '/entries', {headers: header1})
-			.subscribe(
-				response => {
-					// @ts-ignore
-					this.availableEntries = response;
-					this.getAllEntries();
-				},
-				(error) => {
-					console.error(error);
-				}
-			);
+			this.http.get(this.ROOT_URL_BOARDS_ + this.boardSelect + '/entries', {headers: header1})
+				.subscribe(
+					response => {
+						// @ts-ignore
+						this.availableEntries = response;
+						this.getAllEntries();
+					},
+					(error) => {
+						console.error(error);
+					}
+				);
+		}
 	}
 
 	getAllEntries() {
