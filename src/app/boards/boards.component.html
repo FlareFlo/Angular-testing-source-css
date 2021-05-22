@@ -7,7 +7,7 @@
 	<div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
 		<div class="example-box" *ngFor="let boards of boards">
 			{{boards.name}}
-			<button id="{{boards.boardID}}" class="button__editEntry" (click)="handleClick($event)">Edit</button>
+			<button id="{{boards.boardID}}" class="button__editEntry" (click)="handleClick($event)">Edit / Open</button>
 		</div>
 		<button class="button__addEntry" (click)="toggleCreate()">Create new board</button>
 	</div>
@@ -19,8 +19,12 @@
 	<button class="button__close" (click)="toggleCreate()">Close</button>
 </div>
 <div class="md-form" *ngIf="showEdit">
+	<div>
+		<button class="button__submit" (click)="goToBoard()">Open board</button>
+	</div>
 	<label>Name</label>
-	<input #Name mdbinput class="form-control" data-custom-input="update" type="text" placeholder="{{this.boards[this.clickID].name}}">
+	<input #Name mdbinput class="form-control" data-custom-input="update" type="text"
+		   placeholder="{{this.boards[this.clickID].name}}">
 	<div>Entry ID: {{this.boards[this.clickID].boardID}}</div>
 	<div>Create date: {{localizer(this.boards[this.clickID].createDate)}}</div>
 	<button class="button__submit" (click)="toggleEdit()">Update/Close</button>

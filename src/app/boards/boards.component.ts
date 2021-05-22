@@ -142,6 +142,10 @@ export class BoardsComponent implements OnInit {
 	}
 	 */
 
+	goToBoard() {
+
+	}
+
 	sortByName() {
 		this.boards.sort((a, b) => (a.name > b.name) ? 1 : -1);
 	}

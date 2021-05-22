@@ -53,7 +53,7 @@ import {BoardsComponent} from './boards/boards.component';
 		MatDialogModule,
 		BrowserAnimationsModule
 	],
-	providers: [CookieService, DatatabletestComponent],
+	providers: [CookieService, DatatabletestComponent, BoardsComponent],
 	bootstrap: [AppComponent]
 })
 export class AppModule {
