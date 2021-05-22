@@ -7,7 +7,7 @@
 	<div class="example-list">
 		<div class="example-box" *ngFor="let boards of boards">
 			{{boards.name}}
-			<button id="{{boards.boardID}}" class="button__editEntry" (click)="handleClick($event)">Edit / Open</button>
+			<button id="{{boards.boardID}}" class="button__editEntry" (click)="handleClick($event)">View</button>
 		</div>
 		<button class="button__addEntry" (click)="toggleCreate()">Create new board</button>
 	</div>

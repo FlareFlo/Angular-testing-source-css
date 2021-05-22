@@ -46,17 +46,22 @@ input[data-custom-input="update"]::placeholder {
 	background-color: #282C34;
 }
 
+.container {
+	width: min(100%, 1000px);
+	margin-left: 50px;
+	margin-right: 0;
+}
 
 .button__sort {
 	background-color: #53e3a6 !important; /* Green */
 	border: none;
 	color: black;
-	padding: 10px 10px;
+	padding: 2px 2px;
 	text-align: center;
 	text-decoration: none;
 	display: inline-grid;
-	width: 10vw;
-	font-size: calc(10px + (4px * 1rem));
+	width: min(20vw, 400px);
+	font-size: calc(12px + 0.1rem);
 	border-radius: 4px;
 	margin-left: 1vw;
 }
@@ -70,7 +75,7 @@ input[data-custom-input="update"]::placeholder {
 	text-decoration: none;
 	display: inline;
 	width: 100%;
-	font-size: 0.85rem;
+	font-size: calc(12px + 1.2vw);
 }
 
 .button__editEntry {
@@ -80,8 +85,8 @@ input[data-custom-input="update"]::placeholder {
 	text-align: center;
 	text-decoration: none;
 	display: inline;
-	width: 5em;
-	font-size: 1rem;
+	width: calc(50px + 3vw);
+	font-size: calc(12px + 0.5vw) !important;
 	border-radius: 4px;
 }
 
@@ -111,11 +116,11 @@ input[data-custom-input="update"]::placeholder {
 }
 
 .example-container {
-	width: 20vw;
+	width: 70vw;
 	display: inline-block;
 	vertical-align: top;
 	horiz-align: center;
-	margin: 1rem 0 0 30vw;
+	margin: 1rem 0 0 100px;
 }
 
 .example-list {
@@ -138,6 +143,7 @@ input[data-custom-input="update"]::placeholder {
 	box-sizing: border-box;
 	background: #818181;
 	font-size: 14px;
+	height: calc(10px + 3vh);
 }
 
 .cdk-drag-preview {
