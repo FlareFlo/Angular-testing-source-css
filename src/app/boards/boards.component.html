@@ -28,5 +28,5 @@
 	<div>Entry ID: {{this.boards[this.clickID].boardID}}</div>
 	<div>Create date: {{localizer(this.boards[this.clickID].createDate)}}</div>
 	<button class="button__submit" (click)="toggleEdit()">Update/Close</button>
-	<button class="button__close">Delete entry</button>
+	<button class="button__close" (click)="deleteBoard()">Delete board</button>
 </div>

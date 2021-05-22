@@ -122,6 +122,18 @@ export class BoardsComponent implements OnInit {
 		}
 	}
 
+	deleteBoard() {
+		let header = new HttpHeaders().set('Content-Type', 'application/json'); // define the sent content to being a Json object
+		header = header.append('Token', this.cookieService.get('token'));
+		this.http.delete(this.ROOT_URL_BOARD_ + this.boards[this.clickID].boardID, {headers: header})
+			.subscribe(
+				(res) => {
+					console.log(res);
+					location.reload();
+				}
+			);
+	}
+
 	/*
 	putBoard(name: string) {
 		let header2 = new HttpHeaders().set('Content-Type', 'application/json'); // define the sent content to being a Json object
