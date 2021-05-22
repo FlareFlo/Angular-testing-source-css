@@ -8,77 +8,9 @@ body {
 	font-family: "Montserrat", sans-serif;
 }
 
-
 .container {
 	max-width: 90%;
-	margin: 50px auto;
-}
-
-.sidebar {
-	display: inline-block;
-	width: 25%;
-	border-radius: 3px;
-	overflow: hidden;
-}
-
-.sidebar i {
-	margin-right: 15px;
-}
-
-.sidebar__header {
-	vertical-align: top;
-	background: #222222;
-	padding: 20px;
-	border-bottom: 1px solid #373737;
-	color: white;
-}
-
-.sidebar__header img.sidebar__avatar {
-	float: left;
-	border-radius: 50%;
-	margin-right: 10px;
-}
-
-.sidebar__header p {
-	line-height: 2em;
-	margin: 0;
-}
-
-.sidebar__menu-item {
-	background: #2d2d2d;
-	padding: 20px;
-	color: #ffffff;
-	border-bottom: 1px solid #1f1f1f;
-	transition: all 0.3s ease;
-}
-
-.sidebar__menu-item--active {
-	color: #ffffff;
-	border-left: 3px solid #53e3a6;
-}
-
-.sidebar__menu-item:hover {
-	background: #484848;
-	cursor: pointer;
-}
-
-.sidebar__label {
-	float: right;
-	font-size: 80%;
-	line-height: 1.6em;
-	color: #fde756;
-}
-
-.sidebar__badge {
-	text-align: center;
-	float: right;
-	font-size: 70%;
-	line-height: 1.8em;
-	width: 20px;
-	height: 20px;
-	border-radius: 50%;
-	color: #FFF;
-	background: #8ED081;
+	margin-left: 10vw;
 }
 
 .main {
@@ -200,14 +132,13 @@ button {
 	appearance: none;
 	outline: 0;
 	border: 0;
-	padding: 10px 15px;
 	color: #000000;
 	border-radius: 3px;
-	width: 250px;
+	width: 20vw;
 	cursor: pointer;
 	font-size: 18px;
 	transition-duration: 0.25s;
-	display: block;
+	display: inline;
 }
 
 .main__save-button {
@@ -216,14 +147,13 @@ button {
 
 .main__save-button:hover {
 	background-color: #3ce5ad;
-	width: 260px;
 }
 
 .main__logout-button {
 	background-color: #d44949;
+	margin-left: 1em;
 }
 
 .main__logout-button:hover {
-	background-color: #d44949;
-	width: 260px;
+	background-color: #bf0000;
 }

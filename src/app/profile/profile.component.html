@@ -1,42 +1,4 @@
 <div class='container'>
-	<!--
-	<div class='sidebar'>
-	  <div class='sidebar__header'>
-		<img alt='' class='sidebar__avatar' src=''>
-		<p>Your Name</p>
-	  </div>
-	  <div class='sidebar__menu-item'>
-		<i class='fa fa-university'></i>
-		Option 1
-		<div class='sidebar__label'>
-		  800
-		</div>
-	  </div>
-	  <div class='sidebar__menu-item'>
-		<i class='fa fa-bar-chart'></i>
-		Option 2
-	  </div>
-	  <div class='sidebar__menu-item sidebar__menu-item--active'>
-		<i class='fa fa-cog'></i>
-		My Profile
-	  </div>
-	  <div class='sidebar__menu-item'>
-		<i class='fa fa-suitcase'></i>
-		Option 3
-	  </div>
-	  <div class='sidebar__menu-item'>
-		<i class='fa fa-envelope-o'></i>
-		Help
-		<div class='sidebar__badge'>
-		  3
-		</div>
-	  </div>
-	  <div class='sidebar__menu-item'>
-		<i class='fa fa-user-plus'></i>
-		Option 4
-	  </div>
-	</div>
-	-->
 	<div class='main'>
 		<div class='main__header'>
 			<h2>My profile</h2>
@@ -73,10 +35,12 @@
 						   type='password'>
 
 				</form>
-				<button class='btn main__save-button' id="Save"
-						(click)="pwdchange(oldPassword.value, newPassword.value)">Save
-				</button>
-				<button class='btn main__logout-button' (click)="logout()">Logout</button>
+				<div>
+					<button class='btn main__save-button' id="Save"
+							(click)="pwdchange(oldPassword.value, newPassword.value)">Save
+					</button>
+					<button class='btn main__logout-button' (click)="logout()">Logout</button>
+				</div>
 				<!--
 				<button class='btn main__logout-button' (click)="deleteUser(oldPassword.value)">Delete account</button>
 				-->
