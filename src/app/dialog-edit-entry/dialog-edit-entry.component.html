@@ -5,6 +5,6 @@
 	<mat-dialog-content>
 		<input #name mdbinput class="form-control" data-custom-input="create" type="text" placeholder="Title">
 		<button class="button__submit" (click)="this.boardsComponent.postBoard(name.value)" mat-dialog-close="">Create</button>
-		<button mat-dialog-close="">Discard and close</button>
+		<button class="button__close" mat-dialog-close="">Discard and close</button>
 	</mat-dialog-content>
 </div>
