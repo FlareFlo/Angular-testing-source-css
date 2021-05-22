@@ -56,14 +56,14 @@ input[data-custom-input="update"]::placeholder {
 	background-color: #53e3a6 !important; /* Green */
 	border: none;
 	color: black;
-	padding: 2px 2px;
+	padding: 2px 2px 2px 2px;
 	text-align: center;
 	text-decoration: none;
 	display: inline-grid;
-	width: min(20vw, 400px);
-	font-size: calc(12px + 0.1rem);
+	width: 150px;
+	font-size: 15px;
 	border-radius: 4px;
-	margin-left: 1vw;
+	margin: 5px 5px 5px 5px ;
 }
 
 .button__addEntry {
@@ -75,19 +75,25 @@ input[data-custom-input="update"]::placeholder {
 	text-decoration: none;
 	display: inline;
 	width: 100%;
-	font-size: calc(12px + 1.2vw);
+	font-size: 15px;
 }
 
 .button__editEntry {
-	background-color: #53e3a6 !important;
+	background-color: rgba(0, 0, 0, 0);
 	border: none;
-	color: black;
+	color: rgba(0, 0, 0, 0);
 	text-align: center;
 	text-decoration: none;
 	display: inline;
-	width: calc(50px + 3vw);
+	width: 100%;
 	font-size: calc(12px + 0.5vw) !important;
 	border-radius: 4px;
+	transition: 0.25s;
+}
+
+.button__editEntry:hover {
+	background-color: #53e3a6 !important;
+	color: black;
 }
 
 .button__submit {
@@ -116,7 +122,8 @@ input[data-custom-input="update"]::placeholder {
 }
 
 .example-container {
-	width: 70vw;
+	width: 40vw;
+	max-width: 500px;
 	display: inline-block;
 	vertical-align: top;
 	horiz-align: center;
@@ -144,6 +151,10 @@ input[data-custom-input="update"]::placeholder {
 	background: #818181;
 	font-size: 14px;
 	height: calc(10px + 3vh);
+}
+
+.example-box:hover {
+	background-color: #3ce5ad;
 }
 
 .cdk-drag-preview {
