@@ -34,7 +34,7 @@ body {
 }
 
 .container-new {
-	padding-top: 200px;
+	padding-top: 10vh;
 	z-index: 5;
 	max-width: 700px;
 	margin: 0 auto;
@@ -42,7 +42,7 @@ body {
 }
 
 .container-new h1 {
-	font-size: 70px;
+	font-size: calc(30px + 1rem);
 	transition-duration: 1s;
 	/*
 	transition-timing-function: ease-in-put;
