@@ -25,20 +25,20 @@ export class BoardsComponent implements OnInit {
 		}
 	];
 
-	dragging!: boolean;
 	availableBoards!: [];
 	runonce = true;
 	placeholder: any;
+	clickID: any = 0;
 
 	drop(event: CdkDragDrop<{ title: string, description: string }[]>) {
 		moveItemInArray(this.boards, event.previousIndex, event.currentIndex);
 	}
 
 	handleClick($event: MouseEvent) {
-		if (this.dragging) {
-			this.dragging = false;
-			return;
-		}
+		// @ts-ignore
+		const locale = $event.target.id;
+		// tslint:disable-next-line:triple-equals
+		this.clickID = (this.boards.findIndex(x => x.boardID == locale));
 	}
 
 	getExistingBoards() {
@@ -92,6 +92,26 @@ export class BoardsComponent implements OnInit {
 				}
 			);
 	}
+
+	/*
+	putBoard(name: string, description: string) {
+		let header2 = new HttpHeaders().set('Content-Type', 'application/json'); // define the sent content to being a Json object
+		header2 = header2.append('Token', this.cookieService.get('token'));
+
+		if (name !== '') {
+			this.boards[this.clickID].name = name;
+		}
+
+		this.http.put<any>(this.ROOT_URL_ENTRY, this.boards[this.clickID], {headers: header2}) // send the POST to create the user account
+			.subscribe(
+				(res) => {
+					console.log(res);
+				},
+				(error) => {
+					console.error(error);
+				});
+	}
+	 */
 
 	sortByName() {
 		this.boards.sort((a, b) => (a.name > b.name) ? 1 : -1);
