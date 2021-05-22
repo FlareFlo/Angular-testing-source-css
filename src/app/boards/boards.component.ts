@@ -50,7 +50,6 @@ export class BoardsComponent implements OnInit {
 				response => {
 					// @ts-ignore
 					this.availableBoards = response;
-					console.log(response);
 					this.getAllBoards();
 				},
 				(error) => {
@@ -68,11 +67,8 @@ export class BoardsComponent implements OnInit {
 	getBoardByID(i: number) {
 		// tslint:disable-next-line:no-shadowed-variable
 		const id = this.availableBoards[i];
-
-
 		let header0 = new HttpHeaders();
 		header0 = header0.append('Token', this.cookieService.get('token'));
-
 		this.http.get(this.ROOT_URL_BOARD_ + id, {headers: header0})
 			.subscribe(
 				response => {
@@ -84,20 +80,31 @@ export class BoardsComponent implements OnInit {
 					} else {
 						pos = this.boards.length;
 					}
-
 					this.placeholder = response;
 					this.boards[pos] = {
 						boardID: this.placeholder.boardID,
 						name: this.placeholder.name,
 						createDate: this.placeholder.createDate
 					};
-					console.log(this.boards);
 				},
 				(error) => {
 					console.error(error);
 				}
 			);
 	}
+
+	sortByName() {
+		this.boards.sort((a, b) => (a.name > b.name) ? 1 : -1);
+	}
+
+	sortById() {
+		this.boards.sort((a, b) => (a.boardID > b.boardID) ? 1 : -1);
+	}
+
+	sortByCreateDate() {
+		this.boards.sort((a, b) => (a.createDate > b.createDate) ? 1 : -1);
+	}
+
 
 	ngOnInit(): void {
 		this.getExistingBoards();
