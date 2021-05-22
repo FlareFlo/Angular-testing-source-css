@@ -14,9 +14,8 @@ export class DatatabletestComponent implements OnInit {
 	constructor(private http: HttpClient, private cookieService: CookieService, public dialog: MatDialog) {
 	}
 
-	readonly ROOT_URL_BRD_8_ENTS = 'https://backend.yap.dragoncave.dev/boards/8/entries';
-	readonly ROOT_URL_ENT = 'https://backend.yap.dragoncave.dev/entry';
-	readonly ROOT_URL_BRD_8_ENT = 'https://backend.yap.dragoncave.dev/boards/8/entry/';
+	readonly ROOT_URL_ENTRY = 'https://backend.yap.dragoncave.dev/entry';
+	readonly ROOT_URL_BOARDS_ = 'https://backend.yap.dragoncave.dev/boards/';
 
 
 	entry = {
@@ -45,6 +44,7 @@ export class DatatabletestComponent implements OnInit {
 	clickID: any = 0;
 	showEdit: any = false;
 	showCreate: any = false;
+	boardSelect!: string;
 
 	// tslint:enable:max-line-length
 	drop(event: CdkDragDrop<{ title: string, description: string }[]>) {
@@ -92,7 +92,7 @@ export class DatatabletestComponent implements OnInit {
 		let header0 = new HttpHeaders();
 		header0 = header0.append('Token', this.cookieService.get('token'));
 
-		this.http.get(this.ROOT_URL_ENT + '/' + id, {headers: header0})
+		this.http.get(this.ROOT_URL_ENTRY + '/' + id, {headers: header0})
 			.subscribe(
 				response => {
 					let pos: number;
@@ -123,7 +123,7 @@ export class DatatabletestComponent implements OnInit {
 		let header1 = new HttpHeaders();
 		header1 = header1.append('Token', this.cookieService.get('token'));
 
-		this.http.get(this.ROOT_URL_BRD_8_ENTS, {headers: header1})
+		this.http.get(this.ROOT_URL_BOARDS_ + this.boardSelect + '/entries', {headers: header1})
 			.subscribe(
 				response => {
 					// @ts-ignore
@@ -153,7 +153,7 @@ export class DatatabletestComponent implements OnInit {
 			this.entries[this.clickID].description = description;
 		}
 
-		this.http.put<any>(this.ROOT_URL_ENT, this.entries[this.clickID], {headers: header2}) // send the POST to create the user account
+		this.http.put<any>(this.ROOT_URL_ENTRY, this.entries[this.clickID], {headers: header2}) // send the POST to create the user account
 			.subscribe(
 				(res) => {
 					console.log(res);
@@ -172,7 +172,7 @@ export class DatatabletestComponent implements OnInit {
 		this.entry.description = description;
 		dueDate = dueDate.substr(3, 2) + '/' + dueDate.substr(0, 2) + '/' + dueDate.substr(6, 4);
 		this.entry.dueDate = new Date(dueDate).getTime() / 1000;
-		this.http.post<any>(this.ROOT_URL_BRD_8_ENT, this.entry, {headers: header2}) // send the POST to create the user account
+		this.http.post<any>(this.ROOT_URL_BOARDS_ + this.boardSelect + '/entry', this.entry, {headers: header2})
 			.subscribe(
 				(res) => {
 					console.log(res);
@@ -187,7 +187,7 @@ export class DatatabletestComponent implements OnInit {
 	deleteEntry() {
 		let header = new HttpHeaders().set('Content-Type', 'application/json'); // define the sent content to being a Json object
 		header = header.append('Token', this.cookieService.get('token'));
-		this.http.delete(this.ROOT_URL_ENT + '/' + this.entries[this.clickID].entryID, {headers: header})
+		this.http.delete(this.ROOT_URL_ENTRY + '/' + this.entries[this.clickID].entryID, {headers: header})
 			.subscribe(
 				(res) => {
 					console.log(res);
@@ -212,6 +212,10 @@ export class DatatabletestComponent implements OnInit {
 
 	localizer(data: any) {
 		return new Date(data).toLocaleDateString('de-DE');
+	}
+
+	doBoard(input: string) {
+		this.boardSelect = input;
 	}
 
 
