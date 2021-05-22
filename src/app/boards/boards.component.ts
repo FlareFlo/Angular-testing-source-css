@@ -16,6 +16,7 @@ export class BoardsComponent implements OnInit {
 
 	readonly ROOT_URL_BOARDS_USER = 'https://backend.yap.dragoncave.dev/boards/user';
 	readonly ROOT_URL_BOARD_ = 'https://backend.yap.dragoncave.dev/boards/';
+	readonly ROOT_URL_BOARD = 'https://backend.yap.dragoncave.dev/boards';
 
 	boards = [
 		{
@@ -24,6 +25,12 @@ export class BoardsComponent implements OnInit {
 			createDate: 0
 		}
 	];
+
+	board = {
+		boardID: 0,
+		name: '',
+		createDate: 0
+	};
 
 	availableBoards!: [];
 	runonce = true;
@@ -93,8 +100,26 @@ export class BoardsComponent implements OnInit {
 			);
 	}
 
+	postBoard(name: string) {
+		if (name !== '' && name !== undefined) {
+			let header2 = new HttpHeaders().set('Content-Type', 'application/json'); // define the sent content to being a Json object
+			header2 = header2.append('Token', this.cookieService.get('token'));
+
+			this.board.name = name;
+			this.http.post<any>(this.ROOT_URL_BOARD, this.board, {headers: header2})
+				.subscribe(
+					(res) => {
+						console.log(res);
+						this.boards[this.boards.length] = this.board;
+					},
+					(error) => {
+						console.error(error);
+					});
+		}
+	}
+
 	/*
-	putBoard(name: string, description: string) {
+	putBoard(name: string) {
 		let header2 = new HttpHeaders().set('Content-Type', 'application/json'); // define the sent content to being a Json object
 		header2 = header2.append('Token', this.cookieService.get('token'));
 
