@@ -4,7 +4,7 @@
 	<button class="button__sort" (click)="sortByCreateDate()">Sort by create date</button>
 </div>
 <div class="example-container">
-	<div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
+	<div class="example-list">
 		<div class="example-box" *ngFor="let boards of boards">
 			{{boards.name}}
 			<button id="{{boards.boardID}}" class="button__editEntry" (click)="handleClick($event)">Edit / Open</button>
