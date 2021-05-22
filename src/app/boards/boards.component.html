@@ -5,18 +5,11 @@
 </div>
 <div class="example-container">
 	<div class="example-list">
-		<div class="example-box" *ngFor="let boards of boards">
+		<div class="example-box" *ngFor="let boards of boards" id="{{boards.boardID}}" (click)="handleClick($event)">
 			{{boards.name}}
-			<button id="{{boards.boardID}}" class="button__editEntry" (click)="handleClick($event)">View</button>
 		</div>
-		<button class="button__addEntry" (click)="toggleCreate()">Create new board</button>
+		<button class="button__addEntry" (click)="openPopup()">Create new board</button>
 	</div>
-</div>
-<div class="md-form" *ngIf="showCreate">
-	<label>Title</label>
-	<input #name mdbinput class="form-control" data-custom-input="create" type="text" placeholder="Title">
-	<button class="button__submit" (click)="postBoard(name.value)">Create</button>
-	<button class="button__close" (click)="toggleCreate()">Close</button>
 </div>
 <div class="md-form" *ngIf="showEdit">
 	<div>

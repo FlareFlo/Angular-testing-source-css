@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {DatatabletestComponent} from '../datatabletest/datatabletest.component';
+import {BoardsComponent} from '../boards/boards.component';
 
 @Component({
 	selector: 'app-dialog-edit-entry',
@@ -8,7 +9,7 @@ import {DatatabletestComponent} from '../datatabletest/datatabletest.component';
 })
 export class DialogEditEntryComponent implements OnInit {
 
-	constructor(public datatabletestComponent: DatatabletestComponent) {
+	constructor(public datatabletestComponent: DatatabletestComponent, public boardsComponent: BoardsComponent) {
 	}
 
 

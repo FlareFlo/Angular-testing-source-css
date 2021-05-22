@@ -1,8 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {CookieService} from 'ngx-cookie';
-import {MatDialog} from '@angular/material/dialog';
+import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
 import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
+import {DialogEditEntryComponent} from '../dialog-edit-entry/dialog-edit-entry.component';
 
 @Component({
 	selector: 'app-boards',
@@ -183,6 +184,9 @@ export class BoardsComponent implements OnInit {
 		return new Date(data).toLocaleDateString('de-DE');
 	}
 
+	openPopup() {
+		this.dialog.open(DialogEditEntryComponent);
+	}
 
 	ngOnInit(): void {
 		this.getExistingBoards();
