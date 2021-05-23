@@ -3,7 +3,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {CookieService} from 'ngx-cookie';
 import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
 import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
-import {DialogEditEntryComponent} from '../dialog-edit-entry/dialog-edit-entry.component';
+import {DialogEditEntryComponent} from '../dialog-create-board/dialog-edit-entry.component';
 
 @Component({
 	selector: 'app-boards',
