@@ -12,6 +12,7 @@ import {RegisterComponent} from './register/register.component';
 import {DatatabletestComponent} from './datatabletest/datatabletest.component';
 import {BoardsComponent} from './boards/boards.component';
 import {ResetComponent} from './reset/reset.component';
+import {ForgotComponent} from './forgot/forgot.component';
 
 const routes: Routes = [
 	{
@@ -61,6 +62,10 @@ const routes: Routes = [
 	{
 		path: 'reset',
 		component: ResetComponent
+	},
+	{
+		path: 'forgot',
+		component: ForgotComponent
 	}
 
 ];

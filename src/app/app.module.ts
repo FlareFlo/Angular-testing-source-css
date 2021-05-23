@@ -24,6 +24,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {BoardsComponent} from './boards/boards.component';
 import {ResetComponent} from './reset/reset.component';
+import {ForgotComponent} from './forgot/forgot.component';
 
 @NgModule({
 	declarations: [
@@ -42,7 +43,8 @@ import {ResetComponent} from './reset/reset.component';
 		DatatabletestComponent,
 		DialogEditEntryComponent,
 		BoardsComponent,
-		ResetComponent
+		ResetComponent,
+		ForgotComponent
 	],
 	entryComponents: [DialogEditEntryComponent],
 	imports: [
