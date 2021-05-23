@@ -185,10 +185,6 @@ export class BoardsComponent implements OnInit {
 		this.showCreate = !this.showCreate;
 	}
 
-	toggleEdit() {
-		this.showEdit = !this.showEdit;
-	}
-
 	localizer(data: any) {
 		return new Date(data).toLocaleDateString('de-DE');
 	}

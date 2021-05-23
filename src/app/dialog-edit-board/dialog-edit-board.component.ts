@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {EntriesComponent} from '../entries/entries.component';
 import {BoardsComponent} from '../boards/boards.component';
+import {Subject} from 'rxjs';
 
 @Component({
 	selector: 'app-dialog-edit-board',
@@ -9,8 +10,10 @@ import {BoardsComponent} from '../boards/boards.component';
 })
 export class DialogEditBoardComponent implements OnInit {
 
-	constructor(public datatabletestComponent: EntriesComponent, public boardsComponent: BoardsComponent) {
+	constructor(public entriesComponent: EntriesComponent, public boardsComponent: BoardsComponent) {
+
 	}
+
 
 	ngOnInit(): void {
 	}
