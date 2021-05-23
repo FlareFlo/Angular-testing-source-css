@@ -17,7 +17,7 @@
 	<div class="container__popup">
 		<h2 class="h2_popup">Edit entry</h2>
 		<input #name class="form-control" data-custom-input="create" type="text" placeholder="Title">
-		<input #description class="form-control" data-custom-input="create" type="text" placeholder="Description">
+		<textarea #description class="form-control" data-custom-input="create" placeholder="Description"></textarea>
 		<div class="buttons">
 			<button class="button__submit" (click)="putEntry(name.value, description.value)">Save</button>
 			<button class="button__close" (click)="toggleEdit()">Discard and close</button>

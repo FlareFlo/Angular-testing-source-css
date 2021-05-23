@@ -3,12 +3,6 @@
 	overflow: hidden;
 }
 
-.md-form {
-	margin-left: 30vw;
-	margin-top: 3vh;
-	visibility: initial;
-}
-
 label {
 	font-size: 0.75rem;
 	margin-bottom: 0;
