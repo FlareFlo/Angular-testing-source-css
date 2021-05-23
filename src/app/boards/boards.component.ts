@@ -116,6 +116,7 @@ export class BoardsComponent implements OnInit {
 					(res) => {
 						console.log(res);
 						this.boards[this.boards.length] = this.board;
+						window.location.reload();
 					},
 					(error) => {
 						console.error(error);
