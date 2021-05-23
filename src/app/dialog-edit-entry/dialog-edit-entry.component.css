@@ -15,7 +15,17 @@
 	0 0 4px rgba(0, 0, 0, 0.12),
 	0 0 8px rgba(83, 227, 166, 0.12),
 	0 0 16px rgba(83, 227, 166, 0.12);
+	transition: ease-in;
+	transition-duration: 0.2s;
 
+}
+
+.container:hover {
+	box-shadow: 0 0 2px rgba(0, 0, 0, 0.12),
+	0 0 4px rgba(0, 0, 0, 0.12),
+	0 0 8px rgba(0, 0, 0, 0.12),
+	0 0 16px rgba(83, 227, 166, 0.12),
+	0 0 32px rgba(83, 227, 166, 0.12);
 }
 
 .buttons {
