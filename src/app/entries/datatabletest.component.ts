@@ -229,7 +229,7 @@ export class DatatabletestComponent implements OnInit {
 
 /*
 		openDialog(): void {
-			this.dialog.open(DialogEditEntryComponent);
+			this.dialog.open(DialogCreateBoard);
 		}
 
 		getReload() {

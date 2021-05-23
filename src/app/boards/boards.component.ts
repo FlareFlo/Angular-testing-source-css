@@ -3,7 +3,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {CookieService} from 'ngx-cookie';
 import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
 import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
-import {DialogEditEntryComponent} from '../dialog-create-board/dialog-edit-entry.component';
+import {DialogCreateBoardComponent} from '../dialog-create-board/dialog-create-board';
 import {DialogEditBoardComponent} from '../dialog-edit-board/dialog-edit-board.component';
 
 @Component({
@@ -194,7 +194,7 @@ export class BoardsComponent implements OnInit {
 	}
 
 	openPopupCreate() {
-		this.dialog.open(DialogEditEntryComponent, {disableClose: true});
+		this.dialog.open(DialogCreateBoardComponent, {disableClose: true});
 	}
 
 	openPopupEdit() {
