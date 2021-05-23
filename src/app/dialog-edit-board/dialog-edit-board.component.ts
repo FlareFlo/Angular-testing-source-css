@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {DatatabletestComponent} from '../entries/datatabletest.component';
+import {EntriesComponent} from '../entries/entries.component';
 import {BoardsComponent} from '../boards/boards.component';
 
 @Component({
@@ -9,7 +9,7 @@ import {BoardsComponent} from '../boards/boards.component';
 })
 export class DialogEditBoardComponent implements OnInit {
 
-	constructor(public datatabletestComponent: DatatabletestComponent, public boardsComponent: BoardsComponent) {
+	constructor(public datatabletestComponent: EntriesComponent, public boardsComponent: BoardsComponent) {
 	}
 
 	ngOnInit(): void {

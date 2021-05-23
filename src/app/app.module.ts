@@ -17,7 +17,7 @@ import {LoginComponent} from './login/login.component';
 import {ProfileComponent} from './profile/profile.component';
 import {CookieModule, CookieService} from 'ngx-cookie';
 import {RegisterComponent} from './register/register.component';
-import {DatatabletestComponent} from './entries/datatabletest.component';
+import {EntriesComponent} from './entries/entries.component';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import {DialogCreateBoardComponent} from './dialog-create-board/dialog-create-board';
 import {MatDialogModule} from '@angular/material/dialog';
@@ -41,7 +41,7 @@ import {DialogEditBoardComponent} from './dialog-edit-board/dialog-edit-board.co
 		LoginComponent,
 		ProfileComponent,
 		RegisterComponent,
-		DatatabletestComponent,
+		EntriesComponent,
 		DialogCreateBoardComponent,
 		BoardsComponent,
 		ResetComponent,
@@ -59,7 +59,7 @@ import {DialogEditBoardComponent} from './dialog-edit-board/dialog-edit-board.co
 		MatDialogModule,
 		BrowserAnimationsModule
 	],
-	providers: [CookieService, DatatabletestComponent, BoardsComponent],
+	providers: [CookieService, EntriesComponent, BoardsComponent],
 	bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -6,10 +6,10 @@ import {MatDialog} from '@angular/material/dialog';
 
 @Component({
 	selector: 'app-datatabletest',
-	templateUrl: './datatabletest.component.html',
-	styleUrls: ['./datatabletest.component.css']
+	templateUrl: './entries.component.html',
+	styleUrls: ['./entries.component.css']
 })
-export class DatatabletestComponent implements OnInit {
+export class EntriesComponent implements OnInit {
 
 	constructor(
 		private http: HttpClient, private cookieService: CookieService, public dialog: MatDialog) {
