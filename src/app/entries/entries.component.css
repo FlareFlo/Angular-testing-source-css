@@ -188,7 +188,7 @@ input {
 	margin-bottom: 5px;
 	margin-left: 10px;
 	margin-right: 10px;
-	width: 30vw;
+	width: 41vw;
 }
 
 input:hover {
@@ -208,7 +208,7 @@ input:focus, input:active{
 	padding-top: 1vh;
 }
 
-.button__submit, .button__close {
+.button__submit, .button__close, .button__delete {
 	border: none;
 	color: black;
 	text-align: center;
@@ -216,8 +216,7 @@ input:focus, input:active{
 	width: 10em;
 	font-size: calc(10px + (4px * 1rem));
 	border-radius: 4px;
-	margin-bottom: 10px;
-	margin-top: 10px;
+	margin: 10px 4px;
 }
 
 .button__submit {
@@ -232,12 +231,24 @@ input:focus, input:active{
 }
 
 .button__close {
+	background-color: #e38d53 !important;
+	box-shadow:  0 0 5px #e38d53;
+	transition: ease-in;
+	transition-duration: .1s;
+}
+
+.button__close:hover {
+	box-shadow:  0 0 10px #e38d53;
+}
+
+.button__delete {
 	background-color: #e35353 !important;
 	box-shadow:  0 0 5px #e35353;
 	transition: ease-in;
 	transition-duration: .1s;
 }
 
-.button__close:hover {
+.button__delete:hover {
 	box-shadow:  0 0 10px #e35353;
 }
+
