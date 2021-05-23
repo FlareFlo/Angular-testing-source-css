@@ -6,7 +6,7 @@
 </div>
 <div class="example-container">
 	<div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
-		<div class="example-box" *ngFor="let entries of entries" cdkDrag id="{{entries.entryID}}"
+		<div oncontextmenu="return false;" class="example-box" *ngFor="let entries of entries" cdkDrag id="{{entries.entryID}}"
 			 (contextmenu)="handleClickEdit($event)">
 			{{entries.title}}
 		</div>

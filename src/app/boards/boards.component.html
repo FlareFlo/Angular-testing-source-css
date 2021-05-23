@@ -5,7 +5,7 @@
 </div>
 <div class="example-container">
 	<div class="example-list">
-		<div class="example-box" *ngFor="let boards of boards" id="{{boards.boardID}}" (click)="handleClickOpen($event)" (contextmenu)="handleClickEdit($event)">
+		<div oncontextmenu="return false;" class="example-box" *ngFor="let boards of boards" id="{{boards.boardID}}" (click)="handleClickOpen($event)" (contextmenu)="handleClickEdit($event)">
 			{{boards.name}}
 		</div>
 		<button class="button__addEntry" (click)="toggleCreate()">Create new board</button>
