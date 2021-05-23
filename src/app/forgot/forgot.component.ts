@@ -20,6 +20,7 @@ export class ForgotComponent implements OnInit {
 
 	checkReset(emailAddress: string) {
 		if (emailAddress !== undefined && emailAddress !== '') {
+			this.resetBody.emailAddress = emailAddress;
 			this.postReset();
 		} else {
 			console.log('The input field was left empty');
