@@ -74,13 +74,8 @@ export class EntriesComponent implements OnInit {
 		this.showCreate = !this.showCreate;
 	}
 
-
-	closeEdit() {
-		this.showEdit = false;
-	}
-
-	closeCreate() {
-		this.showCreate = false;
+	toggleEdit() {
+		this.showEdit = !this.showEdit;
 	}
 
 	getEntryByID(i: number) {
@@ -199,11 +194,12 @@ export class EntriesComponent implements OnInit {
 			);
 	}
 
-	handleClickOpen($event: MouseEvent) {
+	handleClickCreate($event: MouseEvent) {
 		// @ts-ignore
 		this.locale = $event.target.id;
 		// tslint:disable-next-line:triple-equals
 		this.clickID = (this.entries.findIndex(x => x.entryID == this.locale));
+		this.showCreate = true;
 	}
 
 	handleClickEdit($event: MouseEvent) {
@@ -218,18 +214,6 @@ export class EntriesComponent implements OnInit {
 			return;
 		}
 	}
-
-	localizer(data: any) {
-		return new Date(data).toLocaleDateString('de-DE');
-	}
-
-	/*
-	doBoard(input: string) {
-		this.boardSelect = input;
-	}
-	*/
-
-
 
 	ngOnInit(): void {
 		this.getExistingEntries();

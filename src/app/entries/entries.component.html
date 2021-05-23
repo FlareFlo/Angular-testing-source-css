@@ -6,22 +6,37 @@
 </div>
 <div class="example-container">
 	<div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
-		<div class="example-box" *ngFor="let entries of entries" cdkDrag id="{{entries.entryID}}" (click)="handleClickEdit($event)">
+		<div class="example-box" *ngFor="let entries of entries" cdkDrag id="{{entries.entryID}}"
+			 (contextmenu)="handleClickEdit($event)">
 			{{entries.title}}
 		</div>
-		<button class="button__addEntry" (click)="handleClickOpen($event)">Add new entry</button>
+		<button class="button__addEntry" (click)="handleClickCreate($event)">Add new entry</button>
 	</div>
 </div>
 <div class="md-form" *ngIf="showEdit">
-	<label>Title</label>
-	<input #title mdbinput class="form-control" data-custom-input="update" type="text" placeholder="{{this.entries[this.clickID].title}}">
-	<label>Description</label>
-	<input #description mdbinput class="form-control" type="text" data-custom-input="update"
-		   placeholder="{{this.entries[this.clickID].description}}">
-	<div>Entry ID: {{this.entries[this.clickID].entryID}}</div>
-	<div>Create date: {{localizer(this.entries[this.clickID].createDate)}}</div>
-	<div>Due date: {{localizer(this.entries[this.clickID].dueDate)}}</div>
-	<button class="button__submit" (click)="putEntry(title.value, description.value)">Update/Close</button>
-	<button class="button__close" (click)="deleteEntry()">Delete entry</button>
+	<div class="container__popup">
+		<h2 class="h2_popup">Edit entry</h2>
+		<div>
+			<input #name mdbinput class="form-control" data-custom-input="create" type="text" placeholder="Title">
+			<div class="buttons">
+				<button class="button__submit">Save</button>
+				<button class="button__close" (click)="toggleEdit()">Discard and close</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="container__popup" *ngIf="showCreate">
+	<h2 class="h2_popup">Create new entry</h2>
+	<input #name mdbinput class="form-control" data-custom-input="create" type="text" placeholder="Title">
+	<input #description mdbinput class="form-control" data-custom-input="create" type="text" placeholder="Description">
+	<input #dueDate mdbinput class="form-control" data-custom-input="create" type="text"
+		   placeholder="Due date dd.mm.yyyy 00:00">
+	<div>
+		<div class="buttons">
+			<button class="button__submit" (click)="postEntry(name.value, description.value, dueDate.value)">Create
+			</button>
+			<button class="button__close" (click)="toggleCreate()">Discard and close</button>
+		</div>
+	</div>
 </div>
 
