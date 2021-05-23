@@ -23,6 +23,7 @@ import {DialogEditEntryComponent} from './dialog-edit-entry/dialog-edit-entry.co
 import {MatDialogModule} from '@angular/material/dialog';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {BoardsComponent} from './boards/boards.component';
+import {ResetComponent} from './reset/reset.component';
 
 @NgModule({
 	declarations: [
@@ -40,7 +41,8 @@ import {BoardsComponent} from './boards/boards.component';
 		RegisterComponent,
 		DatatabletestComponent,
 		DialogEditEntryComponent,
-		BoardsComponent
+		BoardsComponent,
+		ResetComponent
 	],
 	entryComponents: [DialogEditEntryComponent],
 	imports: [

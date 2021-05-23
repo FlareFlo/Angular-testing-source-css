@@ -1,0 +1,7 @@
+<div class="container">
+	<input #reset placeholder="Reset code">
+	<input #emailAddress placeholder="Email address">
+	<input #newPassword placeholder="New password">
+	<input #repeatNewPassword placeholder="Repeat new password">
+	<button class="button__reset" (click)="checkReset(emailAddress.value, newPassword.value, repeatNewPassword.value, reset.value)">Reset</button>
+</div>
