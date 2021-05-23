@@ -16,20 +16,19 @@
 <div class="md-form" *ngIf="showEdit">
 	<div class="container__popup">
 		<h2 class="h2_popup">Edit entry</h2>
-		<div>
-			<input #name mdbinput class="form-control" data-custom-input="create" type="text" placeholder="Title">
-			<div class="buttons">
-				<button class="button__submit">Save</button>
-				<button class="button__close" (click)="toggleEdit()">Discard and close</button>
-			</div>
+		<input #name class="form-control" data-custom-input="create" type="text">
+		<input #description class="form-control" data-custom-input="create" type="text">
+		<div class="buttons">
+			<button class="button__submit" (click)="putEntry(name.value, description.value)">Save</button>
+			<button class="button__close" (click)="toggleEdit()">Discard and close</button>
 		</div>
 	</div>
 </div>
 <div class="container__popup" *ngIf="showCreate">
 	<h2 class="h2_popup">Create new entry</h2>
-	<input #name mdbinput class="form-control" data-custom-input="create" type="text" placeholder="Title">
-	<input #description mdbinput class="form-control" data-custom-input="create" type="text" placeholder="Description">
-	<input #dueDate mdbinput class="form-control" data-custom-input="create" type="text"
+	<input #name class="form-control" data-custom-input="create" type="text" placeholder="Title">
+	<input #description class="form-control" data-custom-input="create" type="text" placeholder="Description">
+	<input #dueDate class="form-control" data-custom-input="create" type="text"
 		   placeholder="Due date dd.mm.yyyy 00:00">
 	<div>
 		<div class="buttons">

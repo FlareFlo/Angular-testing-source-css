@@ -155,6 +155,7 @@ export class EntriesComponent implements OnInit {
 				(res) => {
 					console.log(res);
 					this.showEdit = false;
+					window.location.reload();
 				},
 				(error) => {
 					console.error(error);
@@ -206,6 +207,7 @@ export class EntriesComponent implements OnInit {
 		// @ts-ignore
 		// tslint:disable-next-line:radix
 		const locale = $event.target.id;
+		this.locale = locale;
 		// tslint:disable-next-line:triple-equals
 		this.clickID = (this.entries.findIndex(x => x.entryID == locale));
 		this.showEdit = true;
