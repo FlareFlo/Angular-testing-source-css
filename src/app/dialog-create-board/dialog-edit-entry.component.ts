@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {DatatabletestComponent} from '../datatabletest/datatabletest.component';
+import {DatatabletestComponent} from '../entries/datatabletest.component';
 import {BoardsComponent} from '../boards/boards.component';
 
 @Component({

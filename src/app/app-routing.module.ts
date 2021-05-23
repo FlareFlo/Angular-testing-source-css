@@ -9,7 +9,7 @@ import {TokentesterComponent} from './tokentester/tokentester.component';
 import {LoginComponent} from './login/login.component';
 import {ProfileComponent} from './profile/profile.component';
 import {RegisterComponent} from './register/register.component';
-import {DatatabletestComponent} from './datatabletest/datatabletest.component';
+import {DatatabletestComponent} from './entries/datatabletest.component';
 import {BoardsComponent} from './boards/boards.component';
 import {ResetComponent} from './reset/reset.component';
 import {ForgotComponent} from './forgot/forgot.component';

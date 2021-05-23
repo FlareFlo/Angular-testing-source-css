@@ -17,7 +17,7 @@ import {LoginComponent} from './login/login.component';
 import {ProfileComponent} from './profile/profile.component';
 import {CookieModule, CookieService} from 'ngx-cookie';
 import {RegisterComponent} from './register/register.component';
-import {DatatabletestComponent} from './datatabletest/datatabletest.component';
+import {DatatabletestComponent} from './entries/datatabletest.component';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import {DialogEditEntryComponent} from './dialog-create-board/dialog-edit-entry.component';
 import {MatDialogModule} from '@angular/material/dialog';
