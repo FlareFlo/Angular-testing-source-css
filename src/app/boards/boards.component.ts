@@ -59,7 +59,7 @@ export class BoardsComponent implements OnInit {
 		this.locale = $event.target.id;
 		// tslint:disable-next-line:triple-equals
 		this.clickID = (this.boards.findIndex(x => x.boardID == this.locale));
-		this.openPopupEdit();
+		this.showEdit = true;
 	}
 
 	getExistingBoards() {
@@ -185,6 +185,10 @@ export class BoardsComponent implements OnInit {
 		this.showCreate = !this.showCreate;
 	}
 
+	toggleEdit() {
+		this.showEdit = !this.showEdit;
+	}
+
 	localizer(data: any) {
 		return new Date(data).toLocaleDateString('de-DE');
 	}
@@ -193,9 +197,6 @@ export class BoardsComponent implements OnInit {
 		this.dialog.open(DialogCreateBoardComponent, {disableClose: true});
 	}
 
-	openPopupEdit() {
-		this.dialog.open(DialogEditBoardComponent, {disableClose: true});
-	}
 
 	ngOnInit(): void {
 		this.getExistingBoards();

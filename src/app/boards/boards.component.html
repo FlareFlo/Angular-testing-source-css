@@ -12,11 +12,14 @@
 	</div>
 </div>
 <div class="md-form" *ngIf="showEdit">
-	<label>Name</label>
-	<input #name mdbinput class="form-control" data-custom-input="update" type="text"
-		   placeholder="{{this.boards[this.clickID].name}}">
-	<div>Entry ID: {{this.boards[this.clickID].boardID}}</div>
-	<div>Create date: {{localizer(this.boards[this.clickID].createDate)}}</div>
-	<button class="button__submit" (click)="putBoard(name.value)">Update/Close</button>
-	<button class="button__close" (click)="deleteBoard()">Delete board</button>
+	<div class="container__popup">
+		<h2 class="h2_popup">Edit board</h2>
+		<div>
+			<input #name mdbinput class="form-control" data-custom-input="create" type="text" placeholder="Title">
+			<div class="buttons">
+				<button class="button__submit" (click)="postBoard(name.value)" >Save</button>
+				<button class="button__close" (click)="toggleEdit()">Discard and close</button>
+			</div>
+		</div>
+	</div>
 </div>
