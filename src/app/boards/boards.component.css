@@ -162,8 +162,8 @@ label {
 	position: fixed;
 	top: 5vh;
 	left: 20vw;
-	width: 50vw;
-	height: 20vh;
+	width: auto;
+	height: auto;
 	z-index: 1;
 	box-shadow: 0 0 1px rgba(0, 0, 0, 0.12),
 	0 0 2px rgba(0, 0, 0, 0.12),
@@ -197,9 +197,10 @@ input {
 	color: #FFFFFF;
 	border-color: #1c1c1c;
 	font-size: 20pt;
+	margin-bottom: 5px;
 	margin-left: 10px;
 	margin-right: 10px;
-	width: auto;
+	width: 30vw;
 }
 
 input:hover {
@@ -210,6 +211,7 @@ input:focus, input:active{
 	background-color: #282C34;
 	border-color: #1c1c1c;
 	color: #FFFFFF;
+
 }
 
 
