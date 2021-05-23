@@ -135,7 +135,6 @@ export class BoardsComponent implements OnInit {
 			);
 	}
 
-	/*
 	putBoard(name: string) {
 		let header2 = new HttpHeaders().set('Content-Type', 'application/json'); // define the sent content to being a Json object
 		header2 = header2.append('Token', this.cookieService.get('token'));
@@ -144,16 +143,16 @@ export class BoardsComponent implements OnInit {
 			this.boards[this.clickID].name = name;
 		}
 
-		this.http.put<any>(this.ROOT_URL_ENTRY, this.boards[this.clickID], {headers: header2}) // send the POST to create the user account
+		this.http.put<any>(this.ROOT_URL_BOARD_ + this.locale, this.boards[this.clickID], {headers: header2})
 			.subscribe(
 				(res) => {
 					console.log(res);
+					this.showEdit = false;
 				},
 				(error) => {
 					console.error(error);
 				});
 	}
-	 */
 
 	goToBoard() {
 		this.cookieService.put('activeBoard', this.locale.toString());

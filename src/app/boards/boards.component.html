@@ -5,7 +5,7 @@
 </div>
 <div class="example-container">
 	<div class="example-list">
-		<div class="example-box" *ngFor="let boards of boards" id="{{boards.boardID}}" (dblclick)="handleClick($event)" (click)="handleClick($event); goToBoard()">
+		<div class="example-box" *ngFor="let boards of boards" id="{{boards.boardID}}" (click)="handleClick($event)" (dblclick)="handleClick($event); goToBoard()">
 			{{boards.name}}
 		</div>
 		<button class="button__addEntry" (click)="openPopup()">Create new board</button>
@@ -16,10 +16,10 @@
 		<button class="button__submit" (click)="goToBoard()">Open board</button>
 	</div>
 	<label>Name</label>
-	<input #Name mdbinput class="form-control" data-custom-input="update" type="text"
+	<input #name mdbinput class="form-control" data-custom-input="update" type="text"
 		   placeholder="{{this.boards[this.clickID].name}}">
 	<div>Entry ID: {{this.boards[this.clickID].boardID}}</div>
 	<div>Create date: {{localizer(this.boards[this.clickID].createDate)}}</div>
-	<button class="button__submit" (click)="toggleEdit()">Update/Close</button>
+	<button class="button__submit" (click)="putBoard(name.value)">Update/Close</button>
 	<button class="button__close" (click)="deleteBoard()">Delete board</button>
 </div>
