@@ -3,19 +3,16 @@ import {EntriesComponent} from '../entries/entries.component';
 import {BoardsComponent} from '../boards/boards.component';
 
 @Component({
-	selector: 'app-dialog-edit-entry',
-	templateUrl: './dialog-create-broad.html',
-	styleUrls: ['./dialog-create-board.css']
+	selector: 'app-dialog-create-entry',
+	templateUrl: './dialog-create-entry.component.html',
+	styleUrls: ['./dialog-create-entry.component.css']
 })
-export class DialogCreateBoardComponent implements OnInit {
+export class DialogCreateEntryComponent implements OnInit {
 
 	constructor(public entriesComponent: EntriesComponent, public boardsComponent: BoardsComponent) {
 	}
 
-
 	ngOnInit(): void {
-
 	}
-
 
 }

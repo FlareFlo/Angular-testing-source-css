@@ -1,0 +1,14 @@
+<div class="container">
+	<h2 mat-dialog-title>
+		Create new entry
+	</h2>
+	<mat-dialog-content>
+		<input #title mdbinput class="form-control" data-custom-input="create" type="text" placeholder="Title">
+		<input #description mdbinput class="form-control" data-custom-input="create" type="text" placeholder="Description">
+		<input #dueDate mdbinput class="form-control" data-custom-input="create" type="text" placeholder="Due date (dd.mm.yyyy 00:00)">
+		<div class="buttons">
+			<button class="button__submit" (click)="entriesComponent.postEntry(title.value, description.value, dueDate.value)" mat-dialog-close="">Create</button>
+			<button class="button__close" mat-dialog-close="">Discard and close</button>
+		</div>
+	</mat-dialog-content>
+</div>

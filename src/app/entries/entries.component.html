@@ -6,10 +6,10 @@
 </div>
 <div class="example-container">
 	<div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
-		<div class="example-box" *ngFor="let entries of entries" cdkDrag id="{{entries.entryID}}" (click)="handleClick($event); closeCreate()">
+		<div class="example-box" *ngFor="let entries of entries" cdkDrag id="{{entries.entryID}}" (click)="handleClickEdit($event)">
 			{{entries.title}}
 		</div>
-		<button class="button__addEntry" (click)="toggleCreate(); closeEdit()">Add new entry</button>
+		<button class="button__addEntry" (click)="handleClickOpen($event)">Add new entry</button>
 	</div>
 </div>
 <div class="md-form" *ngIf="showEdit">
@@ -23,15 +23,5 @@
 	<div>Due date: {{localizer(this.entries[this.clickID].dueDate)}}</div>
 	<button class="button__submit" (click)="putEntry(title.value, description.value)">Update/Close</button>
 	<button class="button__close" (click)="deleteEntry()">Delete entry</button>
-</div>
-<div class="md-form" *ngIf="showCreate">
-	<label>Title</label>
-	<input #title mdbinput class="form-control" data-custom-input="create" type="text" placeholder="Title">
-	<label>Description</label>
-	<input #description mdbinput class="form-control" data-custom-input="create" type="text" placeholder="Description">
-	<label>Due Date</label>
-	<input #dueDate mdbinput class="form-control" data-custom-input="create" type="text" placeholder="dd.mm.yyyy 00:00">
-	<button class="button__submit" (click)="postEntry(title.value, description.value, dueDate.value)">Create</button>
-	<button class="button__close" (click)="toggleCreate()">Close</button>
 </div>
 

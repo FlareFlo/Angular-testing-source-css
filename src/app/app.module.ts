@@ -26,6 +26,7 @@ import {BoardsComponent} from './boards/boards.component';
 import {ResetComponent} from './reset/reset.component';
 import {ForgotComponent} from './forgot/forgot.component';
 import {DialogEditBoardComponent} from './dialog-edit-board/dialog-edit-board.component';
+import {DialogCreateEntryComponent} from './dialog-create-entry/dialog-create-entry.component';
 
 @NgModule({
 	declarations: [
@@ -46,7 +47,8 @@ import {DialogEditBoardComponent} from './dialog-edit-board/dialog-edit-board.co
 		BoardsComponent,
 		ResetComponent,
 		ForgotComponent,
-		DialogEditBoardComponent
+		DialogEditBoardComponent,
+		DialogCreateEntryComponent
 	],
 	entryComponents: [DialogCreateBoardComponent],
 	imports: [

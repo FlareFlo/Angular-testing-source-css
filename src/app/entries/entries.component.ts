@@ -3,6 +3,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {CookieService} from 'ngx-cookie';
 import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 import {MatDialog} from '@angular/material/dialog';
+import {DialogCreateEntryComponent} from '../dialog-create-entry/dialog-create-entry.component';
 
 @Component({
 	selector: 'app-datatabletest',
@@ -45,7 +46,8 @@ export class EntriesComponent implements OnInit {
 	clickID: any = 0;
 	showEdit: any = false;
 	showCreate: any = false;
-	boardSelect!: string;
+	boardSelect: string = this.cookieService.get('activeBoard');
+	locale = 0;
 
 	// tslint:enable:max-line-length
 	drop(event: CdkDragDrop<{ title: string, description: string }[]>) {
@@ -179,6 +181,7 @@ export class EntriesComponent implements OnInit {
 					console.log(res);
 					this.showCreate = false;
 					this.entries[this.entries.length] = this.entry;
+					window.location.reload();
 				},
 				(error) => {
 					console.error(error);
@@ -197,8 +200,15 @@ export class EntriesComponent implements OnInit {
 			);
 	}
 
+	handleClickOpen($event: MouseEvent) {
+		// @ts-ignore
+		this.locale = $event.target.id;
+		// tslint:disable-next-line:triple-equals
+		this.clickID = (this.entries.findIndex(x => x.entryID == this.locale));
+		this.openPopupCreate();
+	}
 
-	handleClick($event: MouseEvent) {
+	handleClickEdit($event: MouseEvent) {
 		// @ts-ignore
 		// tslint:disable-next-line:radix
 		const locale = $event.target.id;
@@ -215,26 +225,19 @@ export class EntriesComponent implements OnInit {
 		return new Date(data).toLocaleDateString('de-DE');
 	}
 
+	/*
 	doBoard(input: string) {
 		this.boardSelect = input;
+	}
+	*/
+
+	openPopupCreate() {
+		this.dialog.open(DialogCreateEntryComponent, {disableClose: true});
 	}
 
 
 	ngOnInit(): void {
-		this.boardSelect = this.cookieService.get('activeBoard');
 		this.getExistingEntries();
 	}
 
 }
-
-/*
-		openDialog(): void {
-			this.dialog.open(DialogCreateBoard);
-		}
-
-		getReload() {
-			console.log(this.clickID);
-			// @ts-ignore
-			return this.entries[this.clickID];
-		}
-	 */
