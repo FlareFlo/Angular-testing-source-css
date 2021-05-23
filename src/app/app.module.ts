@@ -19,14 +19,11 @@ import {CookieModule, CookieService} from 'ngx-cookie';
 import {RegisterComponent} from './register/register.component';
 import {EntriesComponent} from './entries/entries.component';
 import {DragDropModule} from '@angular/cdk/drag-drop';
-import {DialogCreateBoardComponent} from './dialog-create-board/dialog-create-board';
 import {MatDialogModule} from '@angular/material/dialog';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {BoardsComponent} from './boards/boards.component';
 import {ResetComponent} from './reset/reset.component';
 import {ForgotComponent} from './forgot/forgot.component';
-import {DialogEditBoardComponent} from './dialog-edit-board/dialog-edit-board.component';
-import {DialogCreateEntryComponent} from './dialog-create-entry/dialog-create-entry.component';
 
 @NgModule({
 	declarations: [
@@ -43,14 +40,10 @@ import {DialogCreateEntryComponent} from './dialog-create-entry/dialog-create-en
 		ProfileComponent,
 		RegisterComponent,
 		EntriesComponent,
-		DialogCreateBoardComponent,
 		BoardsComponent,
 		ResetComponent,
-		ForgotComponent,
-		DialogEditBoardComponent,
-		DialogCreateEntryComponent
+		ForgotComponent
 	],
-	entryComponents: [DialogCreateBoardComponent],
 	imports: [
 		BrowserModule,
 		CookieModule.forRoot(),
