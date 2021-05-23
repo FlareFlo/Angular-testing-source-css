@@ -189,15 +189,6 @@ export class BoardsComponent implements OnInit {
 		this.showEdit = !this.showEdit;
 	}
 
-	localizer(data: any) {
-		return new Date(data).toLocaleDateString('de-DE');
-	}
-
-	openPopupCreate() {
-		this.dialog.open(DialogCreateBoardComponent, {disableClose: true});
-	}
-
-
 	ngOnInit(): void {
 		this.getExistingBoards();
 	}
