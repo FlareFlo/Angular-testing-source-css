@@ -4,6 +4,7 @@ import {CookieService} from 'ngx-cookie';
 import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
 import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 import {DialogEditEntryComponent} from '../dialog-create-board/dialog-edit-entry.component';
+import {DialogEditBoardComponent} from '../dialog-edit-board/dialog-edit-board.component';
 
 @Component({
 	selector: 'app-boards',
@@ -45,12 +46,20 @@ export class BoardsComponent implements OnInit {
 		moveItemInArray(this.boards, event.previousIndex, event.currentIndex);
 	}
 
-	handleClick($event: MouseEvent) {
+	handleClickOpen($event: MouseEvent) {
 		// @ts-ignore
 		this.locale = $event.target.id;
 		// tslint:disable-next-line:triple-equals
 		this.clickID = (this.boards.findIndex(x => x.boardID == this.locale));
-		this.showEdit = true;
+		this.goToBoard();
+	}
+
+	handleClickEdit($event: MouseEvent) {
+		// @ts-ignore
+		this.locale = $event.target.id;
+		// tslint:disable-next-line:triple-equals
+		this.clickID = (this.boards.findIndex(x => x.boardID == this.locale));
+		this.openPopupEdit();
 	}
 
 	getExistingBoards() {
@@ -184,8 +193,12 @@ export class BoardsComponent implements OnInit {
 		return new Date(data).toLocaleDateString('de-DE');
 	}
 
-	openPopup() {
+	openPopupCreate() {
 		this.dialog.open(DialogEditEntryComponent, {disableClose: true});
+	}
+
+	openPopupEdit() {
+		this.dialog.open(DialogEditBoardComponent, {disableClose: true});
 	}
 
 	ngOnInit(): void {

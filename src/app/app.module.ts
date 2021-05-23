@@ -25,6 +25,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {BoardsComponent} from './boards/boards.component';
 import {ResetComponent} from './reset/reset.component';
 import {ForgotComponent} from './forgot/forgot.component';
+import {DialogEditBoardComponent} from './dialog-edit-board/dialog-edit-board.component';
 
 @NgModule({
 	declarations: [
@@ -44,7 +45,8 @@ import {ForgotComponent} from './forgot/forgot.component';
 		DialogEditEntryComponent,
 		BoardsComponent,
 		ResetComponent,
-		ForgotComponent
+		ForgotComponent,
+		DialogEditBoardComponent
 	],
 	entryComponents: [DialogEditEntryComponent],
 	imports: [
