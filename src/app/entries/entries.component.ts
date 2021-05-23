@@ -106,6 +106,7 @@ export class EntriesComponent implements OnInit {
 						title: this.placeholder.title,
 						description: this.placeholder.description
 					};
+					this.sortByTitle();
 				},
 				(error) => {
 					console.error(error);

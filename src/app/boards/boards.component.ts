@@ -105,6 +105,7 @@ export class BoardsComponent implements OnInit {
 						name: this.placeholder.name,
 						createDate: this.placeholder.createDate
 					};
+					this.sortByName();
 				},
 				(error) => {
 					console.error(error);
