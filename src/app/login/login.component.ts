@@ -27,7 +27,6 @@ export class LoginComponent implements OnInit {
 
 
 	doPost(email: string, password: string) {
-		this.cookieService.removeAll();
 		this.packageobject.emailAddress = email;
 		this.packageobject.password = password;
 		this.showWrongPassword = false;
@@ -36,6 +35,7 @@ export class LoginComponent implements OnInit {
 			this.http.post(this.ROOT_URL_TKN, this.packageobject, {headers: header0, responseType: 'text'}) // getting login token
 				.subscribe(
 					res => {
+						this.cookieService.removeAll();
 						this.cookieService.put('token', res);
 						this.getUdata();
 					},
@@ -50,6 +50,11 @@ export class LoginComponent implements OnInit {
 				);
 		} else {
 			console.error('One or more input fields were left empty');
+			console.log(this.cookieService.get('token'));
+			if (this.cookieService.get('token') !== undefined) {
+				location.reload();
+			}
+			this.cookieService.removeAll();
 		}
 	}
 
