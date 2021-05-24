@@ -1,4 +1,4 @@
-import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {CookieService} from 'ngx-cookie';
 import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
@@ -12,7 +12,7 @@ import {MatDialog} from '@angular/material/dialog';
 export class EntriesComponent implements OnInit {
 
 	constructor(
-		private http: HttpClient, private cookieService: CookieService, public dialog: MatDialog, private ref: ChangeDetectorRef) {
+		private http: HttpClient, private cookieService: CookieService, public dialog: MatDialog) {
 	}
 
 	readonly ROOT_URL_ENTRY = 'https://backend.yap.dragoncave.dev/entry';
@@ -47,6 +47,8 @@ export class EntriesComponent implements OnInit {
 	showCreate: any = false;
 	boardSelect: string = this.cookieService.get('activeBoard');
 	locale = 0;
+
+	timeleft: any;
 
 	// tslint:enable:max-line-length
 	drop(event: CdkDragDrop<{ title: string, description: string }[]>) {
@@ -139,10 +141,11 @@ export class EntriesComponent implements OnInit {
 		}
 	}
 
-	putEntry(title: string, description: string) {
+	putEntry(title: string, description: string, dueDate: string) {
 		let header2 = new HttpHeaders().set('Content-Type', 'application/json'); // define the sent content to being a Json object
 		header2 = header2.append('Token', this.cookieService.get('token'));
 
+		this.entries[this.clickID].dueDate = +new Date(dueDate);
 		if (title !== '') {
 			this.entries[this.clickID].title = title;
 		}
@@ -169,15 +172,15 @@ export class EntriesComponent implements OnInit {
 
 		this.entry.title = title;
 		this.entry.description = description;
-		dueDate = dueDate.substr(3, 2) + '/' + dueDate.substr(0, 2) + '/' + dueDate.substr(6, 4);
-		this.entry.dueDate = new Date(dueDate).getTime() / 1000;
+		// tslint:disable-next-line:radix
+		this.entry.dueDate = +new Date(dueDate);
 		this.http.post<any>(this.ROOT_URL_BOARDS_ + this.boardSelect + '/entry', this.entry, {headers: header2})
 			.subscribe(
 				(res) => {
 					console.log(res);
 					this.showCreate = false;
 					this.entries[this.entries.length] = this.entry;
-					window.location.reload();
+					// window.location.reload();
 				},
 				(error) => {
 					console.error(error);
@@ -211,6 +214,13 @@ export class EntriesComponent implements OnInit {
 		this.locale = locale;
 		// tslint:disable-next-line:triple-equals
 		this.clickID = (this.entries.findIndex(x => x.entryID == locale));
+
+		if (this.entries[this.clickID].dueDate > new Date().getTime()) {
+			this.timeleft = new Date(this.entries[this.clickID].dueDate - new Date().getTime()).getDate() - 1;
+		} else {
+			this.timeleft = '0';
+		}
+		// @ts-ignore
 		this.showEdit = true;
 		if (this.dragging) {
 			this.dragging = false;
@@ -218,8 +228,12 @@ export class EntriesComponent implements OnInit {
 		}
 	}
 
-	printdate(input: string){
-		console.log(input);
+	convertToLocal() {
+		const input = this.entries[this.clickID].dueDate;
+		if (input === 0) {
+			return 'No due date';
+		}
+		return new Date(input);
 	}
 
 	ngOnInit(): void {

@@ -14,6 +14,13 @@ label {
 	font: 1rem 'Fira Sans', sans-serif;
 }
 
+.due__text {
+	display: grid;
+	justify-content: center;
+	grid-auto-flow: column;
+	font-size: 10pt;
+}
+
 
 .button__sort {
 	background-color: #53e3a6 !important;
