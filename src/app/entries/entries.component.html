@@ -8,7 +8,7 @@
 		</div>
 		<div oncontextmenu="return false;" class="example-box" *ngFor="let entries of entries" cdkDrag
 			 id="{{entries.entryID}}"
-			 (click)="handleClickEdit($event)">
+			 (click)="handleClickEdit($event)" (contextmenu)="handleClickEdit($event)">
 			{{entries.title}}
 		</div>
 		<button class="button__addEntry" (click)="handleClickCreate($event)">Add new entry</button>
@@ -17,9 +17,12 @@
 <div class="md-form" *ngIf="showEdit">
 	<div class="container__popup">
 		<h2 class="h2_popup">Edit entry</h2>
-		<input #name class="form-control" data-custom-input="create" type="text" placeholder="{{this.entries[this.clickID].title}}">
-		<textarea #description class="form-control" data-custom-input="create" placeholder="{{this.entries[this.clickID].description}}"></textarea>
-		<input #dueDate class="form-control" data-custom-input="create" type="datetime-local" (keyup.enter)="printdate(dueDate.value)">
+		<input #name class="form-control" data-custom-input="create" type="text"
+			   placeholder="{{this.entries[this.clickID].title}}">
+		<textarea #description class="form-control" data-custom-input="create"
+				  placeholder="{{this.entries[this.clickID].description}}"></textarea>
+		<input #dueDate class="form-control" data-custom-input="create" type="datetime-local"
+			   (keyup.enter)="printdate(dueDate.value)">
 		<div class="buttons">
 			<button class="button__submit" (click)="putEntry(name.value, description.value)">Save</button>
 			<button class="button__close" (click)="toggleEdit()">Discard and close</button>
