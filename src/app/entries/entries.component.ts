@@ -180,7 +180,7 @@ export class EntriesComponent implements OnInit {
 					console.log(res);
 					this.showCreate = false;
 					this.entries[this.entries.length] = this.entry;
-					// window.location.reload();
+					window.location.reload();
 				},
 				(error) => {
 					console.error(error);
