@@ -218,6 +218,10 @@ export class EntriesComponent implements OnInit {
 		}
 	}
 
+	printdate(input: string){
+		console.log(input);
+	}
+
 	ngOnInit(): void {
 		this.getExistingEntries();
 	}

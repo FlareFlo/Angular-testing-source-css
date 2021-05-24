@@ -8,7 +8,7 @@
 		</div>
 		<div oncontextmenu="return false;" class="example-box" *ngFor="let entries of entries" cdkDrag
 			 id="{{entries.entryID}}"
-			 (contextmenu)="handleClickEdit($event)">
+			 (click)="handleClickEdit($event)">
 			{{entries.title}}
 		</div>
 		<button class="button__addEntry" (click)="handleClickCreate($event)">Add new entry</button>
@@ -18,8 +18,8 @@
 	<div class="container__popup">
 		<h2 class="h2_popup">Edit entry</h2>
 		<input #name class="form-control" data-custom-input="create" type="text" placeholder="Title">
-		<textarea #description class="form-control" data-custom-input="create" type="text"
-				  placeholder="Description"></textarea>
+		<textarea #description class="form-control" data-custom-input="create" placeholder="Description"></textarea>
+		<input #dueDate class="form-control" data-custom-input="create" type="datetime-local" (keyup.enter)="printdate(dueDate.value)">
 		<div class="buttons">
 			<button class="button__submit" (click)="putEntry(name.value, description.value)">Save</button>
 			<button class="button__close" (click)="toggleEdit()">Discard and close</button>
@@ -31,8 +31,7 @@
 	<h2 class="h2_popup">Create new entry</h2>
 	<input #name class="form-control" data-custom-input="create" type="text" placeholder="Title">
 	<input #description class="form-control" data-custom-input="create" type="text" placeholder="Description">
-	<input #dueDate class="form-control" data-custom-input="create" type="text"
-		   placeholder="Due date dd.mm.yyyy 00:00">
+	<input #dueDate class="form-control" data-custom-input="create" type="datetime-local">
 	<div>
 		<div class="buttons">
 			<button class="button__submit" (click)="postEntry(name.value, description.value, dueDate.value)">Create

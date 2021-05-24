@@ -9,6 +9,11 @@
 	grid-auto-flow: column;
 }
 
+label {
+	display: block;
+	font: 1rem 'Fira Sans', sans-serif;
+}
+
 
 .button__sort {
 	background-color: #53e3a6 !important;
