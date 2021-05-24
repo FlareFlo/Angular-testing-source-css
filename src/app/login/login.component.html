@@ -1,10 +1,11 @@
 <div class="wrapper-new">
 	<div class="container-new">
-		<h1>{{message}}</h1>
+		<h1 *ngIf="showWrongPassword == false">{{message}}</h1>
+		<h1 *ngIf="showWrongPassword" id="wrong__password">Wrong email address or password</h1>
 
 		<form class="loginform">
 			<input #email pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="Email" type="email">
-			<input #password placeholder="Password" type="password">
+			<input #password placeholder="Password" type="password" id="password__field">
 			<button type="submit" id="login-button"
 					(click)="doPost(email.value, password.value)">{{loginmessage}}</button>
 			<a class="register" routerLink="/register">Register</a>

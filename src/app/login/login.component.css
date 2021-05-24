@@ -28,6 +28,9 @@ body {
 	font-weight: 300;
 }
 
+#wrong__password {
+	color: red;
+}
 
 .wrapper-new.form-success .container-new h1 {
 	transform: translateY(85px);

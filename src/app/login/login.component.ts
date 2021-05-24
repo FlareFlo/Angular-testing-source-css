@@ -23,23 +23,29 @@ export class LoginComponent implements OnInit {
 	token!: string;
 	message = 'Welcome';
 	loginmessage = 'Login';
+	showWrongPassword = false;
 
 
 	doPost(email: string, password: string) {
+		this.cookieService.removeAll();
 		this.packageobject.emailAddress = email;
 		this.packageobject.password = password;
-
+		this.showWrongPassword = false;
 		if (this.packageobject.emailAddress !== '' && this.packageobject.password !== '') {
 			const header0 = new HttpHeaders().set('Content-Type', 'application/json'); // define sent data to be JSON object
 			this.http.post(this.ROOT_URL_TKN, this.packageobject, {headers: header0, responseType: 'text'}) // getting login token
 				.subscribe(
 					res => {
-						this.cookieService.removeAll();
 						this.cookieService.put('token', res);
 						this.getUdata();
 					},
 					(error) => {
 						console.error(error);
+						if (error.status === 403) {
+							this.showWrongPassword = true;
+							// @ts-ignore
+							document.getElementById('password__field').nodeValue = '';
+						}
 					}
 				);
 		} else {
