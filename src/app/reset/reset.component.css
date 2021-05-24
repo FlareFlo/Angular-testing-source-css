@@ -1,13 +1,25 @@
-.button__reset {
-	background-color: #53e3a6 !important;
-	border: none;
-	color: black;
-	text-align: center;
-	text-decoration: none;
-	display: inline;
-	width: 30vw;
-	font-size: 2rem;
-	border-radius: 4px;
+.container {
+	overflow: hidden;
+	margin-left: 30vw;
+	margin-top: 25vh;
+}
+
+button {
+	appearance: none;
+	outline: 0;
+	background-color: #49d496;
+	border: 0;
+	padding: 10px 15px;
+	color: #000000;
+	border-radius: 3px;
+	width: 250px;
+	cursor: pointer;
+	font-size: 18px;
+	transition-duration: 0.25s;
+}
+
+button:hover {
+	background-color: #3ce5ad;
 }
 
 .container {
@@ -17,16 +29,34 @@
 }
 
 input {
-	border-radius: 4px;
-	border-color: #53e3a6;
-	width: 30vw;
-	background-color: #4e4e4e;
-	transition: 0.2s;
-	font-size: 2rem;
+	padding: 20px 0;
+	position: relative;
+	z-index: 2;
+	color: white;
+}
+
+input {
+	appearance: none;
+	outline: 0;
+	border: 1px solid rgba(255, 255, 255, 0.4);
+	background-color: rgba(255, 255, 255, 0.2);
+	width: 250px;
+	border-radius: 3px;
+	padding: 10px 15px;
+	margin: 0 0 10px 0;
 	display: block;
-	margin-bottom: 10px;
+	text-align: center;
+	font-size: 18px;
+	color: white;
+	transition-duration: 0.25s;
+	font-weight: 300;
 }
 
 input:hover {
-	background-color: #646464;
+	background-color: rgba(47, 47, 47, 0.4);
+}
+
+input:focus {
+	background-color: rgba(47, 47, 47, 0.4);
+	color: #ffffff;
 }
