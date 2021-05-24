@@ -1,12 +1,13 @@
-<div class="container">
-	<button class="button__sort" (click)="sortByDueDate()">Sort by Due date</button>
-	<button class="button__sort" (click)="sortByTitle()">Sort by title</button>
-	<button class="button__sort" (click)="sortByDescription()">Sort by description</button>
-	<button class="button__sort" (click)="sortByID()">Sort by ID</button>
-</div>
 <div class="example-container">
 	<div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
-		<div oncontextmenu="return false;" class="example-box" *ngFor="let entries of entries" cdkDrag id="{{entries.entryID}}"
+		<div class="sorting__container">
+			<button class="button__sort" (click)="sortByDueDate()">Sort by Due date</button>
+			<button class="button__sort" (click)="sortByTitle()">Sort by title</button>
+			<button class="button__sort" (click)="sortByDescription()">Sort by description</button>
+			<button class="button__sort" (click)="sortByID()">Sort by ID</button>
+		</div>
+		<div oncontextmenu="return false;" class="example-box" *ngFor="let entries of entries" cdkDrag
+			 id="{{entries.entryID}}"
 			 (contextmenu)="handleClickEdit($event)">
 			{{entries.title}}
 		</div>
@@ -17,7 +18,8 @@
 	<div class="container__popup">
 		<h2 class="h2_popup">Edit entry</h2>
 		<input #name class="form-control" data-custom-input="create" type="text" placeholder="Title">
-		<textarea #description class="form-control" data-custom-input="create" placeholder="Description"></textarea>
+		<textarea #description class="form-control" data-custom-input="create" type="text"
+				  placeholder="Description"></textarea>
 		<div class="buttons">
 			<button class="button__submit" (click)="putEntry(name.value, description.value)">Save</button>
 			<button class="button__close" (click)="toggleEdit()">Discard and close</button>

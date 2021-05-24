@@ -3,24 +3,23 @@
 	overflow: hidden;
 }
 
-.container {
-	width: min(100%, 1000px);
-	margin-left: 50px;
-	margin-right: 0;
+.sorting__container {
+	display: grid;
+	justify-content: center;
+	grid-auto-flow: column;
 }
 
+
 .button__sort {
-	background-color: #53e3a6 !important; /* Green */
+	background-color: #53e3a6 !important;
 	border: none;
 	color: black;
-	padding: 2px 2px 2px 2px;
+	padding: 10px;
 	text-align: center;
 	text-decoration: none;
-	display: inline-grid;
-	width: 150px;
-	font-size: 15px;
-	border-radius: 4px;
-	margin: 5px 5px 5px 5px;
+	display: inline;
+	font-size: 10pt;
+	width: 100%;
 }
 
 .button__addEntry {
@@ -53,38 +52,10 @@
 	color: black;
 }
 
-.button__submit {
-	background-color: #53e3a6 !important;
-	border: none;
-	color: black;
-	text-align: center;
-	text-decoration: none;
-	display: inline;
-	width: 7em;
-	font-size: 1rem;
-	border-radius: 4px;
-}
-
-.button__close {
-	background-color: #e35353 !important;
-	border: none;
-	color: black;
-	text-align: center;
-	text-decoration: none;
-	display: inline;
-	width: 7em;
-	font-size: 1rem;
-	border-radius: 4px;
-	margin-left: 1vw;
-}
-
 .example-container {
 	width: 40vw;
 	max-width: 500px;
-	display: inline-block;
-	vertical-align: top;
-	horiz-align: center;
-	margin: 1rem 0 0 100px;
+	margin: 1rem 0 0 20vw;
 }
 
 .example-list {
@@ -105,7 +76,7 @@
 	align-items: center;
 	justify-content: space-between;
 	box-sizing: border-box;
-	background: #818181;
+	background-color: #818181;
 	font-size: 14px;
 	height: calc(10px + 3vh);
 	cursor: pointer;
@@ -152,7 +123,7 @@
 	backdrop-filter: blur(40px);
 	position: fixed;
 	top: 5vh;
-	left: 20vw;
+	left: 29vw;
 	width: auto;
 	height: auto;
 	z-index: 1;
@@ -164,6 +135,11 @@
 	transition: ease-in;
 	transition-duration: 0.2s;
 
+}
+
+.md-form {
+	display: grid;
+	place-items: center;
 }
 
 .container__popup:hover {

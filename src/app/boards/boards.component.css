@@ -8,24 +8,22 @@ label {
 	margin-bottom: 0;
 }
 
-.container {
-	width: min(100%, 1000px);
-	margin-left: 50px;
-	margin-right: 0;
+.sorting__container {
+	display: grid;
+	justify-content: center;
+	grid-auto-flow: column;
 }
 
 .button__sort {
-	background-color: #53e3a6 !important; /* Green */
+	background-color: #53e3a6 !important;
 	border: none;
 	color: black;
-	padding: 2px 2px 2px 2px;
+	padding: 10px;
 	text-align: center;
 	text-decoration: none;
-	display: inline-grid;
-	width: 150px;
-	font-size: 15px;
-	border-radius: 4px;
-	margin: 5px 5px 5px 5px ;
+	display: inline;
+	font-size: 10pt;
+	width: 100%;
 }
 
 .button__addEntry {
