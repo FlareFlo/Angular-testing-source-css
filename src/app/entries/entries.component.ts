@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {CookieService} from 'ngx-cookie';
 import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
@@ -12,7 +12,7 @@ import {MatDialog} from '@angular/material/dialog';
 export class EntriesComponent implements OnInit {
 
 	constructor(
-		private http: HttpClient, private cookieService: CookieService, public dialog: MatDialog) {
+		private http: HttpClient, private cookieService: CookieService, public dialog: MatDialog, private ref: ChangeDetectorRef) {
 	}
 
 	readonly ROOT_URL_ENTRY = 'https://backend.yap.dragoncave.dev/entry';

@@ -17,8 +17,8 @@
 <div class="md-form" *ngIf="showEdit">
 	<div class="container__popup">
 		<h2 class="h2_popup">Edit entry</h2>
-		<input #name class="form-control" data-custom-input="create" type="text" placeholder="Title">
-		<textarea #description class="form-control" data-custom-input="create" placeholder="Description"></textarea>
+		<input #name class="form-control" data-custom-input="create" type="text" placeholder="{{this.entries[this.clickID].title}}">
+		<textarea #description class="form-control" data-custom-input="create" placeholder="{{this.entries[this.clickID].description}}"></textarea>
 		<input #dueDate class="form-control" data-custom-input="create" type="datetime-local" (keyup.enter)="printdate(dueDate.value)">
 		<div class="buttons">
 			<button class="button__submit" (click)="putEntry(name.value, description.value)">Save</button>
