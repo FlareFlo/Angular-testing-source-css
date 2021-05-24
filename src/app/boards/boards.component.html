@@ -16,7 +16,7 @@
 	<div class="container__popup">
 		<h2 class="h2_popup">Edit board</h2>
 		<div>
-			<input #name class="form-control" data-custom-input="create" type="text" placeholder="{{boards[this.clickID].name}}">
+			<input #name class="form-control" data-custom-input="create" type="text" placeholder="{{boards[this.clickID].name}}" value="{{boards[this.clickID].name}}">
 			<div class="buttons">
 				<button class="button__submit" (click)="postBoard(name.value)">Save</button>
 				<button class="button__close" (click)="toggleEdit()">Discard and close</button>

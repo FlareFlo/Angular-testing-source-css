@@ -192,18 +192,17 @@ input {
 	margin-bottom: 5px;
 	margin-left: 10px;
 	margin-right: 10px;
-	width: 41vw;
+	width: 95%;
 }
 
 input:hover {
 	background-color: #282C34;
 }
 
-input:focus, input:active{
+input:focus, input:active {
 	background-color: #282C34;
 	border-color: #1c1c1c;
 	color: #FFFFFF;
-
 }
 
 

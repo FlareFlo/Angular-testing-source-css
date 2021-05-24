@@ -18,9 +18,9 @@
 	<div class="container__popup">
 		<h2 class="h2_popup">Edit entry</h2>
 		<input #name class="form-control" data-custom-input="create" type="text"
-			   placeholder="{{this.entries[this.clickID].title}}">
+			   placeholder="{{this.entries[this.clickID].title}}" value="{{this.entries[this.clickID].description}}">
 		<textarea #description class="form-control" data-custom-input="create"
-				  placeholder="{{this.entries[this.clickID].description}}"></textarea>
+				  placeholder="{{this.entries[this.clickID].description}}">{{this.entries[this.clickID].description}}</textarea>
 		<input #dueDate class="form-control" data-custom-input="create" type="datetime-local"
 			   (keyup.enter)="printdate(dueDate.value)">
 		<div class="buttons">
