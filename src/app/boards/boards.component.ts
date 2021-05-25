@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {CookieService} from 'ngx-cookie';
-import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
 import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 
 @Component({
@@ -11,7 +10,7 @@ import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 })
 export class BoardsComponent implements OnInit {
 
-	constructor(private http: HttpClient, private cookieService: CookieService, public dialog: MatDialog) {
+	constructor(private http: HttpClient, private cookieService: CookieService) {
 	}
 
 	readonly ROOT_URL_BOARDS_USER = 'https://backend.yap.dragoncave.dev/boards/user';
