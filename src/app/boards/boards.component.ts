@@ -187,6 +187,11 @@ export class BoardsComponent implements OnInit {
 		this.toggleSort = !this.toggleSort;
 	}
 
+	convertToLocal() {
+		const input = this.boards[this.clickID].createDate;
+		return new Date(input);
+	}
+
 	toggleCreate() {
 		this.showCreate = !this.showCreate;
 	}
