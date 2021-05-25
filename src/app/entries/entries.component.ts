@@ -64,12 +64,8 @@ export class EntriesComponent implements OnInit {
 		this.entries.sort((a, b) => (a.title > b.title) ? 1 : -1);
 	}
 
-	sortByDescription() {
-		this.entries.sort((a, b) => (a.description > b.description) ? 1 : -1);
-	}
-
-	sortByID() {
-		this.entries.sort((a, b) => (a.entryID > b.entryID) ? 1 : -1);
+	sortByCreateDate() {
+		this.entries.sort((a, b) => (a.createDate > b.createDate) ? 1 : -1);
 	}
 
 	toggleCreate() {

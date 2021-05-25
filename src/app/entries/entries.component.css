@@ -34,6 +34,10 @@ label {
 	width: 100%;
 }
 
+.sorting__container {
+	background-color: #53e3a6 ;
+}
+
 .button__addEntry {
 	background-color: #53e3a6 !important;
 	border: none;
