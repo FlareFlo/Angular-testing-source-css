@@ -39,6 +39,7 @@ export class BoardsComponent implements OnInit {
 	showEdit: any = false;
 	showCreate: any = false;
 	locale = 0;
+	toggleSort!: boolean;
 
 	drop(event: CdkDragDrop<{ title: string, description: string }[]>) {
 		moveItemInArray(this.boards, event.previousIndex, event.currentIndex);
@@ -169,15 +170,21 @@ export class BoardsComponent implements OnInit {
 	}
 
 	sortByName() {
-		this.boards.sort((a, b) => (a.name > b.name) ? 1 : -1);
-	}
-
-	sortById() {
-		this.boards.sort((a, b) => (a.boardID > b.boardID) ? 1 : -1);
+		if (this.toggleSort) {
+			this.boards.sort((a, b) => (b.name > a.name) ? 1 : -1);
+		} else {
+			this.boards.sort((a, b) => (a.name > b.name) ? 1 : -1);
+		}
+		this.toggleSort = !this.toggleSort;
 	}
 
 	sortByCreateDate() {
-		this.boards.sort((a, b) => (a.createDate > b.createDate) ? 1 : -1);
+		if (this.toggleSort) {
+			this.boards.sort((a, b) => (b.createDate > a.createDate) ? 1 : -1);
+		} else {
+			this.boards.sort((a, b) => (a.createDate > b.createDate) ? 1 : -1);
+		}
+		this.toggleSort = !this.toggleSort;
 	}
 
 	toggleCreate() {

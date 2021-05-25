@@ -47,8 +47,8 @@ export class EntriesComponent implements OnInit {
 	showCreate: any = false;
 	boardSelect: string = this.cookieService.get('activeBoard');
 	locale = 0;
-
 	timeleft: any;
+	toggleSort!: boolean;
 
 	// tslint:enable:max-line-length
 	drop(event: CdkDragDrop<{ title: string, description: string }[]>) {
@@ -57,15 +57,30 @@ export class EntriesComponent implements OnInit {
 	}
 
 	sortByDueDate() {
-		this.entries.sort((a, b) => (a.dueDate > b.dueDate) ? 1 : -1);
+		if (this.toggleSort) {
+			this.entries.sort((a, b) => (b.dueDate > a.dueDate) ? 1 : -1);
+		} else {
+			this.entries.sort((a, b) => (a.dueDate > b.dueDate) ? 1 : -1);
+		}
+		this.toggleSort = !this.toggleSort;
 	}
 
 	sortByTitle() {
-		this.entries.sort((a, b) => (a.title > b.title) ? 1 : -1);
+		if (this.toggleSort) {
+			this.entries.sort((a, b) => (b.title > a.title) ? 1 : -1);
+		} else {
+			this.entries.sort((a, b) => (a.title > b.title) ? 1 : -1);
+		}
+		this.toggleSort = !this.toggleSort;
 	}
 
 	sortByCreateDate() {
-		this.entries.sort((a, b) => (a.createDate > b.createDate) ? 1 : -1);
+		if (this.toggleSort) {
+			this.entries.sort((a, b) => (b.createDate > a.createDate) ? 1 : -1);
+		} else {
+			this.entries.sort((a, b) => (a.createDate > b.createDate) ? 1 : -1);
+		}
+		this.toggleSort = !this.toggleSort;
 	}
 
 	toggleCreate() {
