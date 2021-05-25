@@ -4,6 +4,8 @@
 			<button class="button__sort" (click)="sortByDueDate()">Sort by Due date</button>
 			<button class="button__sort" (click)="sortByTitle()">Sort by title</button>
 			<button class="button__sort" (click)="sortByCreateDate()">Sort by create date</button>
+			<div class="button__sort" *ngIf="!toggleSort">↓</div>
+			<div class="button__sort" *ngIf="toggleSort">↑</div>
 		</div>
 		<div oncontextmenu="return false;" class="example-box" *ngFor="let entries of entries" cdkDrag
 			 id="{{entries.entryID}}"

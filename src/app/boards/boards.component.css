@@ -30,6 +30,13 @@ label {
 	background-color: #53e3a6 ;
 }
 
+.due__text {
+	display: grid;
+	justify-content: center;
+	grid-auto-flow: column;
+	font-size: 10pt;
+}
+
 .button__addEntry {
 	background-color: #53e3a6 !important;
 	border: none;

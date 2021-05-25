@@ -3,6 +3,8 @@
 		<div class="sorting__container">
 			<button class="button__sort" (click)="sortByName()">Sort by name</button>
 			<button class="button__sort" (click)="sortByCreateDate()">Sort by create date</button>
+			<div class="button__sort" *ngIf="!toggleSort">↓</div>
+			<div class="button__sort" *ngIf="toggleSort">↑</div>
 		</div>
 		<div oncontextmenu="return false;" class="example-box" *ngFor="let boards of boards" id="{{boards.boardID}}"
 			 (click)="handleClickOpen($event)" (contextmenu)="handleClickEdit($event)">
@@ -16,6 +18,7 @@
 		<h2 class="h2_popup">Edit board</h2>
 		<div>
 			<input #name class="form-control" data-custom-input="create" type="text" placeholder="{{boards[this.clickID].name}}" value="{{boards[this.clickID].name}}">
+			<div class="due__text">Created on:  {{convertToLocal()}}</div>
 			<div class="buttons">
 				<button class="button__submit" (click)="postBoard(name.value)">Save</button>
 				<button class="button__close" (click)="toggleEdit()">Discard and close</button>
