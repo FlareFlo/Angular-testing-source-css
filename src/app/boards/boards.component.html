@@ -20,9 +20,17 @@
 			<input #name class="form-control" data-custom-input="create" type="text" placeholder="{{boards[this.clickID].name}}" value="{{boards[this.clickID].name}}">
 			<div class="due__text">Created on:  {{convertToLocal()}}</div>
 			<div class="buttons">
-				<button class="button__submit" (click)="postBoard(name.value)">Save</button>
+				<button class="button__submit" (click)="putBoard(name.value)">Save</button>
 				<button class="button__close" (click)="toggleEdit()">Discard and close</button>
 				<button class="button__delete" (click)="deleteBoard()">Delete board</button>
+			</div>
+			<div>
+				<input #emailAddress class="form-control" data-custom-input="create" type="text" placeholder="Email address">
+			</div>
+			<div class="buttons">
+				<button class="button__submit" (click)="postMember(emailAddress.value)">Add member</button>
+				<button class="button__close" (click)="postAdmin(emailAddress.value)">Add as admin</button>
+				<button class="button__delete">Remove member</button>
 			</div>
 		</div>
 	</div>

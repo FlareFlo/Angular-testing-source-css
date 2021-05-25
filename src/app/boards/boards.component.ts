@@ -32,6 +32,10 @@ export class BoardsComponent implements OnInit {
 		createDate: 0
 	};
 
+	packet = {
+		emailAddress: ''
+	};
+
 	availableBoards!: [];
 	runonce = true;
 	placeholder: any;
@@ -133,6 +137,44 @@ export class BoardsComponent implements OnInit {
 		}
 	}
 
+	postMember(emailAddress: string) {
+		if (emailAddress !== '' && emailAddress !== undefined) {
+
+			let header2 = new HttpHeaders().set('Content-Type', 'application/json'); // define the sent content to being a Json object
+			header2 = header2.append('Token', this.cookieService.get('token'));
+
+			this.packet.emailAddress = emailAddress;
+
+			this.http.post<any>(this.ROOT_URL_BOARD_ + this.locale + '/member', this.packet, {headers: header2})
+				.subscribe(
+					(res) => {
+						console.log(res);
+					},
+					(error) => {
+						console.error(error);
+					});
+		}
+	}
+
+	postAdmin(emailAddress: string) {
+		if (emailAddress !== '' && emailAddress !== undefined) {
+
+			let header2 = new HttpHeaders().set('Content-Type', 'application/json'); // define the sent content to being a Json object
+			header2 = header2.append('Token', this.cookieService.get('token'));
+
+			this.packet.emailAddress = emailAddress;
+
+			this.http.post<any>(this.ROOT_URL_BOARD_ + this.locale + '/admin', this.packet, {headers: header2})
+				.subscribe(
+					(res) => {
+						console.log(res);
+					},
+					(error) => {
+						console.error(error);
+					});
+		}
+	}
+
 	deleteBoard() {
 		let header = new HttpHeaders().set('Content-Type', 'application/json'); // define the sent content to being a Json object
 		header = header.append('Token', this.cookieService.get('token'));
@@ -140,7 +182,7 @@ export class BoardsComponent implements OnInit {
 			.subscribe(
 				(res) => {
 					console.log(res);
-					location.reload();
+					window.location.reload();
 				}
 			);
 	}
