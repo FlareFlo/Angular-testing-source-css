@@ -21,6 +21,22 @@ label {
 	font-size: 10pt;
 }
 
+.container__popup__Loading {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	top: 0;
+}
+
+progress {
+	height: 5px;
+	width: calc(100vw - 60px);
+	margin-left: 60px;
+	background-color: #53e3a6 !important;
+	transition: all 5s ease-out;
+}
+
 
 .button__sort {
 	background-color: #53e3a6 !important;

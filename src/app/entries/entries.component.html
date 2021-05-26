@@ -1,3 +1,7 @@
+<div class="container__popup__Loading" *ngIf="availableEntries.length !== entries.length">
+	<progress max="{{availableEntries.length}}" value="{{entries.length}}"></progress>
+</div>
+
 <div class="example-container">
 	<div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
 		<div class="sorting__container">
@@ -26,7 +30,8 @@
 		<div class="due__text">Time left: {{this.timeleft}} days</div>
 		<input #dueDate class="form-control" data-custom-input="create" type="datetime-local">
 		<div class="buttons">
-			<button class="button__submit" (click)="putEntry(name.value, description.value, dueDate.value)">Save</button>
+			<button class="button__submit" (click)="putEntry(name.value, description.value, dueDate.value)">Save
+			</button>
 			<button class="button__close" (click)="toggleEdit()">Discard and close</button>
 			<button class="button__delete" (click)="deleteEntry()">Delete entry</button>
 		</div>
@@ -45,4 +50,5 @@
 		</div>
 	</div>
 </div>
+
 
