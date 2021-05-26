@@ -1,9 +1,9 @@
 <div class="example-container">
 	<div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
 		<div class="sorting__container">
-			<button class="button__sort" (click)="sortByDueDate()">Sort by Due date</button>
 			<button class="button__sort" (click)="sortByTitle()">Sort by title</button>
 			<button class="button__sort" (click)="sortByCreateDate()">Sort by create date</button>
+			<button class="button__sort" (click)="sortByDueDate()">Sort by Due date</button>
 			<div class="button__sort" *ngIf="!toggleSort">↓</div>
 			<div class="button__sort" *ngIf="toggleSort">↑</div>
 		</div>

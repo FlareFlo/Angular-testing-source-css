@@ -21,7 +21,7 @@ export class EntriesComponent implements OnInit {
 
 	entry = {
 		dueDate: 0,
-		title: '',
+		title: 'No boards available or the server is offline',
 		description: '',
 		createDate: 0,
 		entryID: 0,
@@ -47,12 +47,12 @@ export class EntriesComponent implements OnInit {
 	boardSelect: string = this.cookieService.get('activeBoard');
 	locale = 0;
 	timeleft: any;
-	toggleSort!: boolean;
+	toggleSort = true;
 
 	// tslint:enable:max-line-length
 	drop(event: CdkDragDrop<{ title: string, description: string }[]>) {
-		moveItemInArray(this.entries, event.previousIndex, event.currentIndex);
-		this.showEdit = false;
+			moveItemInArray(this.entries, event.previousIndex, event.currentIndex);
+			this.showEdit = false;
 	}
 
 	sortByDueDate() {
@@ -218,23 +218,25 @@ export class EntriesComponent implements OnInit {
 	}
 
 	handleClickEdit($event: MouseEvent) {
-		// @ts-ignore
-		// tslint:disable-next-line:radix
-		const locale = $event.target.id;
-		this.locale = locale;
-		// tslint:disable-next-line:triple-equals
-		this.clickID = (this.entries.findIndex(x => x.entryID == locale));
+		if (this.entries[0].entryID !== 0) {
+			// @ts-ignore
+			// tslint:disable-next-line:radix
+			const locale = $event.target.id;
+			this.locale = locale;
+			// tslint:disable-next-line:triple-equals
+			this.clickID = (this.entries.findIndex(x => x.entryID == locale));
 
-		if (this.entries[this.clickID].dueDate > new Date().getTime()) {
-			this.timeleft = new Date(this.entries[this.clickID].dueDate - new Date().getTime()).getDate() - 1;
-		} else {
-			this.timeleft = '0';
-		}
-		// @ts-ignore
-		this.showEdit = true;
-		if (this.dragging) {
-			this.dragging = false;
-			return;
+			if (this.entries[this.clickID].dueDate > new Date().getTime()) {
+				this.timeleft = new Date(this.entries[this.clickID].dueDate - new Date().getTime()).getDate() - 1;
+			} else {
+				this.timeleft = '0';
+			}
+			// @ts-ignore
+			this.showEdit = true;
+			if (this.dragging) {
+				this.dragging = false;
+				return;
+			}
 		}
 	}
 

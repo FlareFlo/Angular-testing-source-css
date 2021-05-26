@@ -20,7 +20,7 @@ export class BoardsComponent implements OnInit {
 	boards = [
 		{
 			boardID: 0,
-			name: '',
+			name: 'No boards available or the server is offline',
 			createDate: 0
 		}
 	];
@@ -42,26 +42,30 @@ export class BoardsComponent implements OnInit {
 	showEdit: any = false;
 	showCreate: any = false;
 	locale = 0;
-	toggleSort!: boolean;
+	toggleSort = true;
 
 	drop(event: CdkDragDrop<{ title: string, description: string }[]>) {
 		moveItemInArray(this.boards, event.previousIndex, event.currentIndex);
 	}
 
 	handleClickOpen($event: MouseEvent) {
-		// @ts-ignore
-		this.locale = $event.target.id;
-		// tslint:disable-next-line:triple-equals
-		this.clickID = (this.boards.findIndex(x => x.boardID == this.locale));
-		this.goToBoard();
+		if (this.boards[0].boardID !== 0) {
+			// @ts-ignore
+			this.locale = $event.target.id;
+			// tslint:disable-next-line:triple-equals
+			this.clickID = (this.boards.findIndex(x => x.boardID == this.locale));
+			this.goToBoard();
+		}
 	}
 
 	handleClickEdit($event: MouseEvent) {
-		// @ts-ignore
-		this.locale = $event.target.id;
-		// tslint:disable-next-line:triple-equals
-		this.clickID = (this.boards.findIndex(x => x.boardID == this.locale));
-		this.showEdit = true;
+		if (this.boards[0].boardID !== 0) {
+			// @ts-ignore
+			this.locale = $event.target.id;
+			// tslint:disable-next-line:triple-equals
+			this.clickID = (this.boards.findIndex(x => x.boardID == this.locale));
+			this.showEdit = true;
+		}
 	}
 
 	getExistingBoards() {
