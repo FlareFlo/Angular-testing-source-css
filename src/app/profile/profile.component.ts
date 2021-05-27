@@ -18,6 +18,7 @@ export class ProfileComponent implements OnInit {
 	Udata!: any;
 	token!: any;
 	placeholder: any;
+	PFPURL!: string;
 
 	packageobject = {
 		username: '',
@@ -129,6 +130,22 @@ export class ProfileComponent implements OnInit {
 		window.location.href = '/login';
 	}
 
+
+	getPFP() {
+		if (this.cookieService.getObject('Udata') !== undefined) {
+			return this.buildPFPUrl();
+		}else {
+			return 'https://dragoncave.dev:42069/cdn/default_profile_picture.png';
+		}
+	}
+
+	buildPFPUrl() {
+		const ROOT_URL = 'https://backend.yap.dragoncave.dev/user/';
+		const Udata = this.cookieService.getObject('Udata');
+		// @ts-ignore
+		return ROOT_URL + Udata.userID + '/profilePicture';
+	}
+
 	/*
 	deleteUser(oldPassword: string) {
 		const prompt = 'Enter your username to confirm deleting your account, This action is not reversible.';
@@ -158,5 +175,6 @@ export class ProfileComponent implements OnInit {
 		this.placeholder = this.cookieService.getObject('Udata');
 		this.packageobject.emailAddress = this.placeholder.emailAddress;
 		this.packageobject.username = this.placeholder.username;
+		this.getPFP();
 	}
 }

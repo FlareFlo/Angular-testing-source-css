@@ -3,14 +3,10 @@
 		<div class='main__header'>
 			<h2>My profile</h2>
 		</div>
+		<div class="pfp">
+				<img src="{{this.getPFP()}}">
+		</div>
 		<div class='main__content'>
-			<!--
-			<div class='main__avatar'>
-			  <div class='main__avatar--overlay'>
-				Your profile picture
-			  </div>
-			</div>
-			-->
 			<div class='main__settings-form'>
 				<div class='main__header'>
 					<h3>General Information</h3>
@@ -33,7 +29,6 @@
 					<input #oldPassword class='main__input' placeholder='Old password' type='password'>
 					<input #newPassword class='main__input' placeholder='New password (only if you wish to change it)'
 						   type='password'>
-
 				</form>
 				<div>
 					<button class='btn main__save-button' id="Save"

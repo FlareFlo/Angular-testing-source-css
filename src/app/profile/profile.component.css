@@ -47,10 +47,22 @@ body {
 	overflow: hidden;
 }
 
+img, object {
+	max-height: 25vh;
+
+}
+
+.pfp {
+	display: grid;
+	place-items: center;
+}
+
+/*
 .main__avatar:hover .main__avatar--overlay {
 	opacity: 1;
 	border-radius: 50%;
 }
+ */
 
 .main__avatar--overlay {
 	opacity: 0;
