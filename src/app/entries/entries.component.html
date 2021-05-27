@@ -27,7 +27,7 @@
 		<textarea #description class="form-control" data-custom-input="create"
 				  placeholder="{{this.entries[this.clickID].description}}">{{this.entries[this.clickID].description}}</textarea>
 		<div class="due__text">Due until: {{convertToLocal()}}</div>
-		<div class="due__text">Time left: {{this.timeleft}} days</div>
+		<div class="due__text" *ngIf="this.entries[clickID].dueDate !== 0">Time left: {{this.timeleft}} days</div>
 		<input #dueDate class="form-control" data-custom-input="create" type="datetime-local">
 		<div class="buttons">
 			<button class="button__submit" (click)="putEntry(name.value, description.value, dueDate.value)">Save
