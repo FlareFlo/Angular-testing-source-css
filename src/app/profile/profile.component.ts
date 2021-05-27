@@ -14,6 +14,7 @@ export class ProfileComponent implements OnInit {
 
 	readonly ROOT_URL_USR = 'https://backend.yap.dragoncave.dev/user';
 	readonly ROOT_URL_PWD = 'https://backend.yap.dragoncave.dev/security/changePassword';
+	readonly ROOT_URL_USER_PROFILEPICTURE = 'https://backend.yap.dragoncave.dev/user/profilePicture';
 
 	Udata!: any;
 	token!: any;
@@ -134,7 +135,7 @@ export class ProfileComponent implements OnInit {
 	getPFP() {
 		if (this.cookieService.getObject('Udata') !== undefined) {
 			return this.buildPFPUrl();
-		}else {
+		} else {
 			return 'https://dragoncave.dev:42069/cdn/default_profile_picture.png';
 		}
 	}
@@ -144,6 +145,19 @@ export class ProfileComponent implements OnInit {
 		const Udata = this.cookieService.getObject('Udata');
 		// @ts-ignore
 		return ROOT_URL + Udata.userID + '/profilePicture';
+	}
+
+	postPFP(input: any) {
+		this.token = this.cookieService.get('token');
+		let headerS = new HttpHeaders();
+		headerS = headerS.append('Token', this.token);
+
+		const formData = new FormData();
+		formData.append('file', input);
+		this.http.post(this.ROOT_URL_USER_PROFILEPICTURE, formData, {headers: headerS})
+			.subscribe(res => {
+				console.log(res);
+			});
 	}
 
 	/*

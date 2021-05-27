@@ -4,7 +4,13 @@
 			<h2>My profile</h2>
 		</div>
 		<div class="pfp">
-				<img src="{{this.getPFP()}}">
+			<img src="{{this.getPFP()}}">
+			<!--
+			<div class="pfp__options">
+				<button (click)="postPFP(image.value)" class='btn main__save-button'>Save</button>
+				<input #image type="file" accept="" onchange="console.log(event.target.files)">
+			</div>
+			-->
 		</div>
 		<div class='main__content'>
 			<div class='main__settings-form'>
