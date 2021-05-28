@@ -4,7 +4,7 @@
 <nav class="main-menu">
 	<ul>
 		<li>
-			<a href="#">
+			<a (click)="redirectWhenLogged('')">
 				<i class="fa fa-home fa-2x"></i>
 				<span class="nav-text">Home</span>
 			</a>
@@ -17,14 +17,14 @@
 		</li>
 
 		<li class="has-subnav">
-			<a routerLink="/profile">
+			<a (click)="redirectWhenLogged('/profile')">
 				<i class="fa fa-user fa-2x"></i>
 				<span class="nav-text">My Profile</span>
 			</a>
 
 		</li>
 		<li class="has-subnav">
-			<a routerLink="/boards">
+			<a (click)="redirectWhenLogged('/boards')">
 				<i class="fa fa-folder fa-2x"></i>
 				<span class="nav-text">Boards</span>
 			</a>
@@ -49,69 +49,41 @@
 		</li>
 
 		<li>
-			<a href="/gettester">
+			<a (click)="redirectWhenLogged('/gettester')">
 				<i class="fa fa-2x"></i>
 				<span class="nav-text">experimental GET</span>
 			</a>
 		</li>
 
 		<li>
-			<a href="/poster">
+			<a (click)="redirectWhenLogged('/poster')">
 				<i class="fa fa-2x"></i>
 				<span class="nav-text">experimental POST (user creation)</span>
 			</a>
 		</li>
 
 		<li>
-			<a href="/tokentester">
+			<a (click)="redirectWhenLogged('/tokentester')">
 				<i class="fa fa-2x"></i>
 				<span class="nav-text">experimental GET/PUT token generator</span>
 			</a>
 		</li>
 
 		<li>
-			<a href="/usermanagement">
+			<a (click)="redirectWhenLogged('/usermanagement')">
 				<i class="fa fa-2x"></i>
 				<span class="nav-text">experimental GET/PUT user management</span>
 			</a>
 		</li>
 
 		<li>
-			<a href="/datatabletest">
+			<a (click)="redirectWhenLogged('/datatabletest')">
 				<i class="fa fa-2x"></i>
 				<span class="nav-text">Testing datatable</span>
 			</a>
 		</li>
 	</ul>
 </nav>
-
-<nav class="mobile">
-	<input class="drop" id="drop" name="drop" type="checkbox">
-	<label class="drop-button" for="drop">
-		<span class="hamburger hamburger-1"></span>
-		<span class="hamburger hamburger-2"></span>
-		<span class="hamburger hamburger-3"></span>
-	</label>
-
-	<a class="drop-item"> <i class="fa fa-home fa-2x"></i></a>
-	<a class="drop-item"> <i class="fa fa-arrow-circle-o-right fa-2x"></i></a>
-	<a class="drop-item"> <i class="fa fa-user fa-2x"></i></a>
-	<a class="drop-item"> <i class="fa fa-folder fa-2x"></i></a>
-
-</nav>
-
-
-<!--
-<div class="topnav" id="myTopnav">
-  <a href="#home" class="active">Home</a>
-  <a href="#home" class="active" routerLink="/poster">Poster</a>
-  <a href="https://github.com/FlareFlo/Angular-testing-source-css" class="active">Github</a>
-  <a href="#home" class="active" routerLink="/info">Information</a>
-  <div class="topnav-right">
-    <a href="#home" routerLink="/login">Login</a>
-  </div>
-</div>
--->
 
 
 

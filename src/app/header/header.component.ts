@@ -12,6 +12,14 @@ export class HeaderComponent implements OnInit {
 	constructor(private http: HttpClient, private cookieService: CookieService) {
 	}
 
+	redirectWhenLogged(input: string) {
+		if (input !== window.location.pathname) {
+			window.location.href = input;
+		} else {
+			window.location.href = '/login';
+		}
+	}
+
 	ngOnInit(): void {
 		if (window.location.pathname !== '/login'
 			&& window.location.pathname !== '/forgot'
