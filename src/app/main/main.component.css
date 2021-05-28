@@ -31,10 +31,7 @@ h1 {
 	2px 0 4px #53e3a6,
 	3px 0 4px #53e3a6,
 	2px 0 3px #21faa1,
-	2px 3px 15px #21faa1,
-	2px 0 15px,
-	5px 0 125px, 20px 0 200px #21faa1,
-	40px 0 200px #21faa1;
+	2px 3px 15px #21faa1
 }
 
 .flicker-slow {
@@ -45,11 +42,7 @@ h1 {
 	2px 0 4px #53e3a6,
 	3px 0 4px #53e3a6,
 	2px 0 3px #21faa1,
-	2px 3px 15px #21faa1,
-	2px 0 15px,
-	5px 0 125px,
-	20px 0 200px #21faa1,
-	40px 0 200px #21faa1;
+	2px 3px 15px #21faa1
 }
 
 .flicker-fast {
@@ -60,11 +53,7 @@ h1 {
 	2px 0 4px #53e3a6,
 	3px 0 4px #53e3a6,
 	2px 0 3px #21faa1,
-	2px 0 15px #21faa1,
-	2px 0 15px,
-	5px 0 125px,
-	20px 0 200px #21faa1,
-	40px 0 200px #21faa1;
+	2px 0 15px #21faa1
 }
 
 @keyframes flicker {
