@@ -4,8 +4,8 @@ import {CookieService} from 'ngx-cookie';
 
 @Component({
 	selector: 'app-home',
-	templateUrl: './home.component.html',
-	styleUrls: ['./home.component.css']
+	templateUrl: './GETtest.component.html',
+	styleUrls: ['./GETtest.component.css']
 })
 export class HomeComponent {
 
