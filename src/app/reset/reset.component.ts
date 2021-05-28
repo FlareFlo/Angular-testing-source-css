@@ -53,8 +53,14 @@ export class ResetComponent implements OnInit {
 			);
 	}
 
+	getURLCode() {
+		const URL = window.location.href;
+		return URL.split('=')[1];
+	}
+
 
 	ngOnInit(): void {
+		this.getURLCode();
 	}
 
 }
