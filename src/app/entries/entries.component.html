@@ -1,4 +1,4 @@
-<div class="container__popup__Loading" *ngIf="availableEntries.length !== entries.length">
+<div class="container__popup__Loading" *ngIf="availableEntries.length + 1 !== entries.length">
 	<progress max="{{availableEntries.length}}" value="{{entries.length}}"></progress>
 </div>
 
