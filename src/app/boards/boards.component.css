@@ -95,10 +95,7 @@ label {
 .example-container {
 	width: 40vw;
 	max-width: 500px;
-	display: inline-block;
-	vertical-align: top;
-	horiz-align: center;
-	margin: 1rem 0 0 100px;
+	margin: 1rem 0 0 20vw;
 }
 
 .example-list {
