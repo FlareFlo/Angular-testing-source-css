@@ -13,7 +13,10 @@ export class HeaderComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
-		if (window.location.pathname !== '/login' && this.cookieService.get('token') == null) {
+		if (window.location.pathname !== '/login'
+			&& window.location.pathname !== '/forgot'
+			&& window.location.pathname !== '/reset'
+			&& this.cookieService.get('token') === undefined) {
 			window.location.href = '/login';
 		}
 	}
