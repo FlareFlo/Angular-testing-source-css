@@ -92,13 +92,13 @@ label {
 	margin-left: 1vw;
 }
 
-.example-container {
+.item__container {
 	width: 40vw;
 	max-width: 500px;
 	margin: 1rem 0 0 20vw;
 }
 
-.example-list {
+.item__list {
 	border: solid 1px #ccc;
 	min-height: 60px;
 	background: #1c1c1c;
@@ -107,7 +107,7 @@ label {
 	display: block;
 }
 
-.example-box {
+.item__box {
 	padding: 20px 10px;
 	border-bottom: solid 1px #ccc;
 	color: #FFFFFF;
@@ -122,7 +122,7 @@ label {
 	cursor: pointer;
 }
 
-.example-box:hover {
+.item__box:hover {
 	background-color: #3ce5ad;
 }
 
@@ -144,11 +144,11 @@ label {
 }
  */
 
-.example-box:last-child {
+.item__box:last-child {
 	border: none;
 }
 
-.example-list.cdk-drop-list-dragging .example-box:not(.cdk-drag-placeholder) {
+.item__list.cdk-drop-list-dragging .item__box:not(.cdk-drag-placeholder) {
 	transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
 }
 

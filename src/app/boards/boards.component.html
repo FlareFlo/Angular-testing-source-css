@@ -1,12 +1,12 @@
-<div class="example-container">
-	<div class="example-list">
+<div class="item__container">
+	<div class="item__list">
 		<div class="sorting__container">
 			<button class="button__sort" (click)="sortByName()">Sort by name</button>
 			<button class="button__sort" (click)="sortByCreateDate()">Sort by create date</button>
 			<div class="button__sort" *ngIf="!toggleSort">↓</div>
 			<div class="button__sort" *ngIf="toggleSort">↑</div>
 		</div>
-		<div oncontextmenu="return false;" class="example-box" *ngFor="let boards of boards" id="{{boards.boardID}}"
+		<div oncontextmenu="return false;" class="item__box" *ngFor="let boards of boards" id="{{boards.boardID}}"
 			 (click)="handleClickOpen($event)" (contextmenu)="handleClickEdit($event)">
 			{{boards.name}}
 		</div>

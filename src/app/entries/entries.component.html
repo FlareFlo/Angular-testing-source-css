@@ -2,8 +2,8 @@
 	<progress max="{{availableEntries.length}}" value="{{entries.length}}"></progress>
 </div>
 
-<div class="example-container">
-	<div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
+<div class="item__container">
+	<div cdkDropList class="item__list" (cdkDropListDropped)="drop($event)">
 		<div class="sorting__container">
 			<button class="button__sort" (click)="sortByTitle()">Sort by title</button>
 			<button class="button__sort" (click)="sortByCreateDate()">Sort by create date</button>
@@ -11,7 +11,7 @@
 			<div class="button__sort" *ngIf="!toggleSort">↓</div>
 			<div class="button__sort" *ngIf="toggleSort">↑</div>
 		</div>
-		<div oncontextmenu="return false;" class="example-box" *ngFor="let entries of entries" cdkDrag
+		<div oncontextmenu="return false;" class="item__box" *ngFor="let entries of entries" cdkDrag
 			 id="{{entries.entryID}}"
 			 (click)="handleClickEdit($event)" (contextmenu)="handleClickEdit($event)">
 			{{entries.title}}
