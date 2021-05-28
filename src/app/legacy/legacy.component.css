@@ -1,0 +1,12 @@
+div {
+	margin-left: 100px;
+}
+
+a, i, span{
+	color: #FFFFFF;
+}
+
+a, i, span:hover{
+	color: #53e3a6;
+	cursor: pointer;
+}

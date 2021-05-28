@@ -39,47 +39,11 @@
 			</a>
 		</li>
 	</ul>
-
 	<ul class="logout">
-		<li>
-			<a href="https://github.com/FlareFlo/Angular-testing-source-css" rel="noreferrer noopener" target="_blank">
-				<i class="fa fa-github fa-2x"></i>
-				<span class="nav-text">Github</span>
-			</a>
-		</li>
-
-		<li>
-			<a (click)="redirectWhenLogged('/gettester')">
-				<i class="fa fa-2x"></i>
-				<span class="nav-text">experimental GET</span>
-			</a>
-		</li>
-
-		<li>
-			<a (click)="redirectWhenLogged('/poster')">
-				<i class="fa fa-2x"></i>
-				<span class="nav-text">experimental POST (user creation)</span>
-			</a>
-		</li>
-
-		<li>
-			<a (click)="redirectWhenLogged('/tokentester')">
-				<i class="fa fa-2x"></i>
-				<span class="nav-text">experimental GET/PUT token generator</span>
-			</a>
-		</li>
-
-		<li>
-			<a (click)="redirectWhenLogged('/usermanagement')">
-				<i class="fa fa-2x"></i>
-				<span class="nav-text">experimental GET/PUT user management</span>
-			</a>
-		</li>
-
-		<li>
-			<a (click)="redirectWhenLogged('/datatabletest')">
-				<i class="fa fa-2x"></i>
-				<span class="nav-text">Testing datatable</span>
+		<li class="has-subnav">
+			<a (click)="redirectWhenLogged('/legacy')">
+				<i class="fa fa-folder fa-2x"></i>
+				<span class="nav-text">Legacy testing</span>
 			</a>
 		</li>
 	</ul>

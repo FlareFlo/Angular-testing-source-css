@@ -14,6 +14,7 @@ import {BoardsComponent} from './boards/boards.component';
 import {ResetComponent} from './reset/reset.component';
 import {ForgotComponent} from './forgot/forgot.component';
 import {MainComponent} from './main/main.component';
+import {LegacyComponent} from './legacy/legacy.component';
 
 const routes: Routes = [
 	{
@@ -71,6 +72,10 @@ const routes: Routes = [
 	{
 		path: 'forgot',
 		component: ForgotComponent
+	},
+	{
+		path: 'legacy',
+		component: LegacyComponent
 	}
 
 ];

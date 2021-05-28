@@ -25,6 +25,7 @@ import {ResetComponent} from './reset/reset.component';
 import {ForgotComponent} from './forgot/forgot.component';
 import {ProgressbarModule} from 'ngx-bootstrap/progressbar';
 import {MainComponent} from './main/main.component';
+import {LegacyComponent} from './legacy/legacy.component';
 
 @NgModule({
 	declarations: [
@@ -44,7 +45,8 @@ import {MainComponent} from './main/main.component';
 		BoardsComponent,
 		ResetComponent,
 		ForgotComponent,
-		MainComponent
+		MainComponent,
+		LegacyComponent
 	],
 	imports: [
 		BrowserModule,
