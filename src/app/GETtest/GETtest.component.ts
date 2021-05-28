@@ -1,25 +1,43 @@
-import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {Component} from '@angular/core';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {CookieService} from 'ngx-cookie';
 
-import {HomeComponent} from './home.component';
+@Component({
+	// tslint:disable-next-line:component-selector
+	selector: 'app-GETtest',
+	templateUrl: './GETtest.component.html',
+	styleUrls: ['./GETtest.component.css']
+})
+export class GETtestComponent {
 
-describe('HomeComponent', () => {
-	let component: HomeComponent;
-	let fixture: ComponentFixture<HomeComponent>;
+	readonly ROOT_URL = 'https://backend.yap.dragoncave.dev';
 
-	beforeEach(async () => {
-		await TestBed.configureTestingModule({
-			declarations: [HomeComponent]
-		})
-			.compileComponents();
-	});
+	returnvalue: any;
 
-	beforeEach(() => {
-		fixture = TestBed.createComponent(HomeComponent);
-		component = fixture.componentInstance;
-		fixture.detectChanges();
-	});
+	constructor(private http: HttpClient, private cookieService: CookieService) {
+	}
 
-	it('should create', () => {
-		expect(component).toBeTruthy();
-	});
-});
+	token!: string;
+
+	getStuff(input: string) {
+		this.token = this.cookieService.get('token');
+
+		let headerS = new HttpHeaders().set('Content-Type', 'application/json');
+		headerS = headerS.append('Token', this.token);
+
+		this.returnvalue = this.http.get(this.ROOT_URL + input, {headers: headerS})
+			.toPromise()
+			.then(data => {
+					this.returnvalue = data;
+				},
+				(error) => {
+					console.error(error);
+				}
+			);
+	}
+
+	// tslint:disable-next-line:use-lifecycle-interface
+	ngOnInit(): void {
+	}
+
+}

@@ -5,7 +5,7 @@ import {AppComponent} from './app.component';
 import {HeaderComponent} from './header/header.component';
 import {FooterComponent} from './footer/footer.component';
 import {InfoComponent} from './info/info.component';
-import {HomeComponent} from './GETtest/home.component';
+import {GETtestComponent} from './GETtest/GETtest.component';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import {PosterComponent} from './poster/poster.component';
@@ -24,6 +24,7 @@ import {BoardsComponent} from './boards/boards.component';
 import {ResetComponent} from './reset/reset.component';
 import {ForgotComponent} from './forgot/forgot.component';
 import {ProgressbarModule} from 'ngx-bootstrap/progressbar';
+import {MainComponent} from './main/main.component';
 
 @NgModule({
 	declarations: [
@@ -31,7 +32,7 @@ import {ProgressbarModule} from 'ngx-bootstrap/progressbar';
 		HeaderComponent,
 		FooterComponent,
 		InfoComponent,
-		HomeComponent,
+		GETtestComponent,
 		PosterComponent,
 		RollerComponent,
 		UsermanagementComponent,
@@ -42,7 +43,8 @@ import {ProgressbarModule} from 'ngx-bootstrap/progressbar';
 		EntriesComponent,
 		BoardsComponent,
 		ResetComponent,
-		ForgotComponent
+		ForgotComponent,
+		MainComponent
 	],
 	imports: [
 		BrowserModule,
