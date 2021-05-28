@@ -24,6 +24,7 @@ export class HeaderComponent implements OnInit {
 		if (window.location.pathname !== '/login'
 			&& window.location.pathname !== '/forgot'
 			&& window.location.pathname !== '/reset'
+			&& window.location.pathname !== ''
 			&& this.cookieService.get('token') === undefined) {
 			window.location.href = '/login';
 		}
