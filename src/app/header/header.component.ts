@@ -13,7 +13,7 @@ export class HeaderComponent implements OnInit {
 	}
 
 	redirectWhenLogged(input: string) {
-		if (input !== window.location.pathname) {
+		if (this.cookieService.get('token')) {
 			window.location.href = input;
 		} else {
 			window.location.href = '/login';
@@ -21,6 +21,7 @@ export class HeaderComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
+		/*
 		if (window.location.pathname !== '/login'
 			&& window.location.pathname !== '/forgot'
 			&& window.location.pathname !== '/reset'
@@ -28,5 +29,6 @@ export class HeaderComponent implements OnInit {
 			&& this.cookieService.get('token') === undefined) {
 			window.location.href = '/login';
 		}
+		 */
 	}
 }
