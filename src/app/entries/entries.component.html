@@ -1,4 +1,4 @@
-<div class="container__popup__Loading" *ngIf="availableEntries.length + 1 !== entries.length">
+<div class="container__popup__Loading" *ngIf="availableEntries.length !== entries.length">
 	<progress max="{{availableEntries.length}}" value="{{entries.length}}"></progress>
 </div>
 
@@ -23,7 +23,7 @@
 	<div class="container__popup">
 		<h2 class="h2_popup">Edit entry</h2>
 		<input #name class="form-control" data-custom-input="create" type="text"
-			   placeholder="{{this.entries[this.clickID].title}}" value="{{this.entries[this.clickID].description}}">
+			   placeholder="{{this.entries[this.clickID].title}}" value="{{this.entries[this.clickID].title}}">
 		<textarea #description class="form-control" data-custom-input="create"
 				  placeholder="{{this.entries[this.clickID].description}}">{{this.entries[this.clickID].description}}</textarea>
 		<div class="due__text">Due until: {{convertToLocal()}}</div>
