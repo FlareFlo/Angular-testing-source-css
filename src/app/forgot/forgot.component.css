@@ -18,8 +18,9 @@ button:hover {
 
 .container {
 	overflow: hidden;
-	margin-left: 30vw;
-	margin-top: 25vh;
+	margin-top: 30vh;
+	display: grid;
+	justify-content: center;
 }
 
 input {
