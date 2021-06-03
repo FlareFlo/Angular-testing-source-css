@@ -22,7 +22,7 @@ export class ResetComponent implements OnInit {
 	checkReset(emailAddress: string, newPassword: string, newPasswordRepeat: string, resetCode: string) {
 
 		if (newPasswordRepeat !== '' && newPassword !== '' && emailAddress !== '') {
-			if (newPassword.length < 10) {
+			if (newPassword.length > 10) {
 				if (newPassword === newPassword) {
 					this.resetBody.emailAddress = emailAddress;
 					this.resetBody.newPassword = newPassword;
